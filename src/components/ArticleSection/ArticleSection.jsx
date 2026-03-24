@@ -521,21 +521,22 @@ export default function BallsNBrainsPage() {
         className="py-12"
       >
         <FadeIn>
-          <div style={{ maxWidth: 900, margin: '0 auto', padding: '0 32px' }}>
+          <div style={{ maxWidth: 900, margin: '0 auto', padding: '0 24px' }}>
             <div
               style={{
                 display: 'grid',
-                gridTemplateColumns: '1fr 1fr',
-                gap: 48,
+                gridTemplateColumns: 'var(--offer-cols, 1fr 1fr)',
+                gap: 'var(--offer-gap, 48px)',
                 alignItems: 'center',
               }}
+              className="offer-grid-2"
             >
               {/* Left: product visual */}
               <div
                 style={{
                   background: '#111',
                   borderRadius: 16,
-                  padding: 32,
+                  padding: 'var(--offer-img-pad, 32px)',
                   textAlign: 'center',
                   position: 'relative',
                 }}
@@ -546,8 +547,11 @@ export default function BallsNBrainsPage() {
               {/* Right: offer text */}
               <div>
                 <p
-                  className="text-orange-500 font-black text-4xl leading-tight"
-                  style={{ fontFamily: 'sans-serif' }}
+                  className="text-orange-500 font-black leading-tight"
+                  style={{
+                    fontFamily: 'sans-serif',
+                    fontSize: 'clamp(24px, 5vw, 36px)',
+                  }}
                 >
                   LIMITED TIME ONLY 👇
                 </p>
@@ -555,7 +559,7 @@ export default function BallsNBrainsPage() {
                   style={{
                     fontFamily: 'sans-serif',
                     fontWeight: 900,
-                    fontSize: 36,
+                    fontSize: 'clamp(26px, 5vw, 36px)',
                     color: '#111',
                     lineHeight: 1.1,
                     marginTop: 8,
@@ -590,6 +594,7 @@ export default function BallsNBrainsPage() {
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
+                        flexShrink: 0,
                       }}
                     >
                       <span>👨‍⚕️</span>
@@ -637,6 +642,7 @@ export default function BallsNBrainsPage() {
                       alignItems: 'center',
                       justifyContent: 'center',
                       fontSize: 20,
+                      flexShrink: 0,
                     }}
                   >
                     🚀
@@ -653,6 +659,21 @@ export default function BallsNBrainsPage() {
             </div>
           </div>
         </FadeIn>
+
+        <style>{`
+    .offer-grid-2 {
+      --offer-cols: 1fr 1fr;
+      --offer-gap: 48px;
+      --offer-img-pad: 32px;
+    }
+    @media (max-width: 640px) {
+      .offer-grid-2 {
+        --offer-cols: 1fr;
+        --offer-gap: 24px;
+        --offer-img-pad: 20px;
+      }
+    }
+  `}</style>
       </section>
 
       {/* ── FOOTER ── */}
