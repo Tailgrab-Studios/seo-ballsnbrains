@@ -472,31 +472,40 @@ export default function ArticleSection() {
         className="py-12"
       >
         <FadeIn>
-          <div style={{ maxWidth: 900, margin: '0 auto', padding: '0 32px' }}>
+          <div style={{ maxWidth: 900, margin: '0 auto', padding: '0 24px' }}>
             <div
               style={{
                 display: 'grid',
-                gridTemplateColumns: '1fr 1fr',
-                gap: 48,
+                gridTemplateColumns: 'var(--cols, 1fr 1fr)',
+                gap: 'var(--gap, 48px)',
                 alignItems: 'center',
               }}
+              className="offer-grid"
             >
               {/* Product image */}
               <div
-                style={{ borderRadius: 16, padding: 32, textAlign: 'center' }}
+                style={{
+                  borderRadius: 16,
+                  padding: 'var(--img-pad, 32px)',
+                  textAlign: 'center',
+                }}
               >
                 <img
                   src={product}
                   alt="Balls N'Brains"
                   className="w-full h-auto object-contain"
+                  style={{ maxWidth: 280, margin: '0 auto', display: 'block' }}
                 />
               </div>
 
               {/* Offer */}
               <div>
                 <p
-                  className="text-orange-500 font-black text-4xl leading-tight"
-                  style={{ fontFamily: 'sans-serif' }}
+                  className="text-orange-500 font-black leading-tight"
+                  style={{
+                    fontFamily: 'sans-serif',
+                    fontSize: 'clamp(24px, 5vw, 36px)',
+                  }}
                 >
                   LIMITED TIME ONLY 👇
                 </p>
@@ -504,7 +513,7 @@ export default function ArticleSection() {
                   style={{
                     fontFamily: 'sans-serif',
                     fontWeight: 900,
-                    fontSize: 36,
+                    fontSize: 'clamp(26px, 5vw, 36px)',
                     color: '#111',
                     lineHeight: 1.1,
                     marginTop: 8,
@@ -557,6 +566,7 @@ export default function ArticleSection() {
                 </div>
 
                 {/* CTA */}
+
                 <a
                   href="https://lp.ballsnbrains.com/preclick"
                   style={{
@@ -573,7 +583,7 @@ export default function ArticleSection() {
                     borderRadius: 10,
                     cursor: 'pointer',
                     textTransform: 'uppercase',
-                    display: 'inline-block',
+                    display: 'block',
                     textAlign: 'center',
                     boxShadow: '0 8px 20px rgba(249, 115, 22, 0.35)',
                   }}
@@ -592,6 +602,7 @@ export default function ArticleSection() {
                       alignItems: 'center',
                       justifyContent: 'center',
                       fontSize: 20,
+                      flexShrink: 0,
                     }}
                   >
                     🚀
@@ -608,6 +619,22 @@ export default function ArticleSection() {
             </div>
           </div>
         </FadeIn>
+
+        {/* Inline responsive styles */}
+        <style>{`
+    .offer-grid {
+      --cols: 1fr 1fr;
+      --gap: 48px;
+      --img-pad: 32px;
+    }
+    @media (max-width: 640px) {
+      .offer-grid {
+        --cols: 1fr;
+        --gap: 24px;
+        --img-pad: 8px 8px 0;
+      }
+    }
+  `}</style>
       </section>
 
       {/* ── FOOTER ── */}
