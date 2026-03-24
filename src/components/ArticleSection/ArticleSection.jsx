@@ -416,10 +416,10 @@ export default function BallsNBrainsPage() {
                     {row.label}
                   </div>
                   <div className="p-3 text-center text-lg">
-                    {row.bnb ? '🙂' : '🙁'}
+                    {row.bnb ? '👍' : '👎'}
                   </div>
                   <div className="p-3 text-center text-lg">
-                    {row.other ? '🙂' : '🙁'}
+                    {row.other ? '👍' : '👎'}
                   </div>
                 </div>
               ))}
@@ -440,129 +440,71 @@ export default function BallsNBrainsPage() {
         {reasons.map((r, idx) => (
           <section key={r.num} className="px-8 py-12">
             <FadeIn delay={80}>
-              <div
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: idx % 2 === 0 ? '1fr 1fr' : '1fr 1fr',
-                  gap: 48,
-                  alignItems: 'center',
-                }}
-                className="flex-col md:flex-row"
-              >
-                {/* Visual LEFT on even, RIGHT on odd */}
-                {idx % 2 === 0 ? (
-                  <>
-                    <div className="flex justify-center">
-                      <VisualBlock type={r.visual} num={r.num} />
-                    </div>
-                    <div>
-                      <p className="text-orange-500 font-black text-sm tracking-widest font-sans mb-2">
-                        #{r.num}
-                      </p>
-                      <h2
-                        style={{
-                          fontFamily: 'sans-serif',
-                          fontWeight: 900,
-                          fontSize: 'clamp(18px,2.2vw,26px)',
-                          lineHeight: 1.15,
-                          textTransform: 'uppercase',
-                          letterSpacing: '-0.3px',
-                          color: '#111',
-                          marginBottom: 16,
-                        }}
-                      >
-                        {r.title}
-                      </h2>
-                      {r.body.map((p, i) => (
-                        <p
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                {/* BLOCO DA IMAGEM: Fica sempre em cima no mobile (ordem natural do grid-cols-1).
+            No desktop (md:), ele alterna entre a coluna da direita ou da esquerda. */}
+                <div
+                  className={`flex justify-center ${idx % 2 === 0 ? 'md:order-1' : 'md:order-2'}`}
+                >
+                  <VisualBlock type={r.visual} />
+                </div>
+
+                {/* BLOCO DE TEXTO: Fica embaixo no mobile.
+            No desktop, ocupa o espaço oposto ao da imagem. */}
+                <div
+                  className={`${idx % 2 === 0 ? 'md:order-2' : 'md:order-1'}`}
+                >
+                  <p className="text-orange-500 font-black text-sm tracking-widest font-sans mb-2">
+                    #{r.num}
+                  </p>
+                  <h2
+                    style={{
+                      fontFamily: 'sans-serif',
+                      fontWeight: 900,
+                      fontSize: 'clamp(18px,2.2vw,26px)',
+                      lineHeight: 1.15,
+                      textTransform: 'uppercase',
+                      letterSpacing: '-0.3px',
+                      color: '#111',
+                      marginBottom: 16,
+                    }}
+                  >
+                    {r.title}
+                  </h2>
+                  {r.body.map((p, i) => (
+                    <p
+                      key={i}
+                      className="text-gray-700 font-sans text-base leading-relaxed mb-3"
+                    >
+                      {p}
+                    </p>
+                  ))}
+                  {r.bullets && (
+                    <ul className="mb-3 ml-4 list-disc">
+                      {r.bullets.map((b, i) => (
+                        <li
                           key={i}
-                          className="text-gray-700 font-sans text-base leading-relaxed mb-3"
+                          className="text-gray-700 font-sans text-base leading-relaxed mb-1"
                         >
-                          {p}
-                        </p>
+                          {b}
+                        </li>
                       ))}
-                      {r.bullets && (
-                        <ul className="mb-3 ml-4">
-                          {r.bullets.map((b, i) => (
-                            <li
-                              key={i}
-                              className="text-gray-700 font-sans text-base leading-relaxed mb-1 list-disc"
-                            >
-                              {b}
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                      {r.bodyAfter &&
-                        r.bodyAfter.map((p, i) => (
-                          <p
-                            key={i}
-                            className="text-gray-700 font-sans text-base leading-relaxed mb-3"
-                          >
-                            {p}
-                          </p>
-                        ))}
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    <div>
-                      <p className="text-orange-500 font-black text-sm tracking-widest font-sans mb-2">
-                        #{r.num}
-                      </p>
-                      <h2
-                        style={{
-                          fontFamily: 'sans-serif',
-                          fontWeight: 900,
-                          fontSize: 'clamp(18px,2.2vw,26px)',
-                          lineHeight: 1.15,
-                          textTransform: 'uppercase',
-                          letterSpacing: '-0.3px',
-                          color: '#111',
-                          marginBottom: 16,
-                        }}
+                    </ul>
+                  )}
+                  {r.bodyAfter &&
+                    r.bodyAfter.map((p, i) => (
+                      <p
+                        key={i}
+                        className="text-gray-700 font-sans text-base leading-relaxed mb-3"
                       >
-                        {r.title}
-                      </h2>
-                      {r.body.map((p, i) => (
-                        <p
-                          key={i}
-                          className="text-gray-700 font-sans text-base leading-relaxed mb-3"
-                        >
-                          {p}
-                        </p>
-                      ))}
-                      {r.bullets && (
-                        <ul className="mb-3 ml-4">
-                          {r.bullets.map((b, i) => (
-                            <li
-                              key={i}
-                              className="text-gray-700 font-sans text-base leading-relaxed mb-1 list-disc"
-                            >
-                              {b}
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                      {r.bodyAfter &&
-                        r.bodyAfter.map((p, i) => (
-                          <p
-                            key={i}
-                            className="text-gray-700 font-sans text-base leading-relaxed mb-3"
-                          >
-                            {p}
-                          </p>
-                        ))}
-                    </div>
-                    <div className="flex justify-center">
-                      <VisualBlock type={r.visual} num={r.num} />
-                    </div>
-                  </>
-                )}
+                        {p}
+                      </p>
+                    ))}
+                </div>
               </div>
             </FadeIn>
             {idx < reasons.length - 1 && (
-              <div style={{ borderTop: '1px solid #e5e7eb', marginTop: 48 }} />
+              <div className="border-t border-gray-200 mt-12" />
             )}
           </section>
         ))}
