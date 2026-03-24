@@ -11,6 +11,7 @@ import image09 from '../../assets/images/PV-09.webp';
 import image10 from '../../assets/images/PV-10.webp';
 import product from '../../assets/products/1kit-with-bg.webp';
 import doctor from '../../assets/testimonials/man1.webp';
+
 // ── Comparison table data ──────────────────────────────────────────────────
 const compRows = [
   { label: 'Jitter-free', bnb: true, ryze: true, trad: false },
@@ -26,120 +27,121 @@ const compRows = [
 const reasons = [
   {
     num: '01',
-    title: 'MarsMen Completely Ignores Cortisol — The #1 Testosterone Killer',
+    title: 'Ryze Isn\'t Very Effective at Preventing the "Afternoon Crash"',
     body: [
-      "Here's what most testosterone supplements won't tell you: it doesn't matter how much you boost T if cortisol is eating it alive.",
-      "Cortisol (the stress hormone) directly suppresses the HPG axis, which is the system your body uses to produce testosterone. When cortisol goes up, testosterone goes down. It's basic endocrinology.",
-      "MarsMen has 8 ingredients. Not a single one targets cortisol. No Ashwagandha. No adaptogen of any kind. They're trying to fill a bathtub without plugging the drain.",
-      "Balls N'Brains contains Ashwagandha KSM-66® (300mg) — the most clinically studied cortisol-lowering adaptogen on earth, with over 24 human trials. It reduces cortisol by up to 27.9% in 60 days. You're not just boosting T — you're removing the thing that's been suppressing it.",
+      "Ryze contains about 48mg of caffeine per serving — half of a regular cup of coffee. Many men report they simply don't feel enough energy and end up drinking regular coffee alongside it, defeating the entire purpose.",
+      "Balls N'Brains contains 100mg of caffeine — double what Ryze offers, but still half of traditional coffee. The difference is that those 100mg are paired with 100mg of L-Theanine, which smooths the caffeine peak, extends the energy curve, and eliminates crash and jitters.",
+      'The result? You actually feel your body being energized by the caffeine. Without that afternoon collapse that makes you want to crawl under your desk.',
     ],
     visual: 'image1',
   },
   {
     num: '02',
-    title: 'MarsMen Is Another Pill You Have to Remember to Take',
+    title: 'Ryze Has an "Earthy" Taste That\'s Nothing Like Coffee',
     body: [
-      "Let's be real. You already have a cabinet full of supplements you bought with good intentions and forgot about by week three.",
-      'MarsMen is capsules. Two a day. Another thing to remember. Another bottle on the counter. Another habit that fades the moment life gets busy.',
-      "Balls N'Brains replaces something you're already doing every single morning: drinking coffee. There's no new habit to build. No extra step. You just swap your regular cup for one that actually works for your body.",
-      'The best supplement in the world is the one you actually take. And nothing has a higher compliance rate than your morning coffee.',
+      'One of the biggest barriers I see with my patients is the fear of taste. And for good reason. Ryze has a flavor that many people describe as "earthy," "different," and even "unpleasant." Some Reddit reviews are pretty blunt: "it tastes and smells like vomit."',
+      "Balls N'Brains was formulated to taste like coffee — not like mushrooms, not like dirt, not like a supplement. Most users report that the taste is virtually indistinguishable from conventional coffee.",
     ],
     visual: 'image2',
   },
   {
     num: '03',
-    title: "MarsMen Doesn't Use Patented, Clinically Validated Raw Materials",
+    title: 'Ryze Contains Two Mushrooms That Can Lower Your Testosterone',
     body: [
-      'MarsMen lists "Tongkat Ali — 1,000mg" on the label. Sounds impressive. But which Tongkat Ali? From which supplier? Standardized for what? They don\'t say.',
-      'Not all Tongkat Ali is the same. Generic, unstandardized Tongkat Ali can vary wildly in eurypeptide content — the active compounds responsible for testosterone support. You might be getting 1,000mg of plant powder with almost no active compound.',
-      "Balls N'Brains uses Tongkat Ali LJ100® (300mg) — patented, standardized for eurypeptides, with clinical studies demonstrating real testosterone support. And Ashwagandha KSM-66® (300mg) — patented, standardized for 5% withanolides, with over 24 human studies.",
-      "When a brand uses patented raw materials, it's saying: \"We didn't buy the cheapest option — we bought the one with real science behind it.\" When a brand doesn't specify… ask yourself why.",
+      "Ryze contains Shiitake and King Trumpet. Shiitake can elevate prolactin — the hormone that directly suppresses testosterone production in the hypothalamus. It's useful for breastfeeding women. For men? High prolactin means less T, less drive, less energy.",
+      'King Trumpet contains phytosterols that reduce HDL cholesterol. Your body uses exactly this "good" cholesterol as raw material to produce testosterone. Less good cholesterol = less raw material = less T.',
+      'If you started taking mushroom coffee and noticed your libido dropping, more difficulty gaining muscle at the gym, or unexplained fatigue — now you know why.',
+      "Balls N'Brains contains neither Shiitake nor King Trumpet. Every mushroom in the formula was specifically chosen for not interfering with the male hormonal axis.",
     ],
     visual: 'image3',
   },
   {
     num: '04',
-    title:
-      'MarsMen Contains Fenugreek — A Controversial Ingredient With Real Downsides',
+    title: 'Ryze Converts Your Testosterone Into Estrogen',
     body: [
-      'MarsMen includes 675mg of Fenugreek. It\'s one of the cheapest "T-booster" ingredients on the market — and one of the most problematic.',
-      'Fenugreek contains phytoestrogens — plant compounds that mimic estrogen in the body. Some studies have shown it can increase levels of DHT (which may accelerate hair loss) while simultaneously elevating estrogen-like activity. Not exactly what you want in a testosterone supplement.',
-      'Then there are the side effects: body odor (a distinct maple syrup smell from sweat and urine), gastrointestinal discomfort, bloating, and diarrhea are commonly reported.',
-      "Balls N'Brains does not contain Fenugreek. Every ingredient was specifically chosen to support the male hormonal axis without introducing estrogenic activity or unwanted side effects.",
+      'Turkey Tail is present in most mushroom coffees, including Ryze. The problem: Turkey Tail stimulates aromatase — an enzyme that takes the testosterone in your blood and converts it into estradiol, a form of estrogen.',
+      "Estrogen is the female hormone. Every time you drink a mushroom coffee containing Turkey Tail, you're helping your body transform its primary male hormone into a female hormone. The result: less testosterone, more fat retention, less muscle mass, and lower libido.",
+      "Balls N'Brains does not contain Turkey Tail. A deliberate formulation decision. Because if a coffee is made for men, it shouldn't contain an ingredient that converts your testosterone into estrogen.",
     ],
     visual: 'image4',
   },
   {
     num: '05',
     title:
-      "MarsMen Doesn't Have Fadogia Agrestis — The Missing Piece of the T Puzzle",
+      'Ryze (and Other Mushroom Coffees) Were Made for Women — Not for Men',
     body: [
-      'Tongkat Ali and Fadogia Agrestis work through different mechanisms: Tongkat Ali supports the signaling cascade (LH stimulation), while Fadogia works directly at the testicular level to support testosterone synthesis.',
-      "Together, they create a synergistic effect — you're supporting T production from both ends of the chain. Separately, you're only addressing half the equation.",
-      "MarsMen has Tongkat Ali but no Fadogia. It's like having a car with the engine but no transmission.",
-      "Balls N'Brains contains Fadogia Agrestis (600mg) paired with Tongkat Ali LJ100® (300mg) — the full synergistic stack for comprehensive testosterone support.",
+      'Ryze, Four Sigmatic, Everyday Dose, MUD\\WTR — all of them were formulated for "wellness." Energy, focus, immunity. No gender specificity. No hormonal targeting. Not a single one contains an ingredient that addresses testosterone or modulates cortisol specifically for the male body.',
+      "Balls N'Brains was built around the male hormonal axis:",
+    ],
+    bullets: [
+      'Tongkat Ali LJ100 (300mg) and Fadogia Agrestis (600mg) for testosterone support.',
+      'Ashwagandha KSM-66 (300mg) for cortisol reduction.',
+      'Shilajit (250mg), Zinc (15mg), and Vitamin D3 (2,000 IU) as hormonal co-factors.',
+    ],
+    bodyAfter: [
+      "All on top of 4 functional mushrooms at clinical doses and caffeine modulated by L-Theanine. It's not a coffee with extras. It's a male performance system delivered in the form of coffee.",
     ],
     visual: 'image5',
   },
   {
     num: '06',
-    title: 'MarsMen Gives You Zero Cognitive Support',
+    title: 'Ryze Is Extremely Hard to Cancel (and Was Investigated by the NAD)',
     body: [
-      'Testosterone is only one dimension of male performance. What about focus? Mental clarity? The ability to concentrate for hours without your brain fogging out?',
-      "MarsMen has nothing for your brain. No Lion's Mane. No Cordyceps. No L-Theanine. No nootropic of any kind. It's a one-dimensional product in a multi-dimensional world.",
-      "Balls N'Brains contains 1,000mg of Lion's Mane (fruiting body, dual extraction) — which supports nerve growth factor (NGF) production, the protein responsible for brain cell growth and repair. Plus 1,000mg of Cordyceps Militaris for oxygen utilization and physical endurance. And 100mg of L-Theanine paired with 100mg of caffeine for smooth, sustained focus without jitters.",
-      'Your brain is the most important performance organ you have. Any serious male performance product should address it.',
+      'Search "Ryze subscription" on Reddit. You\'ll find reports from people who were automatically charged without clear authorization, who tried to cancel and were told by the company that "there\'s nothing we can do to stop this month\'s shipment."',
+      "Ryze was investigated by the NAD (National Advertising Division) in September 2025 and voluntarily withdrew its health claims. I don't recommend any product from a company with that track record to my patients.",
+      "Balls N'Brains works the opposite way. Cancel anytime. One click. No calling anyone. No retention process. And if at any point within 365 days you decide it wasn't worth it, they refund every penny. No questions asked.",
     ],
     visual: 'image6',
   },
   {
     num: '07',
-    title:
-      'MarsMen Still Forces You to Drink Regular Coffee — Which Destroys Your T',
+    title: "Ryze Hides What You're Actually Taking",
     body: [
-      "Here's the irony that nobody talks about: you take your MarsMen capsules to boost testosterone. Then you drink a cup of regular coffee. That coffee spikes cortisol by 25-30%. That cortisol suppresses the HPG axis. And the testosterone boost you just paid for? Gone.",
-      "You're spending $59/month on a T-booster and then undoing it with your morning cup. Every. Single. Day.",
-      "Balls N'Brains eliminates this problem entirely. It IS your morning coffee. 100mg of caffeine modulated by L-Theanine — enough to energize you, smooth enough to avoid the cortisol spike. You're not fighting your own habits. You're upgrading them.",
+      "Ryze lists the ingredients on the label but doesn't reveal the individual dose of each one. This is called a \"proprietary blend.\" You know there's lion's mane in there. But you don't know if it's 500mg or 50mg. The same goes for every other ingredient.",
+      "Balls N'Brains has a 100% transparent label. Every ingredient, every milligram, individually declared. Everything out in the open. No mystery.",
+      "If a brand hides the doses, they have a reason. If a brand shows everything, it's because they trust what they put inside.",
     ],
     visual: 'image7',
   },
   {
     num: '08',
-    title: "MarsMen's Guarantee Is 4x Shorter Than Balls N'Brains",
+    title: 'Ryze May Be "Rice Powder" Disguised as Mushroom Coffee',
     body: [
-      'MarsMen offers a 90-day money-back guarantee. Sounds reasonable until you realize that their own product page says real results take 90 days to fully manifest (their "Liftoff" phase).',
-      "So by the time you'd actually know if the product works, your guarantee window is already closed. Convenient for them. Not so much for you.",
-      "Balls N'Brains offers a 365-day money-back guarantee. A full year. No questions asked. Cancel anytime with one click. No calling anyone. No retention tricks.",
-      'If a brand truly believes in its product, it bets on time. 90 days is hedging. 365 days is confidence.',
+      'Ryze likely uses "mycelium on grain" — which explains why it\'s so cheap.',
+      "Mycelium on grain is essentially the root of the mushroom grown on rice, then ground up together with the rice. The result is a powder that can be 50-70% grain starch. You think you're taking mushrooms. In reality, you're taking ground rice at supplement prices.",
+      'The ideal approach is to cultivate mushrooms as "fruiting body" — which takes longer to grow but guarantees far greater potency of active compounds.',
+      "On top of that, the cell wall of mushrooms is made of chitin. Without an extraction process that breaks this wall, the active compounds pass through your body without being absorbed. It doesn't matter what's on the label if your body can't access it.",
+      "Balls N'Brains exclusively uses fruiting body with dual extraction. This process breaks the chitin and releases all of the mushrooms' compounds: beta-glucans, hericenones, erinacines, and triterpenes. Ensuring higher quality and efficacy throughout the formula.",
     ],
     visual: 'image8',
   },
   {
     num: '09',
-    title:
-      "MarsMen Doesn't Have Mushrooms — The Adaptogenic Powerhouse You're Missing",
+    title: "Ryze Doesn't Have a Single Patented Raw Material",
     body: [
-      "Functional mushrooms are one of the most well-studied categories in natural performance. Lion's Mane for neurogenesis. Cordyceps for endurance and oxygen utilization. Reishi for sleep and recovery. Chaga for immune defense.",
-      "MarsMen has zero mushrooms in its formula. None. It's a T-booster pill in a bottle. It doesn't address energy, recovery, immunity, or cognitive function through adaptogens.",
-      "Balls N'Brains contains 4 clinical-dose functional mushrooms — all fruiting body with dual extraction, so the active compounds (beta-glucans, hericenones, erinacines, triterpenes) are actually bioavailable. Not filler. Not mycelium-on-grain. Real mushrooms, real doses, real extraction.",
-      'Testosterone matters. But so does everything else your body needs to perform. A mushroom coffee covers the full spectrum. A T-booster pill does not.',
+      'Most mushroom coffees include ingredients on the label at doses that exist to decorate marketing — not to have a real effect.',
+      "Balls N'Brains contains 1,000mg of Lion's Mane and 1,000mg of Cordyceps Militaris — within the range used in clinical studies.",
+      'For the male hormonal axis, it uses Ashwagandha KSM-66® (300mg) the patented raw material with over 24 human studies, standardized for 5% withanolides. And Tongkat Ali LJ100® (300mg) patented, standardized for eurypeptides, with studies demonstrating real testosterone support.',
+      "Balls N'Brains also includes Fadogia Agrestis (600mg), Shilajit (250mg), Zinc Glycinate (15mg), and Vitamin D3 (2,000 IU) — each dosed within the ranges referenced in the literature.",
+      'When a brand uses patented, clinically studied raw materials, it\'s saying: "We didn\'t buy the cheapest option — we bought the one with real science behind it."',
     ],
     visual: 'image9',
   },
   {
     num: '10',
-    title: 'MarsMen Costs the Same as BnB But Gives You Half the Benefits',
+    title:
+      "Ryze Is More Expensive and Less Effective for Men Than Balls N'Brains",
     body: [
-      "Let's do the math. MarsMen: $59/month. You get testosterone support from 8 ingredients (no cortisol management, no cognitive support, no energy system, no mushrooms). And you still need to buy coffee separately — let's say $30-50/month for decent coffee.",
-      "Balls N'Brains: $59/month. You get testosterone support, cortisol reduction, 4 clinical-dose mushrooms, sustained energy, cognitive performance, and it replaces your coffee entirely. Total cost of your morning routine: $59. Period.",
-      "That's testosterone + cortisol control + mushrooms + nootropics + coffee — all in one scoop. MarsMen gives you pills and a hole in your routine.",
-      "Bottom line: Same price, half the stack, and you still need coffee on top. MarsMen isn't a bad product — it's just an incomplete one.",
+      "Bottom line? Ryze costs $45, wasn't made for your body, and doesn't do half of what it should.",
+      "Balls N'Brains is the only mushroom coffee designed exclusively for the male body — and it saves you over $250/month you'd otherwise spend on separate supplements like ashwagandha, tongkat ali, lion's mane, cordyceps, shilajit, zinc, and vitamin D.",
+      'In a single scoop that tastes just like real coffee, BNB delivers stable energy with no crash or jitters, less cortisol, and more testosterone — for just $59 a month.',
+      "You can try it risk-free. If you don't like it, just ask for your money back — thanks to their incredible 365-day guarantee. You can also cancel anytime. No stress. No hoops to jump through.",
     ],
     visual: 'image10',
   },
 ];
 
-// ── Visual placeholders per section ───────────────────────────────────────
+// ── Visual block ───────────────────────────────────────────────────────────
 const VisualBlock = ({ type }) => {
   const darkCard =
     'bg-gray-900 rounded-2xl overflow-hidden flex items-center justify-center';
@@ -155,7 +157,6 @@ const VisualBlock = ({ type }) => {
     'image8',
     'image9',
   ];
-  const lightTypes = ['image2', 'image5', 'image10'];
 
   const srcMap = {
     image1: image01,
@@ -171,13 +172,10 @@ const VisualBlock = ({ type }) => {
   };
 
   const isDark = darkTypes.includes(type);
-  const cardClass = isDark ? darkCard : lightCard;
-  const cardStyle = isDark ? { background: '#111' } : {};
-
   return (
     <div
-      className={`${cardClass} w-full aspect-square max-w-sm`}
-      style={cardStyle}
+      className={`${isDark ? darkCard : lightCard} w-full aspect-square max-w-sm`}
+      style={isDark ? { background: '#111' } : {}}
     >
       <img src={srcMap[type]} alt="" className="w-full h-full object-cover" />
     </div>
@@ -213,7 +211,7 @@ const FadeIn = ({ children, delay = 0 }) => {
 };
 
 // ── Main page ──────────────────────────────────────────────────────────────
-export default function BallsNBrainsPage() {
+export default function ArticleSection() {
   return (
     <div
       style={{
@@ -222,7 +220,6 @@ export default function BallsNBrainsPage() {
         color: '#111',
       }}
     >
-      {/* ── CENTERED CONTENT WRAPPER ── */}
       <div style={{ maxWidth: 900, margin: '0 auto' }}>
         {/* ── HEADER ── */}
         <header className="px-8 pt-6 pb-2 border-b border-gray-200 flex items-center justify-center">
@@ -294,14 +291,15 @@ export default function BallsNBrainsPage() {
                   width: 56,
                   height: 56,
                   borderRadius: '50%',
-                  background: '#e5e7eb',
+                  overflow: 'hidden',
                   flexShrink: 0,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
                 }}
               >
-                <img src={doctor} alt="" />
+                <img
+                  src={doctor}
+                  alt="Dr. Ben Palmer"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div>
                 <p
@@ -344,7 +342,7 @@ export default function BallsNBrainsPage() {
                   color: '#fff',
                 }}
               >
-                <div className="p-3 text-xs font-bold font-sans uppercase tracking-wider text-gray-400"></div>
+                <div className="p-3 text-xs font-bold font-sans uppercase tracking-wider text-gray-400" />
                 <div className="p-3 text-xs font-bold font-sans uppercase tracking-wider text-orange-400 text-center">
                   Balls N'Brains
                 </div>
@@ -397,17 +395,15 @@ export default function BallsNBrainsPage() {
               <div
                 style={{
                   display: 'grid',
-                  gridTemplateColumns: idx % 2 === 0 ? '1fr 1fr' : '1fr 1fr',
+                  gridTemplateColumns: '1fr 1fr',
                   gap: 48,
                   alignItems: 'center',
                 }}
-                className="flex-col md:flex-row"
               >
-                {/* Visual LEFT on even, RIGHT on odd */}
                 {idx % 2 === 0 ? (
                   <>
                     <div className="flex justify-center">
-                      <VisualBlock type={r.visual} num={r.num} />
+                      <VisualBlock type={r.visual} />
                     </div>
                     <div>
                       <p className="text-orange-500 font-black text-sm tracking-widest font-sans mb-2">
@@ -509,7 +505,7 @@ export default function BallsNBrainsPage() {
                         ))}
                     </div>
                     <div className="flex justify-center">
-                      <VisualBlock type={r.visual} num={r.num} />
+                      <VisualBlock type={r.visual} />
                     </div>
                   </>
                 )}
@@ -521,7 +517,6 @@ export default function BallsNBrainsPage() {
           </section>
         ))}
       </div>
-      {/* end centered wrapper */}
 
       {/* ── CTA SECTION ── */}
       <section
@@ -542,19 +537,18 @@ export default function BallsNBrainsPage() {
                 alignItems: 'center',
               }}
             >
-              {/* Left: product visual */}
+              {/* Product image */}
               <div
-                style={{
-                  borderRadius: 16,
-                  padding: 32,
-                  textAlign: 'center',
-                  position: 'relative',
-                }}
+                style={{ borderRadius: 16, padding: 32, textAlign: 'center' }}
               >
-                <img src={product} alt="" />
+                <img
+                  src={product}
+                  alt="Balls N'Brains"
+                  className="w-full h-auto object-contain"
+                />
               </div>
 
-              {/* Right: offer text */}
+              {/* Offer */}
               <div>
                 <p
                   className="text-orange-500 font-black text-4xl leading-tight"
@@ -597,13 +591,15 @@ export default function BallsNBrainsPage() {
                         width: 40,
                         height: 40,
                         borderRadius: '50%',
-                        background: '#333',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
+                        overflow: 'hidden',
+                        flexShrink: 0,
                       }}
                     >
-                      <img src={doctor} alt="" />
+                      <img
+                        src={doctor}
+                        alt="Dr. Ben Palmer"
+                        className="w-full h-full object-cover"
+                      />
                     </div>
                     <div>
                       <p className="text-white font-bold text-sm font-sans">
@@ -615,7 +611,8 @@ export default function BallsNBrainsPage() {
                     </div>
                   </div>
                 </div>
-                {/* CTA button */}
+
+                {/* CTA */}
                 <a
                   href="https://lp.ballsnbrains.com/preclick"
                   style={{
@@ -635,7 +632,6 @@ export default function BallsNBrainsPage() {
                     display: 'inline-block',
                     textAlign: 'center',
                     boxShadow: '0 8px 20px rgba(249, 115, 22, 0.35)',
-                    transition: 'all 0.2s ease-in-out',
                   }}
                 >
                   TRY IT NOW ➤
