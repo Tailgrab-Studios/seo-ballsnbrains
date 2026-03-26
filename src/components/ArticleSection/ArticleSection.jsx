@@ -1,4 +1,16 @@
 import { useState, useEffect, useRef } from 'react';
+import image01 from '../../assets/images/image-01.webp';
+import image02 from '../../assets/images/image-02.webp';
+import image03 from '../../assets/images/image-03.webp';
+import image04 from '../../assets/images/image-04.webp';
+import image05 from '../../assets/images/image-05.webp';
+import image06 from '../../assets/images/image-06.webp';
+import image07 from '../../assets/images/image-07.webp';
+import image08 from '../../assets/images/image-08.webp';
+import image09 from '../../assets/images/image-09.webp';
+import image10 from '../../assets/images/image-10.webp';
+import product from '../../assets/products/2kits.webp';
+import doctor from '../../assets/testimonials/man1.webp';
 
 // ── Comparison table data ──────────────────────────────────────────────────
 const compRows = [
@@ -9,14 +21,6 @@ const compRows = [
   { label: 'Improves muscle gain', bnb: true, ryze: false, trad: false },
   { label: 'Provides more energy', bnb: true, ryze: true, trad: false },
   { label: 'Sustained focus & clarity', bnb: true, ryze: true, trad: false },
-  {
-    label: 'Cognitive support (nootropics)',
-    bnb: true,
-    ryze: false,
-    trad: false,
-  },
-  { label: 'Functional mushrooms', bnb: true, ryze: false, trad: false },
-  { label: 'Replaces your morning coffee', bnb: true, ryze: false, trad: true },
 ];
 
 // ── 10 reasons data ────────────────────────────────────────────────────────
@@ -30,7 +34,7 @@ const reasons = [
       "MarsMen has 8 ingredients. Not a single one targets cortisol. No Ashwagandha. No adaptogen of any kind. They're trying to fill a bathtub without plugging the drain.",
       "Balls N'Brains contains Ashwagandha KSM-66® (300mg) — the most clinically studied cortisol-lowering adaptogen on earth, with over 24 human trials. It reduces cortisol by up to 27.9% in 60 days. You're not just boosting T — you're removing the thing that's been suppressing it.",
     ],
-    visual: 'energy-chart',
+    visual: 'image1',
   },
   {
     num: '02',
@@ -41,7 +45,7 @@ const reasons = [
       "Balls N'Brains replaces something you're already doing every single morning: drinking coffee. There's no new habit to build. No extra step. You just swap your regular cup for one that actually works for your body.",
       'The best supplement in the world is the one you actually take. And nothing has a higher compliance rate than your morning coffee.',
     ],
-    visual: 'taste',
+    visual: 'image2',
   },
   {
     num: '03',
@@ -52,7 +56,7 @@ const reasons = [
       "Balls N'Brains uses Tongkat Ali LJ100® (300mg) — patented, standardized for eurypeptides, with clinical studies demonstrating real testosterone support. And Ashwagandha KSM-66® (300mg) — patented, standardized for 5% withanolides, with over 24 human studies.",
       "When a brand uses patented raw materials, it's saying: \"We didn't buy the cheapest option — we bought the one with real science behind it.\" When a brand doesn't specify… ask yourself why.",
     ],
-    visual: 'mushroom',
+    visual: 'image3',
   },
   {
     num: '04',
@@ -64,7 +68,7 @@ const reasons = [
       'Then there are the side effects: body odor (a distinct maple syrup smell from sweat and urine), gastrointestinal discomfort, bloating, and diarrhea are commonly reported.',
       "Balls N'Brains does not contain Fenugreek. Every ingredient was specifically chosen to support the male hormonal axis without introducing estrogenic activity or unwanted side effects.",
     ],
-    visual: 'estrogen',
+    visual: 'image4',
   },
   {
     num: '05',
@@ -76,7 +80,7 @@ const reasons = [
       "MarsMen has Tongkat Ali but no Fadogia. It's like having a car with the engine but no transmission.",
       "Balls N'Brains contains Fadogia Agrestis (600mg) paired with Tongkat Ali LJ100® (300mg) — the full synergistic stack for comprehensive testosterone support.",
     ],
-    visual: 'hormones',
+    visual: 'image5',
   },
   {
     num: '06',
@@ -84,10 +88,17 @@ const reasons = [
     body: [
       'Testosterone is only one dimension of male performance. What about focus? Mental clarity? The ability to concentrate for hours without your brain fogging out?',
       "MarsMen has nothing for your brain. No Lion's Mane. No Cordyceps. No L-Theanine. No nootropic of any kind. It's a one-dimensional product in a multi-dimensional world.",
-      "Balls N'Brains contains 1,000mg of Lion's Mane (fruiting body, dual extraction) — which supports nerve growth factor (NGF) production, the protein responsible for brain cell growth and repair. Plus 1,000mg of Cordyceps Militaris for oxygen utilization and physical endurance. And 100mg of L-Theanine paired with 100mg of caffeine for smooth, sustained focus without jitters.",
+      "Balls N'Brains was built around the male hormonal axis:",
+    ],
+    bullets: [
+      "1,000mg of Lion's Mane (fruiting body, dual extraction) — supports nerve growth factor (NGF) production, the protein responsible for brain cell growth and repair.",
+      '1,000mg of Cordyceps Militaris for oxygen utilization and physical endurance.',
+      '100mg of L-Theanine paired with 100mg of caffeine for smooth, sustained focus without jitters.',
+    ],
+    bodyAfter: [
       'Your brain is the most important performance organ you have. Any serious male performance product should address it.',
     ],
-    visual: 'cancel',
+    visual: 'image6',
   },
   {
     num: '07',
@@ -98,7 +109,7 @@ const reasons = [
       "You're spending $59/month on a T-booster and then undoing it with your morning cup. Every. Single. Day.",
       "Balls N'Brains eliminates this problem entirely. It IS your morning coffee. 100mg of caffeine modulated by L-Theanine — enough to energize you, smooth enough to avoid the cortisol spike. You're not fighting your own habits. You're upgrading them.",
     ],
-    visual: 'label',
+    visual: 'image7',
   },
   {
     num: '08',
@@ -109,7 +120,7 @@ const reasons = [
       "Balls N'Brains offers a 365-day money-back guarantee. A full year. No questions asked. Cancel anytime with one click. No calling anyone. No retention tricks.",
       'If a brand truly believes in its product, it bets on time. 90 days is hedging. 365 days is confidence.',
     ],
-    visual: 'extraction',
+    visual: 'image8',
   },
   {
     num: '09',
@@ -121,7 +132,7 @@ const reasons = [
       "Balls N'Brains contains 4 clinical-dose functional mushrooms — all fruiting body with dual extraction, so the active compounds (beta-glucans, hericenones, erinacines, triterpenes) are actually bioavailable. Not filler. Not mycelium-on-grain. Real mushrooms, real doses, real extraction.",
       'Testosterone matters. But so does everything else your body needs to perform. A mushroom coffee covers the full spectrum. A T-booster pill does not.',
     ],
-    visual: 'patented',
+    visual: 'image9',
   },
   {
     num: '10',
@@ -132,99 +143,9 @@ const reasons = [
       "That's testosterone + cortisol control + mushrooms + nootropics + coffee — all in one scoop. MarsMen gives you pills and a hole in your routine.",
       "Bottom line: Same price, half the stack, and you still need coffee on top. MarsMen isn't a bad product — it's just an incomplete one.",
     ],
-    visual: 'price',
+    visual: 'image10',
   },
 ];
-
-// ── Visual placeholders per section ───────────────────────────────────────
-const VisualBlock = ({ type, num }) => {
-  const darkCard =
-    'bg-gray-900 rounded-2xl overflow-hidden flex items-center justify-center';
-  const lightCard =
-    'bg-gray-100 rounded-2xl overflow-hidden flex items-center justify-center';
-
-  if (type === 'energy-chart')
-    return (
-      <div
-        className={`${darkCard} w-full aspect-square max-w-sm`}
-        style={{ background: '#111' }}
-      >
-        <div className="w-full h-full p-6 flex flex-col justify-between">
-          <img src="" alt="" />
-        </div>
-      </div>
-    );
-
-  if (type === 'mushroom' || type === 'estrogen')
-    return (
-      <div className={`${lightCard} w-full aspect-square max-w-sm`}>
-        <img src="" alt="" />
-      </div>
-    );
-
-  if (type === 'hormones')
-    return (
-      <div
-        className={`${darkCard} w-full aspect-square max-w-sm`}
-        style={{ background: '#111' }}
-      >
-        <img src="" alt="" />
-      </div>
-    );
-
-  if (type === 'label')
-    return (
-      <div
-        className={`${darkCard} w-full aspect-square max-w-sm`}
-        style={{ background: '#111' }}
-      >
-        <img src="" alt="" />
-      </div>
-    );
-
-  if (type === 'cancel')
-    return (
-      <div className={`${lightCard} w-full aspect-square max-w-sm`}>
-        <img src="" alt="" />
-      </div>
-    );
-
-  if (type === 'extraction')
-    return (
-      <div
-        className={`${darkCard} w-full aspect-square max-w-sm`}
-        style={{ background: '#111' }}
-      >
-        <img src="" alt="" />
-      </div>
-    );
-
-  if (type === 'patented')
-    return (
-      <div
-        className={`${darkCard} w-full aspect-square max-w-sm`}
-        style={{ background: '#111' }}
-      >
-        <img src="" alt="" />
-      </div>
-    );
-
-  if (type === 'price')
-    return (
-      <div className={`${lightCard} w-full aspect-square max-w-sm`}>
-        <img src="" alt="" />
-      </div>
-    );
-
-  // taste fallback
-  return (
-    <div className={`${lightCard} w-full aspect-square max-w-sm`}>
-      <div className="p-8 text-center">
-        <img src="" alt="" />
-      </div>
-    </div>
-  );
-};
 
 // ── Animated section wrapper ───────────────────────────────────────────────
 const FadeIn = ({ children, delay = 0 }) => {
@@ -250,6 +171,47 @@ const FadeIn = ({ children, delay = 0 }) => {
       }}
     >
       {children}
+    </div>
+  );
+};
+
+// ── Visual block ───────────────────────────────────────────────────────────
+const VisualBlock = ({ type }) => {
+  const darkCard =
+    'bg-gray-900 rounded-2xl overflow-hidden flex items-center justify-center';
+  const lightCard =
+    'bg-gray-100 rounded-2xl overflow-hidden flex items-center justify-center';
+
+  const darkTypes = [
+    'image1',
+    'image3',
+    'image4',
+    'image6',
+    'image7',
+    'image8',
+    'image9',
+  ];
+
+  const srcMap = {
+    image1: image01,
+    image2: image02,
+    image3: image03,
+    image4: image04,
+    image5: image05,
+    image6: image06,
+    image7: image07,
+    image8: image08,
+    image9: image09,
+    image10: image10,
+  };
+
+  const isDark = darkTypes.includes(type);
+  return (
+    <div
+      className={`${isDark ? darkCard : lightCard} w-full aspect-square max-w-sm`}
+      style={isDark ? { background: '#111' } : {}}
+    >
+      <img src={srcMap[type]} alt="" className="w-full h-full object-cover" />
     </div>
   );
 };
@@ -342,7 +304,16 @@ export default function BallsNBrainsPage() {
                   justifyContent: 'center',
                 }}
               >
-                <span className="text-2xl">👨‍⚕️</span>
+                <img
+                  src={doctor}
+                  alt="Dr. Ben Palmer"
+                  style={{
+                    width: 56,
+                    height: 56,
+                    borderRadius: '50%',
+                    objectFit: 'cover',
+                  }}
+                />
               </div>
               <div>
                 <p
@@ -387,22 +358,14 @@ export default function BallsNBrainsPage() {
               >
                 <div className="p-3 text-xs font-bold font-sans uppercase tracking-wider text-gray-400"></div>
                 <div className="p-3 text-xs font-bold font-sans uppercase tracking-wider text-orange-400 text-center">
-                  Balls N’Brains Testosterone Coffee
+                  Balls N'Brains Testosterone Coffee
                 </div>
                 <div className="p-3 text-xs font-bold font-sans uppercase tracking-wider text-gray-400 text-center">
                   MarsMen Testosterone Support
                 </div>
               </div>
 
-              {[
-                { label: 'Reduces cortisol', bnb: true, other: false },
-                { label: 'Increases T-levels', bnb: true, other: true },
-                { label: 'Improves libido', bnb: true, other: true },
-                { label: 'Sustained energy & focus', bnb: true, other: false },
-                { label: 'Replaces your coffee', bnb: true, other: false },
-                { label: 'Patented ingredients', bnb: true, other: false },
-                { label: 'Sustained focus & clarity', bnb: true, other: true },
-              ].map((row, i) => (
+              {compRows.map((row, i) => (
                 <div
                   key={row.label}
                   style={{
@@ -419,14 +382,14 @@ export default function BallsNBrainsPage() {
                     {row.bnb ? '👍' : '👎'}
                   </div>
                   <div className="p-3 text-center text-lg">
-                    {row.other ? '👍' : '👎'}
+                    {row.ryze ? '👍' : '👎'}
                   </div>
                 </div>
               ))}
             </div>
 
             <p className="mt-5 text-gray-700 font-sans text-base">
-              <strong>In short:</strong> Balls N’Brains Testosterone Coffee
+              <strong>In short:</strong> Balls N'Brains Testosterone Coffee
               helps reduce cortisol, boost testosterone, and deliver sustained
               energy — while MarsMen falls short in key areas that matter most.
               👇
@@ -441,16 +404,12 @@ export default function BallsNBrainsPage() {
           <section key={r.num} className="px-8 py-12">
             <FadeIn delay={80}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                {/* BLOCO DA IMAGEM: Fica sempre em cima no mobile (ordem natural do grid-cols-1).
-            No desktop (md:), ele alterna entre a coluna da direita ou da esquerda. */}
                 <div
                   className={`flex justify-center ${idx % 2 === 0 ? 'md:order-1' : 'md:order-2'}`}
                 >
                   <VisualBlock type={r.visual} />
                 </div>
 
-                {/* BLOCO DE TEXTO: Fica embaixo no mobile.
-            No desktop, ocupa o espaço oposto ao da imagem. */}
                 <div
                   className={`${idx % 2 === 0 ? 'md:order-2' : 'md:order-1'}`}
                 >
@@ -534,14 +493,17 @@ export default function BallsNBrainsPage() {
               {/* Left: product visual */}
               <div
                 style={{
-                  background: '#111',
                   borderRadius: 16,
                   padding: 'var(--offer-img-pad, 32px)',
                   textAlign: 'center',
                   position: 'relative',
                 }}
               >
-                <img src="" alt="" />
+                <img
+                  src={product}
+                  alt="Balls N'Brains 2-Kit"
+                  style={{ width: '100%', borderRadius: 8 }}
+                />
               </div>
 
               {/* Right: offer text */}
@@ -590,14 +552,19 @@ export default function BallsNBrainsPage() {
                         width: 40,
                         height: 40,
                         borderRadius: '50%',
-                        background: '#333',
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
+                        overflow: 'hidden',
                         flexShrink: 0,
                       }}
                     >
-                      <span>👨‍⚕️</span>
+                      <img
+                        src={doctor}
+                        alt="Dr. Ben Palmer"
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                        }}
+                      />
                     </div>
                     <div>
                       <p className="text-white font-bold text-sm font-sans">
@@ -610,8 +577,10 @@ export default function BallsNBrainsPage() {
                   </div>
                 </div>
 
-                {/* CTA button */}
-                <button
+                {/* CTA */}
+
+                <a
+                  href="https://lp.ballsnbrains.com/preclick"
                   style={{
                     width: '100%',
                     marginTop: 24,
@@ -621,15 +590,18 @@ export default function BallsNBrainsPage() {
                     fontFamily: 'sans-serif',
                     fontWeight: 900,
                     fontSize: 18,
-                    letterSpacing: 2,
+                    letterSpacing: 1.5,
                     border: 'none',
-                    borderRadius: 8,
+                    borderRadius: 10,
                     cursor: 'pointer',
                     textTransform: 'uppercase',
+                    display: 'block',
+                    textAlign: 'center',
+                    boxShadow: '0 8px 20px rgba(249, 115, 22, 0.35)',
                   }}
                 >
                   TRY IT NOW ➤
-                </button>
+                </a>
 
                 <div className="flex items-center gap-3 mt-4">
                   <div
