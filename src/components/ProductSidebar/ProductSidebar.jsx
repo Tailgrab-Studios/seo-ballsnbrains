@@ -17,7 +17,7 @@ export default function ProductSidebar() {
         </div>
 
         <a
-          href="https://lp.ballsnbrains.com/preclick"
+          href="https://lp.vitavaulthealth.com/preclick"
           className="block w-full bg-gray-600 hover:bg-gray-700 text-white font-bold rounded-lg shadow-md transition-all group overflow-hidden"
         >
           <div className="flex items-stretch h-full">

@@ -580,7 +580,7 @@ export default function BallsNBrainsPage() {
                 {/* CTA */}
 
                 <a
-                  href="https://lp.ballsnbrains.com/preclick"
+                  href="https://lp.vitavaulthealth.com/preclick"
                   style={{
                     width: '100%',
                     marginTop: 24,
@@ -659,7 +659,6 @@ export default function BallsNBrainsPage() {
         }}
       >
         <div style={{ maxWidth: 900, margin: '0 auto', padding: '0 32px' }}>
-          
           <p className="text-gray-500 text-sm font-sans mb-1">
             Terms of Service | Privacy Policy
           </p>
