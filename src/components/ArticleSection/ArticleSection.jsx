@@ -233,7 +233,7 @@ export default function ArticleSection() {
                 textTransform: 'uppercase',
               }}
             >
-              Balls N'Brains
+              ADVERTORIAL
             </span>
             <span
               style={{
@@ -568,7 +568,7 @@ export default function ArticleSection() {
                 {/* CTA */}
 
                 <a
-                  href="https://lp.ballsnbrains.com/preclick"
+                  href="https://lp.vitavaulthealth.com/preclick"
                   style={{
                     width: '100%',
                     marginTop: 24,
@@ -651,17 +651,6 @@ export default function ArticleSection() {
           <div className="flex items-center justify-center gap-2 mb-4">
             <span
               style={{
-                fontFamily: 'monospace',
-                fontWeight: 900,
-                fontSize: 18,
-                letterSpacing: 4,
-                textTransform: 'uppercase',
-              }}
-            >
-              Balls N'Brains
-            </span>
-            <span
-              style={{
                 width: 10,
                 height: 10,
                 borderRadius: '50%',
@@ -673,9 +662,7 @@ export default function ArticleSection() {
           <p className="text-gray-500 text-sm font-sans mb-1">
             Terms of Service | Privacy Policy
           </p>
-          <p className="text-gray-600 text-sm font-sans mb-6">
-            BNB Health Inc. 2026
-          </p>
+          <p className="text-gray-600 text-sm font-sans mb-6">© 2026</p>
           <p className="text-gray-600 text-xs font-sans max-w-xl mx-auto leading-relaxed">
             *Statements have not been evaluated by the Food and Drug
             Administration. These products are not intended to diagnose, treat,
