@@ -240,7 +240,7 @@ export default function BallsNBrainsPage() {
                 textTransform: 'uppercase',
               }}
             >
-              Balls N'Brains
+              ADVERTORIAL
             </span>
             <span
               style={{
@@ -659,33 +659,9 @@ export default function BallsNBrainsPage() {
         }}
       >
         <div style={{ maxWidth: 900, margin: '0 auto', padding: '0 32px' }}>
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <span
-              style={{
-                fontFamily: 'monospace',
-                fontWeight: 900,
-                fontSize: 18,
-                letterSpacing: 4,
-                textTransform: 'uppercase',
-              }}
-            >
-              Balls N'Brains
-            </span>
-            <span
-              style={{
-                width: 10,
-                height: 10,
-                borderRadius: '50%',
-                background: '#f97316',
-                display: 'inline-block',
-              }}
-            />
-          </div>
+          
           <p className="text-gray-500 text-sm font-sans mb-1">
             Terms of Service | Privacy Policy
-          </p>
-          <p className="text-gray-600 text-sm font-sans mb-6">
-            BNB Health Inc. 2026
           </p>
           <p className="text-gray-600 text-xs font-sans max-w-xl mx-auto leading-relaxed">
             *Statements have not been evaluated by the Food and Drug
