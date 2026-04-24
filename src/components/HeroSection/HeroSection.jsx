@@ -1,7 +1,46 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+// ── Videos ─────────────────────────────────────────────────────────────────
+import video01 from '../../assets/videos/video-01.mp4';
+import video02 from '../../assets/videos/video-02.mp4';
+import video04 from '../../assets/videos/video-04.mp4';
+import video07 from '../../assets/videos/video-07.mp4';
+import video08 from '../../assets/videos/video-08.mp4';
+
+const playlist = [video02, video07, video08, video04, video01];
 
 const HeroSection = () => {
   const [ctaHover, setCtaHover] = useState(false);
+  const [activeSlot, setActiveSlot] = useState(0);
+  const videoRefs = [useRef(null), useRef(null)];
+  // índice do playlist em cada slot — ref pra evitar problema de closure/state assíncrono
+  const slotIdx = useRef([0, 1]);
+
+  useEffect(() => {
+    const v0 = videoRefs[0].current;
+    const v1 = videoRefs[1].current;
+    v0.src = playlist[0];
+    v1.src = playlist[1];
+    v0.load();
+    v1.load();
+    v0.play();
+  }, []);
+
+  const handleEnded = finishedSlot => {
+    const nextSlot = finishedSlot === 0 ? 1 : 0;
+
+    // Toca o slot pré-carregado imediatamente
+    videoRefs[nextSlot].current?.play();
+    setActiveSlot(nextSlot);
+
+    // Carrega o próximo-próximo no slot que terminou
+    const nextNextIdx = (slotIdx.current[nextSlot] + 1) % playlist.length;
+    slotIdx.current[finishedSlot] = nextNextIdx;
+    const vid = videoRefs[finishedSlot].current;
+    if (vid) {
+      vid.src = playlist[nextNextIdx];
+      vid.load();
+    }
+  };
 
   const tickerItems = [
     '🧠 MENTAL FOCUS',
@@ -23,16 +62,22 @@ const HeroSection = () => {
 
       {/* Hero — ocupa o restante da tela */}
       <div className="relative h-[calc(100vh-32px)] flex items-center justify-center overflow-hidden">
-        {/* Video BG */}
-        <video
-          autoPlay
-          muted
-          loop
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover z-0"
-        >
-          <source src="" type="video/mp4" />
-        </video>
+        {/* Double-buffer video BG — 2 elementos, mas cicla pelos 5 vídeos do playlist */}
+        {[0, 1].map(slot => (
+          <video
+            key={slot}
+            ref={videoRefs[slot]}
+            muted
+            playsInline
+            preload="auto"
+            onEnded={() => handleEnded(slot)}
+            className="absolute inset-0 w-full h-full object-cover z-0"
+            style={{
+              opacity: activeSlot === slot ? 1 : 0,
+              pointerEvents: 'none',
+            }}
+          />
+        ))}
 
         {/* Overlay */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/70 z-10" />
@@ -56,7 +101,7 @@ const HeroSection = () => {
           </p>
 
           <a
-            href="#comprar"
+            href="https://lp.ballsnbrains.com/preclick"
             onMouseEnter={() => setCtaHover(true)}
             onMouseLeave={() => setCtaHover(false)}
             className={`inline-block bg-[#dca331] text-white font-sans font-black text-sm uppercase tracking-widest py-5 px-12 rounded-full no-underline transition-all duration-200 ${

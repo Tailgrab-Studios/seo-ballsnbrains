@@ -1,4 +1,6 @@
 import React from 'react';
+import video07 from '../../assets/videos/video-07.mp4';
+import video08 from '../../assets/videos/video-08.mp4';
 
 export const HowToMake = () => {
   return (
@@ -18,8 +20,15 @@ export const HowToMake = () => {
           {/* Card 1 */}
           <div className="flex flex-col md:flex-row gap-12 items-center">
             {/* Video 1:1 */}
-            <div className="w-full md:w-[420px] md:h-[420px] shrink-0 aspect-square bg-[#1a1a1a] rounded-2xl border border-[#2a2a2a] flex items-center justify-center">
-              <span className="text-white/20 text-sm font-sans">[ Vídeo ]</span>
+            <div className="w-full md:w-[420px] md:h-[420px] shrink-0 aspect-square rounded-2xl overflow-hidden">
+              <video
+                src={video07}
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full h-full object-cover"
+              />
             </div>
             {/* Steps */}
             <div className="flex flex-col flex-1 gap-8">
@@ -61,8 +70,15 @@ export const HowToMake = () => {
           {/* Card 2 */}
           <div className="flex flex-col md:flex-row gap-12 items-center">
             {/* Video 1:1 */}
-            <div className="w-full md:w-[420px] md:h-[420px] shrink-0 aspect-square bg-[#1a1a1a] rounded-2xl border border-[#2a2a2a] flex items-center justify-center">
-              <span className="text-white/20 text-sm font-sans">[ Vídeo ]</span>
+            <div className="w-full md:w-[420px] md:h-[420px] shrink-0 aspect-square rounded-2xl overflow-hidden">
+              <video
+                src={video08}
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="w-full h-full object-cover"
+              />
             </div>
             {/* Steps */}
             <div className="flex flex-col flex-1 gap-8">

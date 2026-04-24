@@ -1,14 +1,32 @@
 import React, { useState } from 'react';
 
+import video05 from '../../assets/videos/video-05.mp4';
+import video06 from '../../assets/videos/video-06.mp4';
+// ── Images ─────────────────────────────────────────────────────────────────
+import image01 from '../../assets/images/image-01.webp';
+import image02 from '../../assets/images/image-02.webp';
+import image03 from '../../assets/images/image-03.webp';
+
 export const SocialProof = () => {
   const [current, setCurrent] = useState(0);
   const [ctaHover, setCtaHover] = useState(false);
 
   const testimonials = [
-    { quote: 'Escrever relato aqui.', name: 'Nome, Idade' },
-    { quote: 'Escrever relato aqui.', name: 'Nome, Idade' },
-    { quote: 'Escrever relato aqui.', name: 'Nome, Idade' },
+    {
+      video: video06,
+      quote:
+        "I did 3 months of Balls N'Brains without changing my diet or training. My T went from 410 to 820. My libido came back and my wife can't stop complimenting my performance in bed.",
+      name: 'Marcus T., 44',
+    },
+    {
+      video: video05,
+      quote:
+        'I felt a difference in focus and energy in the first week. After 60 days, my body composition changed completely. Leaner, stronger, and no more man boobs.',
+      name: 'Daniel R., 38',
+    },
   ];
+
+  const dayImages = [image01, image02, image03];
 
   const days = [
     {
@@ -94,10 +112,16 @@ export const SocialProof = () => {
 
           <div className="relative">
             <div className="border border-[#1f1f1f] rounded-2xl overflow-hidden flex flex-col md:flex-row">
-              <div className="w-full md:w-1/2 aspect-square bg-[#1a1a1a] flex items-center justify-center shrink-0">
-                <span className="text-white/20 text-sm font-sans">
-                  [ Vídeo ]
-                </span>
+              <div className="w-full md:w-1/2 aspect-square shrink-0 overflow-hidden">
+                <video
+                  key={current}
+                  src={testimonials[current].video}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="w-full md:w-1/2 flex flex-col justify-center p-10 gap-6">
                 <div className="text-[#dca331] text-lg">★★★★★</div>
@@ -139,7 +163,7 @@ export const SocialProof = () => {
         <div className="border-t border-[#1f1f1f]" />
 
         {/* Block 2 - Timeline */}
-        <div >
+        <div>
           <div className="mb-16">
             <p className="text-[#dca331] font-sans font-bold text-xs tracking-[4px] uppercase mb-3">
               Clinically Dosed
@@ -161,10 +185,12 @@ export const SocialProof = () => {
                 key={i}
                 className={`flex flex-col gap-0 ${i === 1 ? 'md:flex-row-reverse' : 'md:flex-row'}`}
               >
-                <div className="w-full md:w-1/2 shrink-0 bg-[#1a1a1a] rounded-2xl flex items-center justify-center aspect-square">
-                  <span className="text-white/20 text-sm font-sans">
-                    [ Imagem ]
-                  </span>
+                <div className="w-full md:w-1/2 shrink-0 rounded-2xl overflow-hidden aspect-square">
+                  <img
+                    src={dayImages[i]}
+                    alt={day.label}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
                 <div className="w-full md:w-1/2 flex flex-col justify-center px-10 py-10 gap-8">
                   <p className="text-[#dca331] font-sans font-bold text-xs tracking-[4px] uppercase">
@@ -187,7 +213,7 @@ export const SocialProof = () => {
 
           <div className="flex justify-center mt-16">
             <a
-              href="#comprar"
+              href="https://lp.ballsnbrains.com/preclick"
               onMouseEnter={() => setCtaHover(true)}
               onMouseLeave={() => setCtaHover(false)}
               className={`inline-block bg-[#dca331] text-black font-sans font-black text-sm uppercase tracking-widest py-5 px-12 rounded-full no-underline transition-all duration-200 ${

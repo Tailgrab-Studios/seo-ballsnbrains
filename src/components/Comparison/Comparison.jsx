@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-
+import image05 from '../../assets/images/image-04.webp';
+import image04 from '../../assets/images/image-05.webp';
 const rows = [
   {
     product: 'Works with your morning coffee ritual',
@@ -76,10 +77,12 @@ export const Comparison = () => {
         {/* Images VS row */}
         <div className="grid grid-cols-[1fr_auto_1fr] border border-[#1f1f1f] rounded-2xl overflow-hidden mb-8">
           {/* Product image */}
-          <div className="relative aspect-[4/3] bg-[#1a1a1a] flex items-center justify-center">
-            <span className="text-white/15 text-xs font-black uppercase tracking-widest">
-              [ Produto ]
-            </span>
+          <div className="relative aspect-[4/3] overflow-hidden">
+            <img
+              src={image04}
+              alt="Balls N'Brains"
+              className="w-full h-full object-cover"
+            />
           </div>
 
           {/* VS divider */}
@@ -92,10 +95,12 @@ export const Comparison = () => {
           </div>
 
           {/* Competitors image */}
-          <div className="aspect-[4/3] bg-[#141414] flex items-center justify-center">
-            <span className="text-white/15 text-xs font-black uppercase tracking-widest">
-              [ Concorrentes ]
-            </span>
+          <div className="aspect-[4/3] overflow-hidden">
+            <img
+              src={image05}
+              alt="Competitors"
+              className="w-full h-full object-cover"
+            />
           </div>
         </div>
 
@@ -129,7 +134,7 @@ export const Comparison = () => {
         {/* CTA */}
         <div className="flex flex-col items-center gap-3 mt-12">
           <a
-            href="#comprar"
+            href="https://lp.ballsnbrains.com/preclick"
             onMouseEnter={() => setCtaHover(true)}
             onMouseLeave={() => setCtaHover(false)}
             className={`inline-block bg-[#dca331] text-black font-sans font-black text-xs uppercase tracking-widest py-5 px-14 rounded-full no-underline transition-all duration-200 ${

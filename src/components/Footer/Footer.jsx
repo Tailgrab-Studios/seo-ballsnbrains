@@ -19,13 +19,6 @@ export const Footer = () => {
             className="text-[#dca331] hover:text-[#f0b93a] transition-colors no-underline"
           >
             support@ballsnbrains.com
-          </a>{' '}
-          or Call:{' '}
-          <a
-            href="tel:+18883571447"
-            className="text-[#dca331] hover:text-[#f0b93a] transition-colors no-underline"
-          >
-            +18883571447
           </a>
         </p>
 
