@@ -1,100 +1,171 @@
 import React, { useState } from 'react';
 
-import tongkat from '../../assets/ingredients/tongkat.webp';
-import shilajit from '../../assets/ingredients/shilajit.webp';
-import zinc from '../../assets/ingredients/zinc.webp';
-import ashwagandha from '../../assets/ingredients/ashwagandha.webp';
-import vitaminD from '../../assets/ingredients/vitamind.webp';
-import lionsMane from '../../assets/ingredients/lionsmane.webp';
-import reishi from '../../assets/ingredients/reishi.webp';
-import cordyceps from '../../assets/ingredients/cordyceps.webp';
-import ltheanine from '../../assets/ingredients/ltheanine.webp';
-import chaga from '../../assets/ingredients/chaga.webp';
-import caffeine from '../../assets/ingredients/caffeine.webp';
+// ============================================================
+// IMAGES — substitua pelos seus imports reais
+// ============================================================
 import arabica from '../../assets/ingredients/arabica.webp';
+import lionsMane from '../../assets/ingredients/lionsmane.webp';
+import coconutFat from '../../assets/ingredients/coconut-fat.webp';
+import tongkat from '../../assets/ingredients/tongkat.webp';
+import ashwagandha from '../../assets/ingredients/ashwagandha.webp';
+import cordyceps from '../../assets/ingredients/cordyceps.webp';
+import ltheanine from '../../assets/ingredients/L-Theanine.webp';
+import coffeeFlavor from '../../assets/ingredients/coffee-flavor.webp';
+import zinc from '../../assets/ingredients/zinc.webp';
+import acaciaGum from '../../assets/ingredients/acacia-gum.webp';
+import shilajit from '../../assets/ingredients/shilajit.webp';
+import reishi from '../../assets/ingredients/reishi.webp';
+import chaga from '../../assets/ingredients/chaga.webp';
+import sucralose from '../../assets/ingredients/sucralose.webp';
+import caffeine from '../../assets/ingredients/caffeine.webp';
+import vitaminD from '../../assets/ingredients/vitamind.webp';
 import wallpaper from '../../assets/utils/black-wallpaper.webp';
 
+// ============================================================
+// DADOS — exatamente a tabela fornecida (ordem e doses)
+// ============================================================
 const ingredients = [
   {
-    name: 'Tongkat Ali LJ100®',
+    name: 'Organic Instant Coffee Powder',
+    subtitle: 'Arabica',
+    dose: '1,000mg',
+    percent: '26.17%',
+    benefit:
+      'The base. Smooth Arabica profile, low acidity — your daily ritual, upgraded.',
+    img: arabica,
+  },
+  {
+    name: "Organic Lion's Mane Extract",
+    subtitle: 'Hericium erinaceus',
+    dose: '800mg',
+    percent: '18.16%',
+    benefit:
+      'Supports cognitive performance and focus in adults over 16 weeks of use.',
+    img: lionsMane,
+  },
+  {
+    name: 'Coconut Fat Powder',
+    subtitle: 'MCT source',
+    dose: '750.7mg',
+    percent: '6.64%',
+    benefit:
+      'Delivers fast-acting energy via medium-chain triglycerides — fuel without the crash.',
+    img: coconutFat,
+  },
+  {
+    name: 'Tongkat Ali Extract',
+    subtitle: 'Eurycoma longifolia',
     dose: '300mg',
+    percent: '9.00%',
     benefit:
       'Increased testosterone by 37% and reduced cortisol by 16% in 4 weeks.',
     img: tongkat,
   },
   {
-    name: 'Shilajit',
-    dose: '250mg',
-    benefit: 'Increased total testosterone by 20% in healthy men over 90 days.',
-    img: shilajit,
-  },
-  {
-    name: 'Zinc Glycinate',
-    dose: '15mg',
-    benefit:
-      'Zinc supplementation nearly doubled serum testosterone in deficient elderly men.',
-    img: zinc,
-  },
-  {
-    name: 'Ashwagandha KSM-66®',
+    name: 'Ashwagandha Root Extract',
+    subtitle: 'Withania somnifera',
     dose: '300mg',
-    benefit: 'Reduced cortisol levels by 27.9% in 60 days.',
+    percent: '3.87%',
+    benefit: 'Reduced cortisol levels by 27.9% over 60 days of use.',
     img: ashwagandha,
   },
   {
-    name: 'Vitamin D',
-    dose: '2,000 UI',
+    name: 'Cordyceps Militaris Extract',
+    subtitle: 'Mushroom extract',
+    dose: '250mg',
+    percent: '3.46%',
     benefit:
-      'Men supplementing Vitamin D saw a 25% increase in total testosterone over 12 months.',
-    img: vitaminD,
-  },
-  {
-    name: "Lion's Mane",
-    dose: '1,000mg',
-    benefit:
-      'Significant cognitive improvement in adults with mild cognitive impairment over 16 weeks.',
-    img: lionsMane,
-  },
-  {
-    name: 'Reishi',
-    dose: '500mg',
-    benefit: 'Shown to support sleep quality by modulating serotonin pathways.',
-    img: reishi,
-  },
-  {
-    name: 'Cordyceps Militaris',
-    dose: '1,000mg',
-    benefit:
-      'Improved VO2max and increased time to exhaustion by 70 seconds in 3 weeks.',
+      'Improved VO2max and added 70 seconds to time-to-exhaustion in 3 weeks.',
     img: cordyceps,
   },
   {
     name: 'L-Theanine',
-    dose: '100mg',
+    subtitle: 'Amino acid',
+    dose: '200mg',
+    percent: '5.18%',
     benefit:
-      'Combined with caffeine, improved attention accuracy and reduced mental fatigue.',
+      'Paired with caffeine, improves attention accuracy and reduces mental fatigue.',
     img: ltheanine,
   },
   {
-    name: 'Chaga',
-    dose: '500mg',
+    name: 'Organic Coffee Type Flavor',
+    subtitle: 'Natural flavoring',
+    dose: '200mg',
+    percent: '4.02%',
     benefit:
-      'Rich in polysaccharides with demonstrated antioxidant and immunomodulatory properties.',
+      'Reinforces the rich, roasted coffee profile — no artificial aftertaste.',
+    img: coffeeFlavor,
+  },
+  {
+    name: 'Zinc Glycinate',
+    subtitle: 'Chelated mineral',
+    dose: '30mg',
+    percent: '2.22%',
+    benefit:
+      'Supplementation nearly doubled serum testosterone in deficient men.',
+    img: zinc,
+  },
+  {
+    name: 'Acacia Gum',
+    subtitle: 'Soluble fiber',
+    dose: '150mg',
+    percent: '1.62%',
+    benefit:
+      'Supports gut health and improves mouthfeel — a cleaner, smoother cup.',
+    img: acaciaGum,
+  },
+  {
+    name: 'Shilajit Extract',
+    subtitle: 'Mineral resin',
+    dose: '100mg',
+    percent: '5.84%',
+    benefit: 'Increased total testosterone by 20% in healthy men over 90 days.',
+    img: shilajit,
+  },
+  {
+    name: 'Organic Reishi Extract',
+    subtitle: 'Ganoderma lucidum',
+    dose: '100mg',
+    percent: '2.23%',
+    benefit:
+      'Supports sleep quality and stress modulation through serotonin pathways.',
+    img: reishi,
+  },
+  {
+    name: 'Organic Chaga Extract',
+    subtitle: 'Inonotus obliquus',
+    dose: '100mg',
+    percent: '1.12%',
+    benefit:
+      'Rich in polysaccharides with antioxidant and immune-supporting properties.',
     img: chaga,
   },
   {
-    name: 'Caffeine',
+    name: 'Sucralose',
+    subtitle: 'Zero-calorie sweetener',
     dose: '100mg',
+    percent: '3.23%',
     benefit:
-      'Significantly improved attention, processing speed, and accuracy across 13 studies.',
+      'Adds subtle sweetness — no sugar, no calories, no blood-sugar spike.',
+    img: sucralose,
+  },
+  {
+    name: 'Caffeine',
+    subtitle: 'From coffee bean',
+    dose: '70mg',
+    percent: '3.15%',
+    benefit:
+      'Improves attention, processing speed, and accuracy across 13 clinical studies.',
     img: caffeine,
   },
   {
-    name: 'Organic Arabica Coffee',
-    dose: '50mg',
+    name: 'Vitamin D3',
+    subtitle: 'Cholecalciferol',
+    dose: '50mcg',
+    percent: '0.56%',
     benefit:
-      'The base. Smooth flavor profile, low acidity. The ritual stays the same.',
-    img: arabica,
+      'Men supplementing Vitamin D saw a 25% increase in total testosterone over 12 months.',
+    img: vitaminD,
   },
 ];
 
@@ -113,82 +184,73 @@ const IngredientsSection = () => {
 
   return (
     <section
+      id="ingredients"
       className="py-20 px-6 relative"
       style={{
         backgroundImage: `url(${wallpaper})`,
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat',
-        backgroundAttachment: 'fixed',
+        backgroundAttachment: 'scroll',
       }}
     >
-      {/* SEM overlay global — wallpaper aparece limpo */}
-
       {/* Header */}
-      <div className="relative z-10 text-center mb-12">
-        <p className="text-orange-500 font-sans font-bold text-xs tracking-[4px] uppercase mb-3">
-          Clinically Dosed + Effective
+      <div className="relative z-10 text-center mb-14 max-w-3xl mx-auto">
+        <p className="text-[#dca331] font-sans font-bold text-xs tracking-[4px] uppercase mb-4">
+          Full Transparency
         </p>
-        <h2 className="text-white font-serif text-4xl md:text-5xl font-bold leading-tight mb-5">
-          12 Clinical-Dose Ingredients <br className="hidden md:block" /> in 1
-          Cup
+        <h2 className="text-white font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-[1.05] mb-5">
+          18 Clinical-Dose Ingredients{' '}
+          <em className="text-[#dca331] not-italic">in 1 Cup</em>
         </h2>
-        <p className="text-white/50 font-sans text-sm md:text-base max-w-xl mx-auto leading-relaxed">
-          Industrial coffee floods your body with cortisol every morning.{' '}
-          <span className="text-white/70">
-            Cortisol suppresses testosterone.
-          </span>
-          <br />
-          <span className="text-orange-400 font-semibold">
-            We engineered a coffee that reverses this cycle.
-          </span>
+        <p className="text-white/60 font-sans text-base md:text-lg max-w-xl mx-auto leading-relaxed">
+          Engineered to lower cortisol, boost T-levels, and fuel your day —
+          without the crash. Every dose disclosed.
         </p>
       </div>
 
-      {/* Grid */}
-      <div className="relative z-10 max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
+      {/* Grid de ingredientes */}
+      <div className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
         {ingredients.map((ing, i) => (
           <div
             key={i}
             onMouseEnter={() => setHovered(i)}
             onMouseLeave={() => setHovered(null)}
-            className={`relative rounded-2xl overflow-hidden min-h-[180px] cursor-default transition-all duration-300
-              ${hovered === i ? 'scale-[1.03] shadow-[0_0_28px_rgba(249,115,22,0.25)]' : ''}`}
+            className={`flex flex-row items-center gap-0 rounded-2xl overflow-hidden bg-[#111] border border-[#1f1f1f] cursor-default transition-all duration-300 ${
+              hovered === i
+                ? 'scale-[1.02] shadow-[0_0_24px_rgba(249,115,22,0.2)] border-[#dca331]/30'
+                : ''
+            }`}
           >
-            {/* Background image do ingrediente */}
-            <img
-              src={ing.img}
-              alt={ing.name}
-              className="absolute inset-0 w-full h-full object-cover"
-            />
+            {/* Imagem — lado esquerdo */}
+            <div className="w-32 h-32 shrink-0 overflow-hidden flex items-center justify-center p-2">
+              <img
+                src={ing.img}
+                alt={ing.name}
+                loading="lazy"
+                decoding="async"
+                className="w-full h-full object-contain"
+              />
+            </div>
 
-            {/* Overlay escuro só no card — ajuste o valor conforme necessário */}
-            <div className="absolute inset-0 bg-black/55" />
-
-            {/* Gradient na base pra destacar o texto */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
-
-            {/* Content */}
-            <div className="relative z-10 p-4 flex flex-col justify-between h-full min-h-[180px]">
-              <div />
-              <div>
-                <p className="text-white font-serif font-bold text-base leading-tight mb-1">
-                  {ing.name}
-                </p>
-                <p className="text-white/75 font-sans text-xs leading-relaxed mb-3">
-                  {ing.benefit}
-                </p>
-                <span className="inline-block bg-white text-black font-sans font-bold text-xs px-3 py-1 rounded-full tracking-wider">
-                  {ing.dose}
-                </span>
-              </div>
+            {/* Texto — lado direito */}
+            <div className="flex-1 px-4 py-4 flex flex-col gap-1.5 min-w-0">
+              <p className="text-white font-serif font-bold text-sm leading-tight">
+                {ing.name}
+              </p>
+              <p className="text-white/45 font-sans text-[10px] italic leading-snug">
+                {ing.subtitle}
+              </p>
+              <span className="mt-1 inline-block bg-[#dca331]/15 border border-[#dca331]/40 text-[#dca331] font-sans font-bold text-[11px] px-2.5 py-0.5 rounded-full w-fit tracking-wide">
+                {ing.dose}
+              </span>
             </div>
           </div>
         ))}
       </div>
 
-      {/* Badges */}
-      <div className="relative z-10 max-w-5xl mx-auto mt-12 flex flex-wrap justify-center gap-x-8 gap-y-3">
+      {/* Badges de confiança */}
+      <div className="relative z-10 max-w-5xl mx-auto mt-14 flex flex-wrap justify-center gap-x-8 gap-y-3">
         {badges.map((b, i) => (
           <span
             key={i}
@@ -202,8 +264,8 @@ const IngredientsSection = () => {
       {/* CTA */}
       <div className="relative z-10 text-center mt-12">
         <a
-          href="https://lp.ballsnbrains.com/preclick"
-          className="inline-block bg-[#dca331] hover:bg-orange-400 transition-colors text-white font-sans font-black text-sm uppercase tracking-widest py-5 px-16 rounded-full shadow-[0_0_40px_rgba(249,115,22,0.4)] hover:shadow-[0_0_60px_rgba(249,115,22,0.6)]"
+          href="https://ballsnbrains.com/shp/tmc-adv/08/p2-v2/"
+          className="inline-block bg-[#dca331] hover:bg-orange-400 transition-colors text-white font-sans font-black text-sm uppercase tracking-widest py-5 px-16 rounded-xl shadow-[0_0_40px_rgba(249,115,22,0.4)] hover:shadow-[0_0_60px_rgba(249,115,22,0.6)]"
         >
           Try It Now →
         </a>

@@ -1,150 +1,175 @@
-import React, { useState, useEffect, useRef } from 'react';
-// ── Videos ─────────────────────────────────────────────────────────────────
-import video01 from '../../assets/videos/video-01.mp4';
-import video02 from '../../assets/videos/video-02.mp4';
-import video04 from '../../assets/videos/video-04.mp4';
-import video07 from '../../assets/videos/video-07.mp4';
-import video08 from '../../assets/videos/video-08.mp4';
+import React, { useState } from 'react';
+import productImg from '../../assets/background/background-hero.webp';
 
-const playlist = [video02, video07, video08, video04, video01];
+const trustBadges = [
+  {
+    icon: (
+      <svg
+        viewBox="0 0 24 24"
+        className="w-7 h-7 md:w-[34px] md:h-[34px]"
+        fill="none"
+        stroke="#dca331"
+        strokeWidth="1.25"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2" />
+        <rect x="9" y="3" width="6" height="4" rx="1" />
+        <path d="m9 13 2 2 4-4" />
+      </svg>
+    ),
+    text: '12 Clinical-Dose\nIngredients',
+  },
+  {
+    icon: (
+      <svg
+        viewBox="0 0 24 24"
+        className="w-7 h-7 md:w-[34px] md:h-[34px]"
+        fill="none"
+        stroke="#dca331"
+        strokeWidth="1.25"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+        <path d="m9 12 2 2 4-4" />
+      </svg>
+    ),
+    text: 'Made with Patented\nExtracts',
+  },
+  {
+    icon: (
+      <svg
+        viewBox="0 0 24 24"
+        className="w-7 h-7 md:w-[34px] md:h-[34px]"
+        fill="none"
+        stroke="#dca331"
+        strokeWidth="1.25"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <circle cx="12" cy="12" r="9" />
+        <path d="m8.5 12.5 2.5 2.5 4.5-5" />
+      </svg>
+    ),
+    text: '100% Money Back\nGuarantee',
+  },
+  {
+    icon: (
+      <svg
+        viewBox="0 0 24 24"
+        className="w-7 h-7 md:w-[34px] md:h-[34px]"
+        fill="none"
+        stroke="#dca331"
+        strokeWidth="1.25"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M3 10.5 12 3l9 7.5V20a1 1 0 0 1-1 1h-5v-7h-6v7H4a1 1 0 0 1-1-1z" />
+      </svg>
+    ),
+    text: 'Made in the USA\nGMP Certified',
+  },
+];
 
 const HeroSection = () => {
   const [ctaHover, setCtaHover] = useState(false);
-  const [activeSlot, setActiveSlot] = useState(0);
-  const videoRefs = [useRef(null), useRef(null)];
-  // índice do playlist em cada slot — ref pra evitar problema de closure/state assíncrono
-  const slotIdx = useRef([0, 1]);
-
-  useEffect(() => {
-    const v0 = videoRefs[0].current;
-    const v1 = videoRefs[1].current;
-    v0.src = playlist[0];
-    v1.src = playlist[1];
-    v0.load();
-    v1.load();
-    v0.play();
-  }, []);
-
-  const handleEnded = finishedSlot => {
-    const nextSlot = finishedSlot === 0 ? 1 : 0;
-
-    // Toca o slot pré-carregado imediatamente
-    videoRefs[nextSlot].current?.play();
-    setActiveSlot(nextSlot);
-
-    // Carrega o próximo-próximo no slot que terminou
-    const nextNextIdx = (slotIdx.current[nextSlot] + 1) % playlist.length;
-    slotIdx.current[finishedSlot] = nextNextIdx;
-    const vid = videoRefs[finishedSlot].current;
-    if (vid) {
-      vid.src = playlist[nextNextIdx];
-      vid.load();
-    }
-  };
-
-  const tickerItems = [
-    '🧠 MENTAL FOCUS',
-    'NATURAL TESTOSTERONE',
-    '🔥 ENERGY WITHOUT CRASH',
-    'ORGANIC INGREDIENTS',
-    '💪 STRENGTH & VITALITY',
-    'NO SIDE EFFECTS',
-    '🚀 RESULTS IN DAYS',
-    'EXCLUSIVE FORMULA',
-  ];
 
   return (
-    <div className="font-serif relative overflow-hidden">
-      {/* Announcement Bar */}
-      <div className="bg-orange-700 text-white text-center py-2 px-4 text-xs font-semibold tracking-wide cursor-pointer">
-        🎉 Launch offer — Save up to 44% forever →
-      </div>
+    <div className="bg-[#070707] w-full">
+      {/* Hero — imagem full-bleed como background, texto sobreposto */}
+      <div className="relative w-full min-h-screen md:h-screen overflow-hidden">
+        {/* Imagem de fundo full-bleed */}
+        <img
+          src={productImg}
+          alt="Balls & Brains — Testosterone Mushroom Coffee"
+          fetchPriority="high"
+          decoding="async"
+          className="absolute inset-0 w-full h-full object-cover object-center"
+        />
 
-      {/* Hero — ocupa o restante da tela */}
-      <div className="relative h-[calc(100vh-32px)] flex items-center justify-center overflow-hidden">
-        {/* Double-buffer video BG — 2 elementos, mas cicla pelos 5 vídeos do playlist */}
-        {[0, 1].map(slot => (
-          <video
-            key={slot}
-            ref={videoRefs[slot]}
-            muted
-            playsInline
-            preload="auto"
-            onEnded={() => handleEnded(slot)}
-            className="absolute inset-0 w-full h-full object-cover z-0"
-            style={{
-              opacity: activeSlot === slot ? 1 : 0,
-              pointerEvents: 'none',
-            }}
-          />
-        ))}
+        {/* Overlay — preto forte no mobile, transparente no desktop */}
+        <div className="absolute inset-0 bg-black/70 md:bg-transparent pointer-events-none" />
 
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/70 z-10" />
+        <div className="relative z-10 flex flex-col justify-center h-full min-h-screen md:min-h-0 px-5 sm:px-8 md:px-12 lg:px-16 py-16 md:py-0">
+          <div className="flex flex-col gap-4 md:gap-7 max-w-[520px] mx-auto md:mx-0 w-full">
+            <p className="text-[#dca331] font-sans font-bold text-[10px] md:text-sm tracking-[3px] md:tracking-[4px] uppercase text-center md:text-left">
+              The Ultimate Daily Upgrade
+            </p>
 
-        {/* Content */}
-        <div className="relative z-20 text-center text-white px-6 max-w-3xl animate-[fadeUp_0.9s_ease_both]">
-          <div className="text-yellow-400 text-2xl tracking-widest mb-2">
-            ★★★★★
-          </div>
+            <h1 className="text-white font-serif leading-[1.05] text-center md:text-left">
+              <span className="block text-[32px] sm:text-5xl md:text-7xl lg:text-8xl font-extrabold md:whitespace-nowrap">
+                Your Entire
+              </span>
+              <span className="block text-[32px] sm:text-5xl md:text-7xl lg:text-8xl font-extrabold md:whitespace-nowrap">
+                Testosterone Stack.
+              </span>
+              <span className="block text-xl sm:text-3xl md:text-5xl lg:text-6xl font-light italic text-[#dca331] mt-1 md:mt-3 md:whitespace-nowrap">
+                One Scoop. One Cup.
+              </span>
+            </h1>
 
-          <h1 className="text-5xl md:text-7xl font-light leading-tight mb-5 tracking-tight">
-            Your Entire Testosterone Stack. <br />
-            <em className="italic text-[#dca331] not-italic font-normal">
-              One Scoop. One Coffee.
-            </em>
-          </h1>
+            <p className="text-white/65 font-sans text-sm md:text-xl leading-relaxed text-center md:text-left">
+              12 clinical-dose ingredients packed into one daily testosterone
+              mushroom coffee.
+            </p>
 
-          <p className="font-sans text-base md:text-lg leading-relaxed text-white/80 max-w-xl mx-auto mb-9">
-            12 clinical-dose ingredients packed into one daily testosterone
-            mushroom coffee.
-          </p>
-
-          <a
-            href="https://lp.ballsnbrains.com/preclick"
-            onMouseEnter={() => setCtaHover(true)}
-            onMouseLeave={() => setCtaHover(false)}
-            className={`inline-block bg-[#dca331] text-white font-sans font-black text-sm uppercase tracking-widest py-5 px-12 rounded-full no-underline transition-all duration-200 ${
-              ctaHover
-                ? 'scale-105 shadow-[0_0_60px_rgba(249,115,22,0.7)]'
-                : 'shadow-[0_0_40px_rgba(249,115,22,0.5)]'
-            }`}
-          >
-            Try It & Save 44%
-          </a>
-
-          <p className="font-sans text-xs text-white/70 mt-4 tracking-wide">
-            ✓ 365-Days Guarantee.
-          </p>
-        </div>
-
-        {/* Ticker — grudado no bottom do hero */}
-        <div className="absolute bottom-0 left-0 right-0 z-30 bg-[#1a1a1a] border-t-2 border-b-2 border-orange-500 overflow-hidden py-3 whitespace-nowrap">
-          <div className="inline-block animate-[ticker_25s_linear_infinite]">
-            {[...tickerItems, ...tickerItems].map((item, i) => (
-              <span
-                key={i}
-                className={`font-sans font-bold text-xs tracking-widest uppercase mr-12 ${
-                  i % 2 === 0 ? 'text-white' : 'text-orange-500'
+            <div className="flex flex-col items-stretch gap-2 md:gap-4">
+              <a
+                href="https://ballsnbrains.com/shp/tmc-adv/08/p2-v2/"
+                onMouseEnter={() => setCtaHover(true)}
+                onMouseLeave={() => setCtaHover(false)}
+                className={`block w-full text-center bg-[#dca331] text-white font-sans font-black text-sm md:text-base uppercase tracking-widest py-4 md:py-6 rounded-xl no-underline transition-all duration-200 ${
+                  ctaHover
+                    ? 'scale-[1.02] shadow-[0_0_70px_rgba(249,115,22,0.75)]'
+                    : 'shadow-[0_0_50px_rgba(249,115,22,0.55)]'
                 }`}
               >
-                {item}
-              </span>
-            ))}
+                Try It & Save 44%
+              </a>
+
+              <div className="flex items-center gap-2 justify-center md:justify-start">
+                <svg viewBox="0 0 14 14" width="16" height="16" fill="none">
+                  <circle
+                    cx="7"
+                    cy="7"
+                    r="6.5"
+                    stroke="#dca331"
+                    strokeWidth="1"
+                  />
+                  <polyline
+                    points="4,7 6,9.5 10,4.5"
+                    stroke="#dca331"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+                <span className="text-white/55 font-sans text-xs md:text-base">
+                  365-Day Guarantee
+                </span>
+              </div>
+            </div>
+
+            {/* Trust badges */}
+            <div className="pt-4 md:pt-6 border-t border-white/10">
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-x-3 gap-y-5 sm:gap-y-0">
+                {trustBadges.map((badge, i) => (
+                  <div
+                    key={i}
+                    className="flex flex-col items-center gap-1.5 md:gap-3 text-center"
+                  >
+                    {badge.icon}
+                    <p className="text-white/60 font-sans text-[9px] md:text-[11px] font-semibold uppercase tracking-[1px] leading-[1.4] whitespace-pre-line">
+                      {badge.text}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
-      <style>{`
-        @keyframes fadeUp {
-          from { opacity: 0; transform: translateY(28px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes ticker {
-          from { transform: translateX(0); }
-          to   { transform: translateX(-50%); }
-        }
-      `}</style>
     </div>
   );
 };

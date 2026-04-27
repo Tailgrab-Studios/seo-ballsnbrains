@@ -1,3 +1,4 @@
+import Navbar from './components/Navbar/Navbar';
 import HeroSection from './components/HeroSection/HeroSection';
 import IngredientsSection from './components/IngredientsSection/IngredientsSection';
 import HowToMake from './components/HowToMake/HowToMake';
@@ -11,6 +12,7 @@ import Footer from './components/Footer/Footer';
 export default function SnoringPage() {
   return (
     <div>
+      <Navbar />
       <HeroSection />
       <IngredientsSection />
       <HowToMake />

@@ -3,50 +3,54 @@ import badge from '../../assets/utils/badge-365days.webp';
 
 export const Guarantee = () => {
   return (
-    <section className="bg-[#0e0e0e] pt-20 pb-20 px-6">
-      <div className="max-w-4xl mx-auto">
-        {/* Badge fica metade pra fora do card */}
-        <div className="flex justify-center">
-          <img
-            src={badge}
-            alt="365-Days Guarantee Badge"
-            className="w-40 h-40 object-contain relative z-10"
-            style={{ marginBottom: '-80px' }}
-          />
-        </div>
-
+    <section className="bg-[#070707] py-10 px-6">
+      <div className="max-w-7xl mx-auto">
         <div
-          className="rounded-3xl px-10 pt-20 pb-12 text-center"
+          className="flex flex-col md:flex-row items-center gap-6 md:gap-10 px-8 md:px-12 py-8 rounded-2xl"
           style={{
-            background:
-              'linear-gradient(160deg, #1a1f2e 0%, #0E0E0E 60%, #0a0a0a 100%)',
-            border: '4px solid rgba(243, 167, 52, 0.35)',
+            border: '1.5px solid #dca331',
+            boxShadow: '0 0 40px rgba(220,163,49,0.35), inset 0 0 40px rgba(220,163,49,0.06)',
           }}
         >
-          {/* Title */}
-          <h2 className="text-white font-sans font-black text-2xl md:text-3xl uppercase tracking-wide mb-6 leading-tight">
-            365-Days, 100% Money-Back Guarantee
-          </h2>
+          {/* Badge 365 */}
+          <div className="shrink-0">
+            <img
+              src={badge}
+              alt="365-Day Guarantee Badge"
+              className="w-24 h-24 md:w-40 md:h-40 object-contain"
+            />
+          </div>
 
-          {/* Body */}
-          <p className="text-white/60 font-sans text-base md:text-lg leading-relaxed mb-6 max-w-2xl mx-auto">
-            Try Balls and Brains for 365 days. If you don&apos;t feel
-            dramatically better—if your energy doesn&apos;t sustain for 6-8
-            hours, if your focus doesn&apos;t sharpen, if your workouts
-            don&apos;t improve—We don&apos;t deserve your money. Simply email us
-            for a full refund. No questions asked. No return required.
-          </p>
+          {/* Text */}
+          <div className="flex-1 text-center flex flex-col gap-4 items-center">
+            <h3 className="text-[#dca331] font-sans font-black text-xl md:text-5xl tracking-wide">
+              Money-Back Guarantee
+            </h3>
+            <p className="text-white/60 font-sans text-sm md:text-2xl leading-relaxed text-center">
+              Not sure if it&apos;s for you? Try it risk-free for a full year.
+              <br className="hidden md:block" />
+              If you&apos;re not satisfied, we&apos;ll refund every penny — no questions asked.
+            </p>
+          </div>
 
-          {/* Bold claim */}
-          <p className="text-white font-sans font-black text-base md:text-lg mb-6">
-            You can drink the entire container and still get your money back.
-          </p>
-
-          {/* Sub */}
-          <p className="text-white/35 font-sans text-sm leading-relaxed max-w-xl mx-auto mb-8">
-            Why? Because we know this works. You&apos;re either going to be
-            thrilled with your results, or we don&apos;t want your money.
-          </p>
+          {/* Shield icon */}
+          <div className="shrink-0">
+            <svg viewBox="0 0 60 70" width="100" height="100" fill="none">
+              <path
+                d="M30 5L7 16v20c0 13 10.5 25 23 28 12.5-3 23-15 23-28V16L30 5z"
+                fill="rgba(220,163,49,0.15)"
+                stroke="#dca331"
+                strokeWidth="2"
+              />
+              <polyline
+                points="20,35 27,42 42,27"
+                stroke="#dca331"
+                strokeWidth="3.5"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </div>
         </div>
       </div>
     </section>

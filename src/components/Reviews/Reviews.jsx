@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import wallpaper from '../../assets/background/background-black.webp';
 
 const categories = ['Taste', 'Benefits', 'Caffeine', 'Testosterone'];
 
@@ -94,202 +95,141 @@ const reviews = {
 };
 
 const Stars = () => (
-  <div
-    style={{
-      display: 'flex',
-      gap: 4,
-      justifyContent: 'center',
-      marginBottom: 8,
-    }}
-  >
+  <div className="flex gap-1 justify-center mb-1">
     {[...Array(5)].map((_, i) => (
-      <span key={i} style={{ color: '#dca331', fontSize: 16 }}>
-        ★
-      </span>
+      <span key={i} className="text-[#dca331] text-base">★</span>
     ))}
   </div>
 );
 
 export const Reviews = () => {
   const [active, setActive] = useState('Taste');
+  const [mobileIdx, setMobileIdx] = useState(0);
   const [ctaHover, setCtaHover] = useState(false);
+
+  const handleCategory = cat => {
+    setActive(cat);
+    setMobileIdx(0);
+  };
+
+  const currentReviews = reviews[active];
+  const mobilePrev = () => setMobileIdx(i => (i === 0 ? currentReviews.length - 1 : i - 1));
+  const mobileNext = () => setMobileIdx(i => (i === currentReviews.length - 1 ? 0 : i + 1));
+
+  const ReviewCard = ({ r }) => (
+    <div className="bg-[#111] border border-[#1f1f1f] rounded-2xl p-6 flex flex-col gap-3 text-center h-full">
+      <Stars />
+      <p className="text-[#dca331] font-sans font-black text-xs uppercase tracking-[1.5px] leading-snug">
+        {r.title}
+      </p>
+      <p className="text-white/65 font-sans text-sm leading-relaxed flex-1">
+        {r.body}
+      </p>
+      <div className="pt-3 border-t border-white/10 flex flex-col gap-1">
+        <p className="text-white/35 font-sans text-[10px] font-bold tracking-[2px] uppercase">
+          {r.name}
+        </p>
+        <span className="text-white/25 font-sans text-[10px] border border-white/15 rounded px-2 py-0.5 w-fit mx-auto">
+          Verified Buyer
+        </span>
+      </div>
+    </div>
+  );
+
   return (
     <section
+      className="relative py-20 px-6"
       style={{
-        background: '#0e0e0e',
-        padding: '80px 24px',
-        fontFamily: "'Inter', sans-serif",
+        backgroundImage: `url(${wallpaper})`,
+        backgroundSize: 'cover',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat',
+        backgroundAttachment: 'scroll',
       }}
     >
-      <div style={{ maxWidth: 960, margin: '0 auto' }}>
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/75 pointer-events-none" />
+
+      <div className="relative z-10 max-w-7xl mx-auto flex flex-col gap-10">
         {/* Header */}
-        <div style={{ textAlign: 'center', marginBottom: 40 }}>
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: 8,
-              marginBottom: 10,
-            }}
-          >
-            <span style={{ color: '#dca331', fontSize: 18, letterSpacing: 2 }}>
-              ★★★★★
-            </span>
-            <span
-              style={{
-                color: 'rgba(255,255,255,0.4)',
-                fontSize: 13,
-                fontWeight: 700,
-                letterSpacing: 2,
-                textTransform: 'uppercase',
-              }}
-            >
+        <div className="text-center flex flex-col gap-3">
+          <div className="flex items-center justify-center gap-3">
+            <span className="text-[#dca331] text-lg tracking-wider">★★★★★</span>
+            <span className="text-white/40 font-sans text-xs font-bold tracking-[3px] uppercase">
               Over 60,000 Five Star Reviews
             </span>
           </div>
-          <h2
-            style={{
-              fontFamily: "'Playfair Display', serif",
-              color: '#fff',
-              fontSize: 'clamp(2.4rem, 6vw, 4rem)',
-              fontWeight: 700,
-              margin: 0,
-              lineHeight: 1.1,
-            }}
-          >
+          <h2 className="text-white font-serif text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
             Read Our Reviews
           </h2>
         </div>
 
-        {/* Tabs */}
-        <div
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            gap: 12,
-            flexWrap: 'wrap',
-            marginBottom: 48,
-          }}
-        >
-          {categories.map(cat => (
+        {/* Tabs — scroll horizontal no mobile, centralizado no desktop */}
+        <div className="relative">
+          {/* Fade nas bordas — só mobile */}
+          <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-8 z-10 md:hidden"
+            style={{ background: 'linear-gradient(to right, rgba(7,7,7,0.9), transparent)' }} />
+          <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 z-10 md:hidden"
+            style={{ background: 'linear-gradient(to left, rgba(7,7,7,0.9), transparent)' }} />
+
+          <div className="flex overflow-x-auto md:justify-center gap-3 md:flex-wrap"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+            {categories.map(cat => (
+              <button
+                key={cat}
+                onClick={() => handleCategory(cat)}
+                className={`font-sans font-black text-xs uppercase tracking-[2px] px-6 py-3 rounded-full border transition-all duration-200 whitespace-nowrap flex-shrink-0 ${
+                  active === cat
+                    ? 'bg-[#dca331] border-[#dca331] text-white'
+                    : 'bg-transparent border-white/20 text-white/55 hover:border-white/40 hover:text-white/80'
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Mobile — carrossel 1 card + setas */}
+        <div className="flex flex-col gap-4 md:hidden">
+          <ReviewCard r={currentReviews[mobileIdx]} />
+          <div className="flex items-center justify-between gap-4">
             <button
-              key={cat}
-              onClick={() => setActive(cat)}
-              style={{
-                background: 'transparent',
-                border: `1.5px solid ${active === cat ? '#dca331' : 'rgba(255,255,255,0.2)'}`,
-                borderRadius: 100,
-                padding: '12px 28px',
-                color: active === cat ? '#dca331' : 'rgba(255,255,255,0.6)',
-                fontFamily: "'Inter', sans-serif",
-                fontSize: 13,
-                fontWeight: 900,
-                letterSpacing: 1.5,
-                textTransform: 'uppercase',
-                cursor: 'pointer',
-                transition: 'all 0.2s',
-              }}
+              onClick={mobilePrev}
+              className="w-12 h-12 rounded-full bg-[#1a1a1a] border border-[#dca331]/50 flex items-center justify-center text-[#dca331] text-2xl shadow-[0_0_14px_rgba(220,163,49,0.3)] active:bg-[#dca331] active:text-white transition-all"
             >
-              {cat}
+              ‹
             </button>
+            {/* Dots */}
+            <div className="flex gap-2">
+              {currentReviews.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setMobileIdx(i)}
+                  className={`rounded-full transition-all duration-200 ${
+                    i === mobileIdx
+                      ? 'w-5 h-2 bg-[#dca331]'
+                      : 'w-2 h-2 bg-white/25'
+                  }`}
+                />
+              ))}
+            </div>
+            <button
+              onClick={mobileNext}
+              className="w-12 h-12 rounded-full bg-[#1a1a1a] border border-[#dca331]/50 flex items-center justify-center text-[#dca331] text-2xl shadow-[0_0_14px_rgba(220,163,49,0.3)] active:bg-[#dca331] active:text-white transition-all"
+            >
+              ›
+            </button>
+          </div>
+        </div>
+
+        {/* Desktop — grid 4 colunas */}
+        <div className="hidden md:grid md:grid-cols-4 gap-4">
+          {currentReviews.map((r, i) => (
+            <ReviewCard key={`${active}-${i}`} r={r} />
           ))}
         </div>
 
-        {/* Review cards */}
-        <div
-          style={{
-            display: 'flex',
-            flexWrap: 'wrap',
-            justifyContent: 'center',
-            gap: 16,
-          }}
-        >
-          {reviews[active].map((r, i) => (
-            <div
-              key={`${active}-${i}`}
-              style={{
-                background: '#181818',
-                border: '1px solid #1f1f1f',
-                borderRadius: 16,
-                padding: '32px 28px',
-                textAlign: 'center',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: 10,
-                flex: '1 1 260px',
-                maxWidth: 320,
-              }}
-            >
-              <Stars />
-              <p
-                style={{
-                  color: '#dca331',
-                  fontWeight: 900,
-                  fontSize: 13,
-                  letterSpacing: 1,
-                  margin: 0,
-                  textTransform: 'uppercase',
-                }}
-              >
-                {r.title}
-              </p>
-              <p
-                style={{
-                  color: 'rgba(255,255,255,0.65)',
-                  fontSize: 14,
-                  lineHeight: 1.7,
-                  margin: 0,
-                  flex: 1,
-                }}
-              >
-                {r.body}
-              </p>
-              <p
-                style={{
-                  color: 'rgba(255,255,255,0.3)',
-                  fontSize: 12,
-                  fontWeight: 700,
-                  letterSpacing: 2,
-                  textTransform: 'uppercase',
-                  margin: 0,
-                }}
-              >
-                {r.name}
-              </p>
-            </div>
-          ))}
-        </div>
-        {/* CTA */}
-        <div className="flex flex-col items-center gap-3 mt-12">
-          <a
-            href="https://lp.ballsnbrains.com/preclick"
-            onMouseEnter={() => setCtaHover(true)}
-            onMouseLeave={() => setCtaHover(false)}
-            className={`inline-block bg-[#dca331] text-black font-sans font-black text-xs uppercase tracking-widest py-5 px-14 rounded-full no-underline transition-all duration-200 ${
-              ctaHover
-                ? 'scale-105 shadow-[0_0_60px_rgba(220,163,49,0.7)]'
-                : 'shadow-[0_0_40px_rgba(220,163,49,0.5)]'
-            }`}
-          >
-            Try It & Save 44%
-          </a>
-          <div className="flex items-center gap-2">
-            <svg viewBox="0 0 14 14" width="14" height="14" fill="none">
-              <circle cx="7" cy="7" r="6.5" stroke="#dca331" strokeWidth="1" />
-              <polyline
-                points="4,7 6,9.5 10,4.5"
-                stroke="#dca331"
-                strokeWidth="1.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-            <span className="text-white/35 font-sans text-xs tracking-[1.5px] uppercase">
-              365-Days Guarantee
-            </span>
-          </div>
-        </div>
       </div>
     </section>
   );
