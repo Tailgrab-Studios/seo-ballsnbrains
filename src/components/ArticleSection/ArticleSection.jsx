@@ -14,93 +14,106 @@ import doctor from '../../assets/testimonials/man1.webp';
 
 // ── Comparison table data ──────────────────────────────────────────────────
 const compRows = [
-  { label: 'Price', trt: '$150-$400/month', tmc: '$1.63/day' },
-  { label: 'Estrogen', trt: 'Feeds aromatase → Estrogen spikes', tmc: 'Reduces aromatase stimulation' },
-  { label: 'Testicular Health', trt: 'Testicles shrink (documented)', tmc: 'Supports natural testicular function' },
-  { label: 'Dependency', trt: "Can't stop without crashing", tmc: 'Stop anytime. No dependency.' },
-  { label: 'Safety', trt: 'FDA black box cardiovascular warning', tmc: 'No side effects' },
-  { label: 'Guarantee', trt: 'No guarantee', tmc: '365-Day Money-Back Guarantee' },
+  { label: 'Aromatase control', tmc: '✅ Yes', trt: '❌ Feeds it', gen: '❌ Ignores it' },
+  { label: 'Monthly cost', tmc: '$49', trt: '$150-$400', gen: '$80-$90' },
+  { label: 'Needles/Prescription', tmc: 'None', trt: 'Required', gen: 'None' },
+  { label: 'Guarantee', tmc: '365 days', trt: 'None', gen: '30 days' },
 ];
 
 // ── 10 reasons data ────────────────────────────────────────────────────────
 const reasons = [
   {
     num: '01',
-    title: "TRT Doesn't Fix the Real Problem — It Feeds It",
+    title: "It Solves a Problem Men Didn't Know They Had",
     body: [
-      "Your T isn't low because production stopped. An enzyme called aromatase is converting it into estrogen. TRT adds more testosterone — but aromatase converts synthetic T too. Your estradiol spikes. Now you need anastrozole. Two drugs instead of zero. The alternative: address the enzyme directly.",
+      "The message isn't \"boost your T.\" It's more uncomfortable: your body is converting your testosterone into estrogen right now. An enzyme called aromatase hijacks the T you produce and turns it into estradiol. After 40, it accelerates. Belly fat, man boobs, dead libido, brain fog — all consequences. Once a man learns this, he tells every man he knows. That's why it's spreading.",
     ],
     visual: 'image1',
   },
   {
     num: '02',
-    title: 'TRT Shrinks Your Testicles. This Supports Them.',
+    title: "You Don't Add a Pill. You Upgrade Your Coffee.",
     body: [
-      "Exogenous testosterone tells your brain to stop sending LH (luteinizing hormone). Without LH, your testicles shut down. They atrophy. Testosterone Morning Coffee contains LJ100 Tongkat Ali (300mg) which supports LH signaling, and Fadogia Agrestis (600mg) which supports testicular synthesis. Your natural machinery stays active.",
+      "80% of men quit supplements within 60 days. Pills get forgotten. Powders get pushed to the back of the cabinet. This formula replaces something you already do every morning. Same mug, same time, same counter. You don't add a habit — you upgrade one. That's why the retention rate (26.5%) is 5x the supplement industry average.",
     ],
     visual: 'image2',
   },
   {
     num: '03',
-    title: 'TRT Costs $150-400/Month. This Is $1.63/Day.',
-    body: [
-      "Monthly testosterone. Quarterly bloodwork. Clinic visits. Anastrozole. HCG. Syringes. That's $1,800-4,800/year for a therapy you can't stop without medical supervision. TMC is $49/month. It also replaces your regular coffee and your T-booster. Net savings: $1,200-4,200/year.",
+    title: 'Full Clinical Doses — Not Proprietary Blend Dust',
+    body: [],
+    bullets: [
+      '🧬 KSM-66 Ashwagandha (300mg) — cortisol down 27.9%',
+      '⚡ LJ100 Tongkat Ali (300mg) — supports LH signaling',
+      '🔥 Fadogia Agrestis (600mg) — testicular T synthesis',
+      "🧠 Lion's Mane (1,000mg) — nerve growth factor for focus",
+      '🏔️ Cordyceps (1,000mg) — 7% VO2 max increase',
+      '☕ Caffeine 100mg + L-Theanine 100mg — no cortisol spike',
     ],
+    bodyAfter: ['Every dose matches the clinical trials. Fully disclosed on the label.'],
     visual: 'image3',
   },
   {
     num: '04',
-    title: 'TRT Spikes Estrogen. This Targets the Enzyme That Creates It.',
+    title: "It Costs $1.63/Day — Less Than the Starbucks It Replaces",
     body: [
-      "Inject T → aromatase converts it → estradiol rises → add anastrozole → joint pain, mood swings, bone density loss. TMC takes a different path: KSM-66 Ashwagandha (300mg) reduces cortisol by 27.9%. Less cortisol = less aromatase stimulation = less conversion. No second drug needed.",
+      "A 3-pouch is $1.30/day. It replaces your regular coffee ($3-7/day), your T-booster ($40-80/mo), and your nootropic stack ($30-60/mo). Three products collapsed into one cup. In a year where budgets are tight, men are doing the math.",
     ],
     visual: 'image4',
   },
   {
     num: '05',
-    title: "You Can't Stop TRT Without Crashing. You Can Stop TMC Anytime.",
+    title: "Facebook Groups Can't Stop Talking About Aromatase",
     body: [
-      "After months on TRT, your HPG axis is suppressed. Stop injecting and your T crashes below baseline. You need a managed taper with HCG and/or clomiphene. Some men never fully recover. TMC supports natural production — doesn't replace it. Stop drinking it and you return to baseline. No taper. No PCT.",
+      'Search "aromatase" in any men\'s health group. Posts tripled since January 2026. These aren\'t brand posts — they\'re men sharing bloodwork, comparing notes, teaching each other. The conversation shifted from "how do I boost T" to "how do I stop losing the T I already have." This coffee is the only product built around that shift.',
     ],
     visual: 'image5',
   },
   {
     num: '06',
-    title: 'It Fixes the Brain Fog That TRT Completely Misses',
+    title: 'It Hits All 5 Symptoms — Not Just One',
     body: [
-      "TRT adds testosterone. It doesn't touch cognition. TMC includes Lion's Mane (1,000mg) — stimulates nerve growth factor for brain cell repair. Users report cleared fog within 7-10 days. Plus Cordyceps (1,000mg) — 7% VO2 max increase. Less fatigue, more endurance. One cup hits hormones, brain, and body.",
+      'Blue pills fix one symptom. TRT fixes one number. This formula was built for the 5 symptoms men over 40 actually report:',
     ],
+    bullets: [
+      '🔋 Chronic fatigue → Cortisol reduction + sustained energy',
+      '🫃 Stubborn belly fat → Aromatase reduction',
+      "🧠 Brain fog → Lion's Mane + cortisol control",
+      '🛏️ Dead libido → Tongkat Ali + Fadogia',
+      '💪 Muscle loss → Testosterone support + Cordyceps',
+    ],
+    bodyAfter: ['One product. Five symptoms. One morning cup.'],
     visual: 'image6',
   },
   {
     num: '07',
-    title: 'No Needles. No Pharmacy. No Awkward Conversations.',
+    title: 'The Guarantee Is Absurd — 365 Days',
     body: [
-      "Testosterone is Schedule III. Refills require prescriptions. Some pharmacies flag it. Some wives have questions about injections. TMC ships in a plain box. It's coffee. Nobody asks questions at the breakfast table. Same mug, same morning, same routine. The simplicity is the point.",
+      "Not 30 days. Not 90 days. A full year. If it doesn't work, email them, get every penny back. No phone trees. No retention scripts. You don't offer a 365-day guarantee on a product that doesn't work — the math would kill you. The fact they're growing tells you the return rate is negligible.",
     ],
     visual: 'image7',
   },
   {
     num: '08',
-    title: "TRT Has an FDA Cardiovascular Black Box Warning. This Doesn't.",
+    title: 'Regular Coffee Is Working Against You After 40',
     body: [
-      "The TRAVERSE trial found higher incidence of major cardiovascular events in men on TRT. TRT commonly elevates hematocrit — increasing blood viscosity and stroke risk. Regular CBC monitoring required. TMC contains no exogenous hormones. No mechanism to elevate hematocrit. No cardiac monitoring needed.",
+      '200mg+ caffeine = 25-30% cortisol spike per cup. Cortisol stimulates aromatase. Your morning coffee is literally feeding the enzyme that converts your testosterone into estrogen. TMC uses 100mg caffeine + 100mg L-Theanine — sustained energy, zero cortisol spike. You don\'t quit coffee. You switch to one that works with your biology.',
     ],
     visual: 'image8',
   },
   {
     num: '09',
-    title: 'Men Who Switched Are Getting Better Bloodwork',
+    title: 'Urologists Are Writing the Name Down',
     body: [
-      "Self-reported results from men transitioning off TRT to TMC at 90 days: total T up 15-30% from pre-TRT baseline. Free T up 20-35%. Estradiol down to 20-30 pg/mL (vs. 40-60+ on TRT). Hematocrit normalized. When you stop flooding the system with synthetic T and instead support natural production while reducing aromatase, your body finds a healthier balance.",
+      "Integrative practitioners are hearing about it from patients showing up with improved bloodwork. When a man's free T goes up 20-30% and estradiol comes down, a doctor pays attention. This isn't a celebrity endorsement — it's organic clinical validation from lab results.",
     ],
     visual: 'image9',
   },
   {
     num: '10',
-    title: "365-Day Guarantee. Your TRT Clinic Doesn't Offer Refunds.",
+    title: 'The Men Who Try It Become Evangelists',
     body: [
-      "If TRT doesn't work, you're out the money AND you need medical support to discontinue. TMC: try it for up to a full year. If you're not satisfied, email them, get every penny back. No phone calls. No retention scripts. 26.5% returning customer rate and 4.8 stars across 12,847 reviews says the bet is paying off.",
+      "A man orders skeptically. Week 3-4, something shifts. Energy. Morning wood. Belt notch. Wife makes a comment he hasn't heard in years. And then he tells every man he knows. Not because of a referral program — because he spent years feeling broken and this was the first thing that explained why (aromatase) and then fixed it. That emotional arc creates loyalty marketing can't manufacture.",
     ],
     visual: 'image10',
   },
@@ -249,7 +262,7 @@ export default function ArticleSection() {
                 color: '#111',
               }}
             >
-              10 Reasons Why Men With Low T Are Ditching TRT for This $1.63/Day Morning Coffee
+              10 Reasons This Testosterone Coffee Is Trending for Men 40-65+ in 2026
             </h1>
             <div
               className="mt-5 mb-6 px-5 py-4"
@@ -263,7 +276,7 @@ export default function ArticleSection() {
                   fontStyle: 'italic',
                 }}
               >
-                "More men are asking how to get off TRT than how to get on it. That wasn't the case two years ago."
+                "It started in biohacking forums. Then it hit Facebook. Now urologists are writing the name down."
               </p>
             </div>
 
@@ -320,17 +333,22 @@ export default function ArticleSection() {
               <div
                 style={{
                   display: 'grid',
-                  gridTemplateColumns: '1.4fr 1fr 1fr',
+                  gridTemplateColumns: '1.4fr 1fr 1fr 1fr',
                   background: '#111',
                   color: '#fff',
                 }}
               >
-                <div className="p-3 text-xs font-bold font-sans uppercase tracking-wider text-gray-400" />
                 <div className="p-3 text-xs font-bold font-sans uppercase tracking-wider text-gray-400 text-center">
-                  💉 TRT
+                  😓 Problem
                 </div>
                 <div className="p-3 text-xs font-bold font-sans uppercase tracking-wider text-orange-400 text-center">
                   ☕ Testosterone Mushroom Coffee
+                </div>
+                <div className="p-3 text-xs font-bold font-sans uppercase tracking-wider text-gray-400 text-center">
+                  💉 TRT
+                </div>
+                <div className="p-3 text-xs font-bold font-sans uppercase tracking-wider text-gray-400 text-center">
+                  💊 Generic T-Boosters
                 </div>
               </div>
               {compRows.map((row, i) => (
@@ -338,7 +356,7 @@ export default function ArticleSection() {
                   key={row.label}
                   style={{
                     display: 'grid',
-                    gridTemplateColumns: '1.4fr 1fr 1fr',
+                    gridTemplateColumns: '1.4fr 1fr 1fr 1fr',
                     background: i % 2 === 0 ? '#fff' : '#fafafa',
                     borderTop: '1px solid #e5e7eb',
                   }}
@@ -346,11 +364,14 @@ export default function ArticleSection() {
                   <div className="p-3 text-sm font-bold font-sans text-gray-700">
                     {row.label}
                   </div>
+                  <div className="p-3 text-center text-sm font-sans text-green-700 font-semibold">
+                    {row.tmc}
+                  </div>
                   <div className="p-3 text-center text-sm font-sans text-red-600">
                     {row.trt}
                   </div>
-                  <div className="p-3 text-center text-sm font-sans text-green-700 font-semibold">
-                    {row.tmc}
+                  <div className="p-3 text-center text-sm font-sans text-gray-500">
+                    {row.gen}
                   </div>
                 </div>
               ))}
@@ -362,7 +383,7 @@ export default function ArticleSection() {
               style={{ background: '#f0fdf4', borderLeft: '4px solid #16a34a', borderRadius: 8 }}
             >
               <p className="text-gray-800 font-sans text-base leading-relaxed">
-                <strong>TLDR:</strong> TRT doesn't address aromatase — the enzyme converting your T into estrogen. It actually feeds it. Testosterone Mushroom Coffee targets the root cause, supports natural production, and costs $1.63/day. No needles. No dependency. 365-day guarantee. 👇
+                <strong>TLDR:</strong> Testosterone Mushroom Coffee that targets aromatase (the enzyme converting your T into estrogen) is the fastest-growing men's supplement in 2026. It replaces your morning coffee, costs $1.63/day, and comes with a 365-day guarantee. Here's why men can't stop talking about it. 👇
               </p>
             </div>
           </FadeIn>
@@ -410,11 +431,11 @@ export default function ArticleSection() {
                     </p>
                   ))}
                   {r.bullets && (
-                    <ul className="mb-3 ml-4 list-disc">
+                    <ul className="mb-3 ml-4 list-none space-y-1">
                       {r.bullets.map((b, i) => (
                         <li
                           key={i}
-                          className="text-gray-700 font-sans text-base leading-relaxed mb-1"
+                          className="text-gray-700 font-sans text-base leading-relaxed"
                         >
                           {b}
                         </li>
