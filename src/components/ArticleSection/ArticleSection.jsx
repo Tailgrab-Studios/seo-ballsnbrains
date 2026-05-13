@@ -14,130 +14,119 @@ import doctor from '../../assets/testimonials/man1.webp';
 
 // ── Comparison table data ──────────────────────────────────────────────────
 const compRows = [
-  { label: 'Jitter-free', bnb: true, ryze: true, trad: false },
-  { label: 'Reduces cortisol', bnb: true, ryze: false, trad: false },
-  { label: 'Increases T-levels', bnb: true, ryze: false, trad: false },
-  { label: 'Improves libido', bnb: true, ryze: false, trad: false },
-  { label: 'Improves muscle gain', bnb: true, ryze: false, trad: false },
-  { label: 'Provides more energy', bnb: true, ryze: true, trad: false },
-  { label: 'Sustained focus & clarity', bnb: true, ryze: true, trad: false },
+  { label: 'Price', trt: '$150-$400/month', tmc: '$1.63/day' },
+  { label: 'Estrogen', trt: 'Feeds aromatase → Estrogen spikes', tmc: 'Reduces aromatase stimulation' },
+  { label: 'Testicular Health', trt: 'Testicles shrink (documented)', tmc: 'Supports natural testicular function' },
+  { label: 'Dependency', trt: "Can't stop without crashing", tmc: 'Stop anytime. No dependency.' },
+  { label: 'Safety', trt: 'FDA black box cardiovascular warning', tmc: 'No side effects' },
+  { label: 'Guarantee', trt: 'No guarantee', tmc: '365-Day Money-Back Guarantee' },
 ];
 
 // ── 10 reasons data ────────────────────────────────────────────────────────
 const reasons = [
   {
     num: '01',
-    title: 'Ryze Isn\'t Very Effective at Preventing the "Afternoon Crash"',
+    title: "TRT Doesn't Fix the Real Problem — It Feeds It",
     body: [
-      "Ryze contains about 48mg of caffeine per serving — half of a regular cup of coffee. Many men report they simply don't feel enough energy and end up drinking regular coffee alongside it, defeating the entire purpose.",
-      "Balls N'Brains contains 100mg of caffeine — double what Ryze offers, but still half of traditional coffee. The difference is that those 100mg are paired with 100mg of L-Theanine, which smooths the caffeine peak, extends the energy curve, and eliminates crash and jitters.",
-      'The result? You actually feel your body being energized by the caffeine. Without that afternoon collapse that makes you want to crawl under your desk.',
+      "Your T isn't low because production stopped. An enzyme called aromatase is converting it into estrogen. TRT adds more testosterone — but aromatase converts synthetic T too. Your estradiol spikes. Now you need anastrozole. Two drugs instead of zero. The alternative: address the enzyme directly.",
     ],
     visual: 'image1',
   },
   {
     num: '02',
-    title: 'Ryze Has an "Earthy" Taste That\'s Nothing Like Coffee',
+    title: 'TRT Shrinks Your Testicles. This Supports Them.',
     body: [
-      'One of the biggest barriers I see with my patients is the fear of taste. And for good reason. Ryze has a flavor that many people describe as "earthy," "different," and even "unpleasant." Some Reddit reviews are pretty blunt: "it tastes and smells like vomit."',
-      "Balls N'Brains was formulated to taste like coffee — not like mushrooms, not like dirt, not like a supplement. Most users report that the taste is virtually indistinguishable from conventional coffee.",
+      "Exogenous testosterone tells your brain to stop sending LH (luteinizing hormone). Without LH, your testicles shut down. They atrophy. Testosterone Morning Coffee contains LJ100 Tongkat Ali (300mg) which supports LH signaling, and Fadogia Agrestis (600mg) which supports testicular synthesis. Your natural machinery stays active.",
     ],
     visual: 'image2',
   },
   {
     num: '03',
-    title: 'Ryze Contains Two Mushrooms That Can Lower Your Testosterone',
+    title: 'TRT Costs $150-400/Month. This Is $1.63/Day.',
     body: [
-      "Ryze contains Shiitake and King Trumpet. Shiitake can elevate prolactin — the hormone that directly suppresses testosterone production in the hypothalamus. It's useful for breastfeeding women. For men? High prolactin means less T, less drive, less energy.",
-      'King Trumpet contains phytosterols that reduce HDL cholesterol. Your body uses exactly this "good" cholesterol as raw material to produce testosterone. Less good cholesterol = less raw material = less T.',
-      'If you started taking mushroom coffee and noticed your libido dropping, more difficulty gaining muscle at the gym, or unexplained fatigue — now you know why.',
-      "Balls N'Brains contains neither Shiitake nor King Trumpet. Every mushroom in the formula was specifically chosen for not interfering with the male hormonal axis.",
+      "Monthly testosterone. Quarterly bloodwork. Clinic visits. Anastrozole. HCG. Syringes. That's $1,800-4,800/year for a therapy you can't stop without medical supervision. TMC is $49/month. It also replaces your regular coffee and your T-booster. Net savings: $1,200-4,200/year.",
     ],
     visual: 'image3',
   },
   {
     num: '04',
-    title: 'Ryze Converts Your Testosterone Into Estrogen',
+    title: 'TRT Spikes Estrogen. This Targets the Enzyme That Creates It.',
     body: [
-      'Turkey Tail is present in most mushroom coffees, including Ryze. The problem: Turkey Tail stimulates aromatase — an enzyme that takes the testosterone in your blood and converts it into estradiol, a form of estrogen.',
-      "Estrogen is the female hormone. Every time you drink a mushroom coffee containing Turkey Tail, you're helping your body transform its primary male hormone into a female hormone. The result: less testosterone, more fat retention, less muscle mass, and lower libido.",
-      "Balls N'Brains does not contain Turkey Tail. A deliberate formulation decision. Because if a coffee is made for men, it shouldn't contain an ingredient that converts your testosterone into estrogen.",
+      "Inject T → aromatase converts it → estradiol rises → add anastrozole → joint pain, mood swings, bone density loss. TMC takes a different path: KSM-66 Ashwagandha (300mg) reduces cortisol by 27.9%. Less cortisol = less aromatase stimulation = less conversion. No second drug needed.",
     ],
     visual: 'image4',
   },
   {
     num: '05',
-    title:
-      'Ryze (and Other Mushroom Coffees) Were Made for Women — Not for Men',
+    title: "You Can't Stop TRT Without Crashing. You Can Stop TMC Anytime.",
     body: [
-      'Ryze, Four Sigmatic, Everyday Dose, MUD\\WTR — all of them were formulated for "wellness." Energy, focus, immunity. No gender specificity. No hormonal targeting. Not a single one contains an ingredient that addresses testosterone or modulates cortisol specifically for the male body.',
-      "Balls N'Brains was built around the male hormonal axis:",
-    ],
-    bullets: [
-      'Tongkat Ali LJ100 (300mg) and Fadogia Agrestis (600mg) for testosterone support.',
-      'Ashwagandha KSM-66 (300mg) for cortisol reduction.',
-      'Shilajit (250mg), Zinc (15mg), and Vitamin D3 (2,000 IU) as hormonal co-factors.',
-    ],
-    bodyAfter: [
-      "All on top of 4 functional mushrooms at clinical doses and caffeine modulated by L-Theanine. It's not a coffee with extras. It's a male performance system delivered in the form of coffee.",
+      "After months on TRT, your HPG axis is suppressed. Stop injecting and your T crashes below baseline. You need a managed taper with HCG and/or clomiphene. Some men never fully recover. TMC supports natural production — doesn't replace it. Stop drinking it and you return to baseline. No taper. No PCT.",
     ],
     visual: 'image5',
   },
   {
     num: '06',
-    title: 'Ryze Is Extremely Hard to Cancel (and Was Investigated by the NAD)',
+    title: 'It Fixes the Brain Fog That TRT Completely Misses',
     body: [
-      'Search "Ryze subscription" on Reddit. You\'ll find reports from people who were automatically charged without clear authorization, who tried to cancel and were told by the company that "there\'s nothing we can do to stop this month\'s shipment."',
-      "Ryze was investigated by the NAD (National Advertising Division) in September 2025 and voluntarily withdrew its health claims. I don't recommend any product from a company with that track record to my patients.",
-      "Balls N'Brains works the opposite way. Cancel anytime. One click. No calling anyone. No retention process. And if at any point within 365 days you decide it wasn't worth it, they refund every penny. No questions asked.",
+      "TRT adds testosterone. It doesn't touch cognition. TMC includes Lion's Mane (1,000mg) — stimulates nerve growth factor for brain cell repair. Users report cleared fog within 7-10 days. Plus Cordyceps (1,000mg) — 7% VO2 max increase. Less fatigue, more endurance. One cup hits hormones, brain, and body.",
     ],
     visual: 'image6',
   },
   {
     num: '07',
-    title: "Ryze Hides What You're Actually Taking",
+    title: 'No Needles. No Pharmacy. No Awkward Conversations.',
     body: [
-      "Ryze lists the ingredients on the label but doesn't reveal the individual dose of each one. This is called a \"proprietary blend.\" You know there's lion's mane in there. But you don't know if it's 500mg or 50mg. The same goes for every other ingredient.",
-      "Balls N'Brains has a 100% transparent label. Every ingredient, every milligram, individually declared. Everything out in the open. No mystery.",
-      "If a brand hides the doses, they have a reason. If a brand shows everything, it's because they trust what they put inside.",
+      "Testosterone is Schedule III. Refills require prescriptions. Some pharmacies flag it. Some wives have questions about injections. TMC ships in a plain box. It's coffee. Nobody asks questions at the breakfast table. Same mug, same morning, same routine. The simplicity is the point.",
     ],
     visual: 'image7',
   },
   {
     num: '08',
-    title: 'Ryze May Be "Rice Powder" Disguised as Mushroom Coffee',
+    title: "TRT Has an FDA Cardiovascular Black Box Warning. This Doesn't.",
     body: [
-      'Ryze likely uses "mycelium on grain" — which explains why it\'s so cheap.',
-      "Mycelium on grain is essentially the root of the mushroom grown on rice, then ground up together with the rice. The result is a powder that can be 50-70% grain starch. You think you're taking mushrooms. In reality, you're taking ground rice at supplement prices.",
-      'The ideal approach is to cultivate mushrooms as "fruiting body" — which takes longer to grow but guarantees far greater potency of active compounds.',
-      "On top of that, the cell wall of mushrooms is made of chitin. Without an extraction process that breaks this wall, the active compounds pass through your body without being absorbed. It doesn't matter what's on the label if your body can't access it.",
-      "Balls N'Brains exclusively uses fruiting body with dual extraction. This process breaks the chitin and releases all of the mushrooms' compounds: beta-glucans, hericenones, erinacines, and triterpenes. Ensuring higher quality and efficacy throughout the formula.",
+      "The TRAVERSE trial found higher incidence of major cardiovascular events in men on TRT. TRT commonly elevates hematocrit — increasing blood viscosity and stroke risk. Regular CBC monitoring required. TMC contains no exogenous hormones. No mechanism to elevate hematocrit. No cardiac monitoring needed.",
     ],
     visual: 'image8',
   },
   {
     num: '09',
-    title: "Ryze Doesn't Have a Single Patented Raw Material",
+    title: 'Men Who Switched Are Getting Better Bloodwork',
     body: [
-      'Most mushroom coffees include ingredients on the label at doses that exist to decorate marketing — not to have a real effect.',
-      "Balls N'Brains contains 1,000mg of Lion's Mane and 1,000mg of Cordyceps Militaris — within the range used in clinical studies.",
-      'For the male hormonal axis, it uses Ashwagandha KSM-66® (300mg) the patented raw material with over 24 human studies, standardized for 5% withanolides. And Tongkat Ali LJ100® (300mg) patented, standardized for eurypeptides, with studies demonstrating real testosterone support.',
-      "Balls N'Brains also includes Fadogia Agrestis (600mg), Shilajit (250mg), Zinc Glycinate (15mg), and Vitamin D3 (2,000 IU) — each dosed within the ranges referenced in the literature.",
-      'When a brand uses patented, clinically studied raw materials, it\'s saying: "We didn\'t buy the cheapest option — we bought the one with real science behind it."',
+      "Self-reported results from men transitioning off TRT to TMC at 90 days: total T up 15-30% from pre-TRT baseline. Free T up 20-35%. Estradiol down to 20-30 pg/mL (vs. 40-60+ on TRT). Hematocrit normalized. When you stop flooding the system with synthetic T and instead support natural production while reducing aromatase, your body finds a healthier balance.",
     ],
     visual: 'image9',
   },
   {
     num: '10',
-    title:
-      "Ryze Is More Expensive and Less Effective for Men Than Balls N'Brains",
+    title: "365-Day Guarantee. Your TRT Clinic Doesn't Offer Refunds.",
     body: [
-      "Bottom line? Ryze costs $45, wasn't made for your body, and doesn't do half of what it should.",
-      "Balls N'Brains is the only mushroom coffee designed exclusively for the male body — and it saves you over $250/month you'd otherwise spend on separate supplements like ashwagandha, tongkat ali, lion's mane, cordyceps, shilajit, zinc, and vitamin D.",
-      'In a single scoop that tastes just like real coffee, BNB delivers stable energy with no crash or jitters, less cortisol, and more testosterone — for just $59 a month.',
-      "You can try it risk-free. If you don't like it, just ask for your money back — thanks to their incredible 365-day guarantee. You can also cancel anytime. No stress. No hoops to jump through.",
+      "If TRT doesn't work, you're out the money AND you need medical support to discontinue. TMC: try it for up to a full year. If you're not satisfied, email them, get every penny back. No phone calls. No retention scripts. 26.5% returning customer rate and 4.8 stars across 12,847 reviews says the bet is paying off.",
     ],
     visual: 'image10',
+  },
+];
+
+// ── Week-by-week data ──────────────────────────────────────────────────────
+const weeks = [
+  {
+    period: 'Week 1-2',
+    title: 'The Energy Shift',
+    body: "Clean, sustained focus. No jitters, no 2pm crash. Brain fog starts lifting. Sleep improves as cortisol normalizes. You stop needing the second or third cup.",
+  },
+  {
+    period: 'Week 3-4',
+    title: 'The Hormonal Rebalance',
+    body: "Morning wood returns. Libido ticks up. Workouts feel stronger. Recovery improves. People around you start commenting. The bloated belly starts feeling different.",
+  },
+  {
+    period: 'Week 6-8',
+    title: 'The Compound Effect',
+    body: "Body composition shifts visibly. Less belly fat. More definition. Mental clarity sharpens further. Mood stabilizes. Confidence returns. Your wife notices before your bloodwork does.",
+  },
+  {
+    period: 'Week 12+',
+    title: 'The New Normal',
+    body: "Higher sustained energy. Stronger workouts. Sharper cognition. Healthier hormonal balance. This is where most men get bloodwork done and see the numbers confirm what they've been feeling.",
   },
 ];
 
@@ -250,10 +239,6 @@ export default function ArticleSection() {
         {/* ── HERO ── */}
         <section className="px-8 pt-10 pb-6">
           <FadeIn>
-            <p className="text-sm text-gray-500 mb-3 font-sans">
-              🌿 Natural Support &nbsp;|&nbsp; ⚡ Real Results &nbsp;|&nbsp; 🛡️
-              Proven Safe
-            </p>
             <h1
               style={{
                 fontFamily: "'Georgia', serif",
@@ -264,8 +249,7 @@ export default function ArticleSection() {
                 color: '#111',
               }}
             >
-              Top Doctor: "10 Reasons Why I Don't Recommend Ryze Mushroom Coffee
-              to Any of My Patients"
+              10 Reasons Why Men With Low T Are Ditching TRT for This $1.63/Day Morning Coffee
             </h1>
             <div
               className="mt-5 mb-6 px-5 py-4"
@@ -279,8 +263,7 @@ export default function ArticleSection() {
                   fontStyle: 'italic',
                 }}
               >
-                "Men over 40 shouldn't drink a single cup of this — and here's
-                why…"
+                "More men are asking how to get off TRT than how to get on it. That wasn't the case two years ago."
               </p>
             </div>
 
@@ -337,20 +320,17 @@ export default function ArticleSection() {
               <div
                 style={{
                   display: 'grid',
-                  gridTemplateColumns: '2fr 1fr 1fr 1fr',
+                  gridTemplateColumns: '1.4fr 1fr 1fr',
                   background: '#111',
                   color: '#fff',
                 }}
               >
                 <div className="p-3 text-xs font-bold font-sans uppercase tracking-wider text-gray-400" />
+                <div className="p-3 text-xs font-bold font-sans uppercase tracking-wider text-gray-400 text-center">
+                  💉 TRT
+                </div>
                 <div className="p-3 text-xs font-bold font-sans uppercase tracking-wider text-orange-400 text-center">
-                  Balls N'Brains
-                </div>
-                <div className="p-3 text-xs font-bold font-sans uppercase tracking-wider text-gray-400 text-center">
-                  Ryze
-                </div>
-                <div className="p-3 text-xs font-bold font-sans uppercase tracking-wider text-gray-400 text-center">
-                  Traditional Coffee
+                  ☕ Testosterone Mushroom Coffee
                 </div>
               </div>
               {compRows.map((row, i) => (
@@ -358,31 +338,33 @@ export default function ArticleSection() {
                   key={row.label}
                   style={{
                     display: 'grid',
-                    gridTemplateColumns: '2fr 1fr 1fr 1fr',
+                    gridTemplateColumns: '1.4fr 1fr 1fr',
                     background: i % 2 === 0 ? '#fff' : '#fafafa',
                     borderTop: '1px solid #e5e7eb',
                   }}
                 >
-                  <div className="p-3 text-sm font-sans text-gray-700">
+                  <div className="p-3 text-sm font-bold font-sans text-gray-700">
                     {row.label}
                   </div>
-                  <div className="p-3 text-center text-lg">
-                    {row.bnb ? '👍' : '👎'}
+                  <div className="p-3 text-center text-sm font-sans text-red-600">
+                    {row.trt}
                   </div>
-                  <div className="p-3 text-center text-lg">
-                    {row.ryze ? '👍' : '👎'}
-                  </div>
-                  <div className="p-3 text-center text-lg">
-                    {row.trad ? '👍' : '👎'}
+                  <div className="p-3 text-center text-sm font-sans text-green-700 font-semibold">
+                    {row.tmc}
                   </div>
                 </div>
               ))}
             </div>
-            <p className="mt-5 text-gray-700 font-sans text-base">
-              <strong>In short:</strong> Balls N'Brains Mushroom Coffee offers
-              over 10 benefits for men that Ryze and traditional coffee simply
-              can't match. 👇
-            </p>
+
+            {/* TLDR */}
+            <div
+              className="mt-6 px-5 py-4"
+              style={{ background: '#f0fdf4', borderLeft: '4px solid #16a34a', borderRadius: 8 }}
+            >
+              <p className="text-gray-800 font-sans text-base leading-relaxed">
+                <strong>TLDR:</strong> TRT doesn't address aromatase — the enzyme converting your T into estrogen. It actually feeds it. Testosterone Mushroom Coffee targets the root cause, supports natural production, and costs $1.63/day. No needles. No dependency. 365-day guarantee. 👇
+              </p>
+            </div>
           </FadeIn>
         </section>
 
@@ -393,16 +375,12 @@ export default function ArticleSection() {
           <section key={r.num} className="px-8 py-12">
             <FadeIn delay={80}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                {/* BLOCO DA IMAGEM: Fica sempre em cima no mobile (ordem natural do grid-cols-1).
-            No desktop (md:), ele alterna entre a coluna da direita ou da esquerda. */}
                 <div
                   className={`flex justify-center ${idx % 2 === 0 ? 'md:order-1' : 'md:order-2'}`}
                 >
                   <VisualBlock type={r.visual} />
                 </div>
 
-                {/* BLOCO DE TEXTO: Fica embaixo no mobile.
-            No desktop, ocupa o espaço oposto ao da imagem. */}
                 <div
                   className={`${idx % 2 === 0 ? 'md:order-2' : 'md:order-1'}`}
                 >
@@ -490,9 +468,15 @@ export default function ArticleSection() {
                   textAlign: 'center',
                 }}
               >
+                <p
+                  className="text-gray-500 font-sans text-xs uppercase tracking-widest mb-3"
+                  style={{ letterSpacing: 3 }}
+                >
+                  [ POUCH BnB ]
+                </p>
                 <img
                   src={product}
-                  alt="Balls N'Brains"
+                  alt="Testosterone Mushroom Coffee"
                   className="w-full h-auto object-contain"
                   style={{ maxWidth: 280, margin: '0 auto', display: 'block' }}
                 />
@@ -507,7 +491,7 @@ export default function ArticleSection() {
                     fontSize: 'clamp(24px, 5vw, 36px)',
                   }}
                 >
-                  LIMITED TIME ONLY 👇
+                  Limited Time Only 👇
                 </p>
                 <h2
                   style={{
@@ -524,49 +508,14 @@ export default function ArticleSection() {
                   For Life!
                 </h2>
 
-                {/* Doctor quote */}
-                <div
-                  style={{
-                    background: '#1a1a1a',
-                    borderRadius: 12,
-                    padding: 20,
-                    marginTop: 20,
-                  }}
-                >
-                  <p className="text-white text-sm font-sans italic leading-relaxed">
-                    "Personally, I think it's worth a try. It's organic,
-                    natural, has no side effects, and you'll likely notice
-                    changes within the first few days."
-                  </p>
-                  <div className="flex items-center gap-3 mt-3">
-                    <div
-                      style={{
-                        width: 40,
-                        height: 40,
-                        borderRadius: '50%',
-                        overflow: 'hidden',
-                        flexShrink: 0,
-                      }}
-                    >
-                      <img
-                        src={doctor}
-                        alt="Dr. Ben Palmer"
-                        className="w-full h-full object-cover"
-                      />
-                    </div>
-                    <div>
-                      <p className="text-white font-bold text-sm font-sans">
-                        Dr. Ben Palmer
-                      </p>
-                      <p className="text-orange-400 text-xs font-sans tracking-wider">
-                        MEDICINE & UROLOGY, OXFORD
-                      </p>
-                    </div>
-                  </div>
+                {/* Trust badges */}
+                <div className="mt-4 space-y-2">
+                  <p className="text-gray-700 font-sans text-sm font-semibold">✅ 365-Day Money-Back Guarantee</p>
+                  <p className="text-gray-700 font-sans text-sm font-semibold">🔒 44% OFF — Locked For Life</p>
+                  <p className="text-gray-700 font-sans text-sm font-semibold">🚚 Free Shipping on 2+ Pouches</p>
                 </div>
 
                 {/* CTA */}
-
                 <a
                   href="https://lp.vitavaulthealth.com/preclick"
                   style={{
@@ -591,30 +540,11 @@ export default function ArticleSection() {
                   TRY IT NOW ➤
                 </a>
 
-                <div className="flex items-center gap-3 mt-4">
-                  <div
-                    style={{
-                      width: 52,
-                      height: 52,
-                      borderRadius: '50%',
-                      border: '2px solid #f97316',
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      fontSize: 20,
-                      flexShrink: 0,
-                    }}
-                  >
-                    🚀
-                  </div>
-                  <p className="text-gray-700 font-sans text-sm font-semibold">
-                    Try it today with a 365-day trial period.
-                    <br />
-                    <span className="text-gray-500 font-normal">
-                      Money-back guarantee.
-                    </span>
-                  </p>
-                </div>
+                {/* Reviews */}
+                <p className="text-center text-gray-600 font-sans text-sm mt-4">
+                  ⭐⭐⭐⭐⭐&nbsp;
+                  <span className="font-semibold">12,847+ verified reviews</span>
+                </p>
               </div>
             </div>
           </div>
@@ -635,6 +565,80 @@ export default function ArticleSection() {
       }
     }
   `}</style>
+      </section>
+
+      {/* ── WEEK-BY-WEEK ── */}
+      <section style={{ background: '#fff', width: '100%' }} className="py-12">
+        <FadeIn>
+          <div style={{ maxWidth: 900, margin: '0 auto', padding: '0 32px' }}>
+            <h2
+              style={{
+                fontFamily: 'sans-serif',
+                fontWeight: 900,
+                fontSize: 'clamp(22px, 3vw, 32px)',
+                color: '#111',
+                marginBottom: 32,
+                textAlign: 'center',
+              }}
+            >
+              What to Expect — Week by Week
+            </h2>
+            <div className="space-y-6">
+              {weeks.map((w, i) => (
+                <div
+                  key={i}
+                  style={{
+                    borderLeft: '4px solid #f97316',
+                    paddingLeft: 20,
+                  }}
+                >
+                  <p className="text-orange-500 font-black text-sm font-sans uppercase tracking-widest mb-1">
+                    {w.period}
+                  </p>
+                  <p
+                    style={{
+                      fontFamily: 'sans-serif',
+                      fontWeight: 800,
+                      fontSize: 18,
+                      color: '#111',
+                      marginBottom: 6,
+                    }}
+                  >
+                    {w.title}
+                  </p>
+                  <p className="text-gray-700 font-sans text-base leading-relaxed">
+                    {w.body}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* Final CTA */}
+            <a
+              href="https://lp.vitavaulthealth.com/preclick"
+              style={{
+                display: 'block',
+                width: '100%',
+                marginTop: 40,
+                padding: '18px 0',
+                background: '#f97316',
+                color: '#fff',
+                fontFamily: 'sans-serif',
+                fontWeight: 900,
+                fontSize: 18,
+                letterSpacing: 1.5,
+                border: 'none',
+                borderRadius: 10,
+                cursor: 'pointer',
+                textTransform: 'uppercase',
+                textAlign: 'center',
+                boxShadow: '0 8px 20px rgba(249, 115, 22, 0.35)',
+              }}
+            >
+              TRY IT NOW — 44% OFF ➤
+            </a>
+          </div>
+        </FadeIn>
       </section>
 
       {/* ── FOOTER ── */}
