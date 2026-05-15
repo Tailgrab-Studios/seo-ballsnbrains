@@ -14,7 +14,12 @@ import doctor from '../../assets/testimonials/man1.webp';
 
 // ── Comparison table data ──────────────────────────────────────────────────
 const compRows = [
-  { label: 'Aromatase control', tmc: '✅ Yes', trt: '❌ Feeds it', gen: '❌ Ignores it' },
+  {
+    label: 'Aromatase control',
+    tmc: '✅ Yes',
+    trt: '❌ Feeds it',
+    gen: '❌ Ignores it',
+  },
   { label: 'Monthly cost', tmc: '$49', trt: '$150-$400', gen: '$80-$90' },
   { label: 'Needles/Prescription', tmc: 'None', trt: 'Required', gen: 'None' },
   { label: 'Guarantee', tmc: '365 days', trt: 'None', gen: '30 days' },
@@ -50,14 +55,16 @@ const reasons = [
       '🏔️ Cordyceps (1,000mg) — 7% VO2 max increase',
       '☕ Caffeine 100mg + L-Theanine 100mg — no cortisol spike',
     ],
-    bodyAfter: ['Every dose matches the clinical trials. Fully disclosed on the label.'],
+    bodyAfter: [
+      'Every dose matches the clinical trials. Fully disclosed on the label.',
+    ],
     visual: 'image3',
   },
   {
     num: '04',
-    title: "It Costs $1.63/Day — Less Than the Starbucks It Replaces",
+    title: 'It Costs $1.63/Day — Less Than the Starbucks It Replaces',
     body: [
-      "A 3-pouch is $1.30/day. It replaces your regular coffee ($3-7/day), your T-booster ($40-80/mo), and your nootropic stack ($30-60/mo). Three products collapsed into one cup. In a year where budgets are tight, men are doing the math.",
+      'A 3-pouch is $1.30/day. It replaces your regular coffee ($3-7/day), your T-booster ($40-80/mo), and your nootropic stack ($30-60/mo). Three products collapsed into one cup. In a year where budgets are tight, men are doing the math.',
     ],
     visual: 'image4',
   },
@@ -97,7 +104,7 @@ const reasons = [
     num: '08',
     title: 'Regular Coffee Is Working Against You After 40',
     body: [
-      '200mg+ caffeine = 25-30% cortisol spike per cup. Cortisol stimulates aromatase. Your morning coffee is literally feeding the enzyme that converts your testosterone into estrogen. TMC uses 100mg caffeine + 100mg L-Theanine — sustained energy, zero cortisol spike. You don\'t quit coffee. You switch to one that works with your biology.',
+      "200mg+ caffeine = 25-30% cortisol spike per cup. Cortisol stimulates aromatase. Your morning coffee is literally feeding the enzyme that converts your testosterone into estrogen. TMC uses 100mg caffeine + 100mg L-Theanine — sustained energy, zero cortisol spike. You don't quit coffee. You switch to one that works with your biology.",
     ],
     visual: 'image8',
   },
@@ -124,17 +131,17 @@ const weeks = [
   {
     period: 'Week 1-2',
     title: 'The Energy Shift',
-    body: "Clean, sustained focus. No jitters, no 2pm crash. Brain fog starts lifting. Sleep improves as cortisol normalizes. You stop needing the second or third cup.",
+    body: 'Clean, sustained focus. No jitters, no 2pm crash. Brain fog starts lifting. Sleep improves as cortisol normalizes. You stop needing the second or third cup.',
   },
   {
     period: 'Week 3-4',
     title: 'The Hormonal Rebalance',
-    body: "Morning wood returns. Libido ticks up. Workouts feel stronger. Recovery improves. People around you start commenting. The bloated belly starts feeling different.",
+    body: 'Morning wood returns. Libido ticks up. Workouts feel stronger. Recovery improves. People around you start commenting. The bloated belly starts feeling different.',
   },
   {
     period: 'Week 6-8',
     title: 'The Compound Effect',
-    body: "Body composition shifts visibly. Less belly fat. More definition. Mental clarity sharpens further. Mood stabilizes. Confidence returns. Your wife notices before your bloodwork does.",
+    body: 'Body composition shifts visibly. Less belly fat. More definition. Mental clarity sharpens further. Mood stabilizes. Confidence returns. Your wife notices before your bloodwork does.',
   },
   {
     period: 'Week 12+',
@@ -262,7 +269,8 @@ export default function ArticleSection() {
                 color: '#111',
               }}
             >
-              10 Reasons This Testosterone Coffee Is Trending for Men 40-65+ in 2026
+              10 Reasons This Testosterone Coffee Is Trending for Men 40-65+ in
+              2026
             </h1>
             <div
               className="mt-5 mb-6 px-5 py-4"
@@ -276,7 +284,8 @@ export default function ArticleSection() {
                   fontStyle: 'italic',
                 }}
               >
-                "It started in biohacking forums. Then it hit Facebook. Now urologists are writing the name down."
+                "It started in biohacking forums. Then it hit Facebook. Now
+                urologists are writing the name down."
               </p>
             </div>
 
@@ -380,10 +389,18 @@ export default function ArticleSection() {
             {/* TLDR */}
             <div
               className="mt-6 px-5 py-4"
-              style={{ background: '#f0fdf4', borderLeft: '4px solid #16a34a', borderRadius: 8 }}
+              style={{
+                background: '#f0fdf4',
+                borderLeft: '4px solid #16a34a',
+                borderRadius: 8,
+              }}
             >
               <p className="text-gray-800 font-sans text-base leading-relaxed">
-                <strong>TLDR:</strong> Testosterone Mushroom Coffee that targets aromatase (the enzyme converting your T into estrogen) is the fastest-growing men's supplement in 2026. It replaces your morning coffee, costs $1.63/day, and comes with a 365-day guarantee. Here's why men can't stop talking about it. 👇
+                <strong>TLDR:</strong> Testosterone Mushroom Coffee that targets
+                aromatase (the enzyme converting your T into estrogen) is the
+                fastest-growing men's supplement in 2026. It replaces your
+                morning coffee, costs $1.63/day, and comes with a 365-day
+                guarantee. Here's why men can't stop talking about it. 👇
               </p>
             </div>
           </FadeIn>
@@ -531,14 +548,20 @@ export default function ArticleSection() {
 
                 {/* Trust badges */}
                 <div className="mt-4 space-y-2">
-                  <p className="text-gray-700 font-sans text-sm font-semibold">✅ 365-Day Money-Back Guarantee</p>
-                  <p className="text-gray-700 font-sans text-sm font-semibold">🔒 44% OFF — Locked For Life</p>
-                  <p className="text-gray-700 font-sans text-sm font-semibold">🚚 Free Shipping on 2+ Pouches</p>
+                  <p className="text-gray-700 font-sans text-sm font-semibold">
+                    ✅ 365-Day Money-Back Guarantee
+                  </p>
+                  <p className="text-gray-700 font-sans text-sm font-semibold">
+                    🔒 44% OFF — Locked For Life
+                  </p>
+                  <p className="text-gray-700 font-sans text-sm font-semibold">
+                    🚚 Free Shipping on 2+ Pouches
+                  </p>
                 </div>
 
                 {/* CTA */}
                 <a
-                  href="https://lp.vitavaulthealth.com/preclick"
+                  href="https://lp.ballsnbrains.com/preclick"
                   style={{
                     width: '100%',
                     marginTop: 24,
@@ -564,7 +587,9 @@ export default function ArticleSection() {
                 {/* Reviews */}
                 <p className="text-center text-gray-600 font-sans text-sm mt-4">
                   ⭐⭐⭐⭐⭐&nbsp;
-                  <span className="font-semibold">12,847+ verified reviews</span>
+                  <span className="font-semibold">
+                    12,847+ verified reviews
+                  </span>
                 </p>
               </div>
             </div>
@@ -636,7 +661,7 @@ export default function ArticleSection() {
 
             {/* Final CTA */}
             <a
-              href="https://lp.vitavaulthealth.com/preclick"
+              href="https://lp.ballsnbrains.com/preclick"
               style={{
                 display: 'block',
                 width: '100%',
