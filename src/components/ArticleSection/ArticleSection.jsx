@@ -15,11 +15,31 @@ import doctor from '../../assets/testimonials/man1.webp';
 // ── Comparison table data ──────────────────────────────────────────────────
 const compRows = [
   { label: 'Price', trt: '$150-$400/month', tmc: '$1.63/day' },
-  { label: 'Estrogen', trt: 'Feeds aromatase → Estrogen spikes', tmc: 'Reduces aromatase stimulation' },
-  { label: 'Testicular Health', trt: 'Testicles shrink (documented)', tmc: 'Supports natural testicular function' },
-  { label: 'Dependency', trt: "Can't stop without crashing", tmc: 'Stop anytime. No dependency.' },
-  { label: 'Safety', trt: 'FDA black box cardiovascular warning', tmc: 'No side effects' },
-  { label: 'Guarantee', trt: 'No guarantee', tmc: '365-Day Money-Back Guarantee' },
+  {
+    label: 'Estrogen',
+    trt: 'Feeds aromatase → Estrogen spikes',
+    tmc: 'Reduces aromatase stimulation',
+  },
+  {
+    label: 'Testicular Health',
+    trt: 'Testicles shrink (documented)',
+    tmc: 'Supports natural testicular function',
+  },
+  {
+    label: 'Dependency',
+    trt: "Can't stop without crashing",
+    tmc: 'Stop anytime. No dependency.',
+  },
+  {
+    label: 'Safety',
+    trt: 'FDA black box cardiovascular warning',
+    tmc: 'No side effects',
+  },
+  {
+    label: 'Guarantee',
+    trt: 'No guarantee',
+    tmc: '365-Day Money-Back Guarantee',
+  },
 ];
 
 // ── 10 reasons data ────────────────────────────────────────────────────────
@@ -36,7 +56,7 @@ const reasons = [
     num: '02',
     title: 'TRT Shrinks Your Testicles. This Supports Them.',
     body: [
-      "Exogenous testosterone tells your brain to stop sending LH (luteinizing hormone). Without LH, your testicles shut down. They atrophy. Testosterone Morning Coffee contains LJ100 Tongkat Ali (300mg) which supports LH signaling, and Fadogia Agrestis (600mg) which supports testicular synthesis. Your natural machinery stays active.",
+      'Exogenous testosterone tells your brain to stop sending LH (luteinizing hormone). Without LH, your testicles shut down. They atrophy. Testosterone Morning Coffee contains LJ100 Tongkat Ali (300mg) which supports LH signaling, and Fadogia Agrestis (600mg) which supports testicular synthesis. Your natural machinery stays active.',
     ],
     visual: 'image2',
   },
@@ -52,7 +72,7 @@ const reasons = [
     num: '04',
     title: 'TRT Spikes Estrogen. This Targets the Enzyme That Creates It.',
     body: [
-      "Inject T → aromatase converts it → estradiol rises → add anastrozole → joint pain, mood swings, bone density loss. TMC takes a different path: KSM-66 Ashwagandha (300mg) reduces cortisol by 27.9%. Less cortisol = less aromatase stimulation = less conversion. No second drug needed.",
+      'Inject T → aromatase converts it → estradiol rises → add anastrozole → joint pain, mood swings, bone density loss. TMC takes a different path: KSM-66 Ashwagandha (300mg) reduces cortisol by 27.9%. Less cortisol = less aromatase stimulation = less conversion. No second drug needed.',
     ],
     visual: 'image4',
   },
@@ -84,7 +104,7 @@ const reasons = [
     num: '08',
     title: "TRT Has an FDA Cardiovascular Black Box Warning. This Doesn't.",
     body: [
-      "The TRAVERSE trial found higher incidence of major cardiovascular events in men on TRT. TRT commonly elevates hematocrit — increasing blood viscosity and stroke risk. Regular CBC monitoring required. TMC contains no exogenous hormones. No mechanism to elevate hematocrit. No cardiac monitoring needed.",
+      'The TRAVERSE trial found higher incidence of major cardiovascular events in men on TRT. TRT commonly elevates hematocrit — increasing blood viscosity and stroke risk. Regular CBC monitoring required. TMC contains no exogenous hormones. No mechanism to elevate hematocrit. No cardiac monitoring needed.',
     ],
     visual: 'image8',
   },
@@ -92,7 +112,7 @@ const reasons = [
     num: '09',
     title: 'Men Who Switched Are Getting Better Bloodwork',
     body: [
-      "Self-reported results from men transitioning off TRT to TMC at 90 days: total T up 15-30% from pre-TRT baseline. Free T up 20-35%. Estradiol down to 20-30 pg/mL (vs. 40-60+ on TRT). Hematocrit normalized. When you stop flooding the system with synthetic T and instead support natural production while reducing aromatase, your body finds a healthier balance.",
+      'Self-reported results from men transitioning off TRT to TMC at 90 days: total T up 15-30% from pre-TRT baseline. Free T up 20-35%. Estradiol down to 20-30 pg/mL (vs. 40-60+ on TRT). Hematocrit normalized. When you stop flooding the system with synthetic T and instead support natural production while reducing aromatase, your body finds a healthier balance.',
     ],
     visual: 'image9',
   },
@@ -111,17 +131,17 @@ const weeks = [
   {
     period: 'Week 1-2',
     title: 'The Energy Shift',
-    body: "Clean, sustained focus. No jitters, no 2pm crash. Brain fog starts lifting. Sleep improves as cortisol normalizes. You stop needing the second or third cup.",
+    body: 'Clean, sustained focus. No jitters, no 2pm crash. Brain fog starts lifting. Sleep improves as cortisol normalizes. You stop needing the second or third cup.',
   },
   {
     period: 'Week 3-4',
     title: 'The Hormonal Rebalance',
-    body: "Morning wood returns. Libido ticks up. Workouts feel stronger. Recovery improves. People around you start commenting. The bloated belly starts feeling different.",
+    body: 'Morning wood returns. Libido ticks up. Workouts feel stronger. Recovery improves. People around you start commenting. The bloated belly starts feeling different.',
   },
   {
     period: 'Week 6-8',
     title: 'The Compound Effect',
-    body: "Body composition shifts visibly. Less belly fat. More definition. Mental clarity sharpens further. Mood stabilizes. Confidence returns. Your wife notices before your bloodwork does.",
+    body: 'Body composition shifts visibly. Less belly fat. More definition. Mental clarity sharpens further. Mood stabilizes. Confidence returns. Your wife notices before your bloodwork does.',
   },
   {
     period: 'Week 12+',
@@ -249,7 +269,8 @@ export default function ArticleSection() {
                 color: '#111',
               }}
             >
-              10 Reasons Why Men With Low T Are Ditching TRT for This $1.63/Day Morning Coffee
+              10 Reasons Why Men With Low T Are Ditching TRT for This $1.63/Day
+              Morning Coffee
             </h1>
             <div
               className="mt-5 mb-6 px-5 py-4"
@@ -263,7 +284,8 @@ export default function ArticleSection() {
                   fontStyle: 'italic',
                 }}
               >
-                "More men are asking how to get off TRT than how to get on it. That wasn't the case two years ago."
+                "More men are asking how to get off TRT than how to get on it.
+                That wasn't the case two years ago."
               </p>
             </div>
 
@@ -323,36 +345,71 @@ export default function ArticleSection() {
                 style={{
                   display: 'grid',
                   gridTemplateColumns: '1.4fr 1fr 1.2fr',
-                  background: '#111',
+                  background: 'rgb(255, 255, 255)',
+                  borderBottom: '2px solid #e5e7eb',
                 }}
               >
-                <div style={{ padding: '14px 16px' }} />
+                <div style={{ padding: '16px 16px' }} />
                 <div
                   style={{
-                    padding: '14px 12px',
+                    padding: '16px 12px',
                     textAlign: 'center',
-                    borderLeft: '1px solid #333',
+                    borderLeft: '1px solid #e5e7eb',
                   }}
                 >
-                  <p style={{ color: '#9ca3af', fontFamily: 'sans-serif', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: 2, marginBottom: 4 }}>
+                  <p
+                    style={{
+                      color: '#6b7280',
+                      fontFamily: 'sans-serif',
+                      fontSize: 15,
+                      fontWeight: 700,
+                      textTransform: 'uppercase',
+                      letterSpacing: 1.5,
+                      marginBottom: 3,
+                    }}
+                  >
                     💉 TRT
                   </p>
-                  <p style={{ color: '#ef4444', fontFamily: 'sans-serif', fontSize: 11, fontWeight: 600 }}>
+                  <p
+                    style={{
+                      color: '#ef4444',
+                      fontFamily: 'sans-serif',
+                      fontSize: 12,
+                      fontWeight: 600,
+                    }}
+                  >
                     High risk
                   </p>
                 </div>
                 <div
                   style={{
-                    padding: '14px 12px',
+                    padding: '16px 12px',
                     textAlign: 'center',
-                    background: 'linear-gradient(135deg, #1c1400 0%, #2d1f00 100%)',
-                    borderLeft: '1px solid #f97316',
+                    background: '#fff7ed',
+                    borderLeft: '2px solid #f97316',
                   }}
                 >
-                  <p style={{ color: '#fb923c', fontFamily: 'sans-serif', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: 2, marginBottom: 4 }}>
+                  <p
+                    style={{
+                      color: '#ea6c00',
+                      fontFamily: 'sans-serif',
+                      fontSize: 12,
+                      fontWeight: 700,
+                      textTransform: 'uppercase',
+                      letterSpacing: 1.5,
+                      marginBottom: 3,
+                    }}
+                  >
                     ☕ Testosterone Mushroom Coffee
                   </p>
-                  <p style={{ color: '#4ade80', fontFamily: 'sans-serif', fontSize: 11, fontWeight: 600 }}>
+                  <p
+                    style={{
+                      color: '#16a34a',
+                      fontFamily: 'sans-serif',
+                      fontSize: 11,
+                      fontWeight: 600,
+                    }}
+                  >
                     ✓ Winner
                   </p>
                 </div>
@@ -365,60 +422,107 @@ export default function ArticleSection() {
                   style={{
                     display: 'grid',
                     gridTemplateColumns: '1.4fr 1fr 1.2fr',
-                    background: i % 2 === 0 ? '#fff' : '#fafafa',
-                    borderTop: '1px solid #e5e7eb',
+                    background: i % 2 === 0 ? '#ffffff' : '#fafbfc',
+                    borderTop: '1px solid #f1f5f9',
+                    transition: 'background 0.2s ease',
                   }}
                 >
+                  {/* Label column */}
                   <div
                     style={{
-                      padding: '14px 16px',
-                      fontFamily: 'sans-serif',
+                      padding: '18px 20px',
+                      fontFamily: 'system-ui, -apple-system, sans-serif',
                       fontSize: 13,
-                      fontWeight: 800,
-                      color: '#374151',
+                      fontWeight: 600,
+                      color: '#1f2937',
+                      letterSpacing: '-0.01em',
                       display: 'flex',
                       alignItems: 'center',
                     }}
                   >
                     {row.label}
                   </div>
+
+                  {/* TRT column (negative) */}
                   <div
                     style={{
-                      padding: '14px 12px',
+                      padding: '18px 14px',
                       textAlign: 'center',
-                      fontFamily: 'sans-serif',
+                      fontFamily: 'system-ui, -apple-system, sans-serif',
                       fontSize: 13,
-                      color: '#dc2626',
-                      borderLeft: '1px solid #e5e7eb',
+                      color: '#94a3b8',
+                      borderLeft: '1px solid #f1f5f9',
                       display: 'flex',
                       flexDirection: 'column',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      gap: 4,
+                      gap: 8,
+                      textDecoration: 'line-through',
+                      textDecorationColor: '#cbd5e1',
+                      textDecorationThickness: '1px',
                     }}
                   >
-                    <span style={{ fontSize: 16 }}>✗</span>
-                    {row.trt}
+                    <span
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        width: 22,
+                        height: 22,
+                        borderRadius: '50%',
+                        background: '#fef2f2',
+                        color: '#dc2626',
+                        fontSize: 12,
+                        fontWeight: 700,
+                        lineHeight: 1,
+                      }}
+                    >
+                      ✗
+                    </span>
+                    <span style={{ lineHeight: 1.4 }}>{row.trt}</span>
                   </div>
+
+                  {/* TMC column (positive / winner) */}
                   <div
                     style={{
-                      padding: '14px 12px',
+                      padding: '18px 14px',
                       textAlign: 'center',
-                      fontFamily: 'sans-serif',
+                      fontFamily: 'system-ui, -apple-system, sans-serif',
                       fontSize: 13,
-                      fontWeight: 700,
-                      color: '#15803d',
-                      background: i % 2 === 0 ? '#f0fdf4' : '#e8faf0',
-                      borderLeft: '2px solid #f97316',
+                      fontWeight: 600,
+                      color: '#14532d',
+                      background:
+                        i % 2 === 0
+                          ? 'linear-gradient(180deg, #f0fdf4 0%, #ecfdf5 100%)'
+                          : 'linear-gradient(180deg, #ecfdf5 0%, #e7fbf0 100%)',
+                      borderLeft: '3px solid #f97316',
                       display: 'flex',
                       flexDirection: 'column',
                       alignItems: 'center',
                       justifyContent: 'center',
-                      gap: 4,
+                      gap: 8,
+                      letterSpacing: '-0.01em',
                     }}
                   >
-                    <span style={{ fontSize: 16, color: '#16a34a' }}>✓</span>
-                    {row.tmc}
+                    <span
+                      style={{
+                        display: 'inline-flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        width: 22,
+                        height: 22,
+                        borderRadius: '50%',
+                        background: '#16a34a',
+                        color: '#ffffff',
+                        fontSize: 12,
+                        fontWeight: 700,
+                        lineHeight: 1,
+                        boxShadow: '0 2px 4px rgba(22, 163, 74, 0.25)',
+                      }}
+                    >
+                      ✓
+                    </span>
+                    <span style={{ lineHeight: 1.4 }}>{row.tmc}</span>
                   </div>
                 </div>
               ))}
@@ -435,7 +539,11 @@ export default function ArticleSection() {
               }}
             >
               <p className="text-gray-800 font-sans text-base leading-relaxed">
-                <strong>TLDR:</strong> TRT doesn't address aromatase — the enzyme converting your T into estrogen. It actually feeds it. Testosterone Mushroom Coffee targets the root cause, supports natural production, and costs $1.63/day. No needles. No dependency. 365-day guarantee. 👇
+                <strong>TLDR:</strong> TRT doesn't address aromatase — the
+                enzyme converting your T into estrogen. It actually feeds it.
+                Testosterone Mushroom Coffee targets the root cause, supports
+                natural production, and costs $1.63/day. No needles. No
+                dependency. 365-day guarantee. 👇
               </p>
             </div>
           </FadeIn>
@@ -583,9 +691,15 @@ export default function ArticleSection() {
 
                 {/* Trust badges */}
                 <div className="mt-4 space-y-2">
-                  <p className="text-gray-700 font-sans text-sm font-semibold">✅ 365-Day Money-Back Guarantee</p>
-                  <p className="text-gray-700 font-sans text-sm font-semibold">🔒 44% OFF — Locked For Life</p>
-                  <p className="text-gray-700 font-sans text-sm font-semibold">🚚 Free Shipping on 2+ Pouches</p>
+                  <p className="text-gray-700 font-sans text-sm font-semibold">
+                    ✅ 365-Day Money-Back Guarantee
+                  </p>
+                  <p className="text-gray-700 font-sans text-sm font-semibold">
+                    🔒 44% OFF — Locked For Life
+                  </p>
+                  <p className="text-gray-700 font-sans text-sm font-semibold">
+                    🚚 Free Shipping on 2+ Pouches
+                  </p>
                 </div>
 
                 {/* CTA */}
@@ -616,7 +730,9 @@ export default function ArticleSection() {
                 {/* Reviews */}
                 <p className="text-center text-gray-600 font-sans text-sm mt-4">
                   ⭐⭐⭐⭐⭐&nbsp;
-                  <span className="font-semibold">12,847+ verified reviews</span>
+                  <span className="font-semibold">
+                    12,847+ verified reviews
+                  </span>
                 </p>
               </div>
             </div>
