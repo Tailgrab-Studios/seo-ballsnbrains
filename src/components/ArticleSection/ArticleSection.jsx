@@ -1,14 +1,14 @@
 import { useState, useEffect, useRef } from 'react';
-import image01 from '../../assets/images/PV-01.webp';
-import image02 from '../../assets/images/PV-02.webp';
-import image03 from '../../assets/images/PV-03.webp';
-import image04 from '../../assets/images/PV-04.webp';
-import image05 from '../../assets/images/PV-05.webp';
-import image06 from '../../assets/images/PV-06.webp';
-import image07 from '../../assets/images/PV-07.webp';
-import image08 from '../../assets/images/PV-08.webp';
-import image09 from '../../assets/images/PV-09.webp';
-import image10 from '../../assets/images/PV-10.webp';
+import image01 from '../../assets/images/adv-img-01.webp';
+import image02 from '../../assets/images/adv-img-02.webp';
+import image03 from '../../assets/images/adv-img-03.webp';
+import image04 from '../../assets/images/adv-img-04.webp';
+import image05 from '../../assets/images/adv-img-05.webp';
+import image06 from '../../assets/images/adv-img-06.webp';
+import image07 from '../../assets/images/adv-img-07.webp';
+import image08 from '../../assets/images/adv-img-08.webp';
+import image09 from '../../assets/images/adv-img-09.webp';
+import image10 from '../../assets/images/adv-img-10.webp';
 import product from '../../assets/products/1kit-with-bg.webp';
 import doctor from '../../assets/testimonials/man1.webp';
 
