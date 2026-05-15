@@ -1,14 +1,14 @@
 import { useState, useEffect, useRef } from 'react';
-import image01 from '../../assets/images/PV-01.webp';
-import image02 from '../../assets/images/PV-02.webp';
-import image03 from '../../assets/images/PV-03.webp';
-import image04 from '../../assets/images/PV-04.webp';
-import image05 from '../../assets/images/PV-05.webp';
-import image06 from '../../assets/images/PV-06.webp';
-import image07 from '../../assets/images/PV-07.webp';
-import image08 from '../../assets/images/PV-08.webp';
-import image09 from '../../assets/images/PV-09.webp';
-import image10 from '../../assets/images/PV-10.webp';
+import image01 from '../../assets/images/adv-img-01.webp';
+import image02 from '../../assets/images/adv-img-02.webp';
+import image03 from '../../assets/images/adv-img-03.webp';
+import image04 from '../../assets/images/adv-img-04.webp';
+import image05 from '../../assets/images/adv-img-05.webp';
+import image06 from '../../assets/images/adv-img-06.webp';
+import image07 from '../../assets/images/adv-img-07.webp';
+import image08 from '../../assets/images/adv-img-08.webp';
+import image09 from '../../assets/images/adv-img-09.webp';
+import image10 from '../../assets/images/adv-img-10.webp';
 import product from '../../assets/products/1kit-with-bg.webp';
 import doctor from '../../assets/testimonials/man1.webp';
 
@@ -312,44 +312,112 @@ export default function ArticleSection() {
           <FadeIn delay={100}>
             <div
               style={{
-                border: '1.5px solid #e5e7eb',
-                borderRadius: 12,
+                border: '2px solid #e5e7eb',
+                borderRadius: 16,
                 overflow: 'hidden',
+                boxShadow: '0 4px 24px rgba(0,0,0,0.08)',
               }}
             >
+              {/* Table header */}
               <div
                 style={{
                   display: 'grid',
-                  gridTemplateColumns: '1.4fr 1fr 1fr',
+                  gridTemplateColumns: '1.4fr 1fr 1.2fr',
                   background: '#111',
-                  color: '#fff',
                 }}
               >
-                <div className="p-3 text-xs font-bold font-sans uppercase tracking-wider text-gray-400" />
-                <div className="p-3 text-xs font-bold font-sans uppercase tracking-wider text-gray-400 text-center">
-                  💉 TRT
+                <div style={{ padding: '14px 16px' }} />
+                <div
+                  style={{
+                    padding: '14px 12px',
+                    textAlign: 'center',
+                    borderLeft: '1px solid #333',
+                  }}
+                >
+                  <p style={{ color: '#9ca3af', fontFamily: 'sans-serif', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: 2, marginBottom: 4 }}>
+                    💉 TRT
+                  </p>
+                  <p style={{ color: '#ef4444', fontFamily: 'sans-serif', fontSize: 11, fontWeight: 600 }}>
+                    High risk
+                  </p>
                 </div>
-                <div className="p-3 text-xs font-bold font-sans uppercase tracking-wider text-orange-400 text-center">
-                  ☕ Testosterone Mushroom Coffee
+                <div
+                  style={{
+                    padding: '14px 12px',
+                    textAlign: 'center',
+                    background: 'linear-gradient(135deg, #1c1400 0%, #2d1f00 100%)',
+                    borderLeft: '1px solid #f97316',
+                  }}
+                >
+                  <p style={{ color: '#fb923c', fontFamily: 'sans-serif', fontSize: 11, fontWeight: 700, textTransform: 'uppercase', letterSpacing: 2, marginBottom: 4 }}>
+                    ☕ Testosterone Mushroom Coffee
+                  </p>
+                  <p style={{ color: '#4ade80', fontFamily: 'sans-serif', fontSize: 11, fontWeight: 600 }}>
+                    ✓ Winner
+                  </p>
                 </div>
               </div>
+
+              {/* Table rows */}
               {compRows.map((row, i) => (
                 <div
                   key={row.label}
                   style={{
                     display: 'grid',
-                    gridTemplateColumns: '1.4fr 1fr 1fr',
+                    gridTemplateColumns: '1.4fr 1fr 1.2fr',
                     background: i % 2 === 0 ? '#fff' : '#fafafa',
                     borderTop: '1px solid #e5e7eb',
                   }}
                 >
-                  <div className="p-3 text-sm font-bold font-sans text-gray-700">
+                  <div
+                    style={{
+                      padding: '14px 16px',
+                      fontFamily: 'sans-serif',
+                      fontSize: 13,
+                      fontWeight: 800,
+                      color: '#374151',
+                      display: 'flex',
+                      alignItems: 'center',
+                    }}
+                  >
                     {row.label}
                   </div>
-                  <div className="p-3 text-center text-sm font-sans text-red-600">
+                  <div
+                    style={{
+                      padding: '14px 12px',
+                      textAlign: 'center',
+                      fontFamily: 'sans-serif',
+                      fontSize: 13,
+                      color: '#dc2626',
+                      borderLeft: '1px solid #e5e7eb',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: 4,
+                    }}
+                  >
+                    <span style={{ fontSize: 16 }}>✗</span>
                     {row.trt}
                   </div>
-                  <div className="p-3 text-center text-sm font-sans text-green-700 font-semibold">
+                  <div
+                    style={{
+                      padding: '14px 12px',
+                      textAlign: 'center',
+                      fontFamily: 'sans-serif',
+                      fontSize: 13,
+                      fontWeight: 700,
+                      color: '#15803d',
+                      background: i % 2 === 0 ? '#f0fdf4' : '#e8faf0',
+                      borderLeft: '2px solid #f97316',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      gap: 4,
+                    }}
+                  >
+                    <span style={{ fontSize: 16, color: '#16a34a' }}>✓</span>
                     {row.tmc}
                   </div>
                 </div>
@@ -359,7 +427,12 @@ export default function ArticleSection() {
             {/* TLDR */}
             <div
               className="mt-6 px-5 py-4"
-              style={{ background: '#f0fdf4', borderLeft: '4px solid #16a34a', borderRadius: 8 }}
+              style={{
+                background: 'linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%)',
+                borderLeft: '4px solid #16a34a',
+                borderRadius: 10,
+                boxShadow: '0 2px 8px rgba(22, 163, 74, 0.1)',
+              }}
             >
               <p className="text-gray-800 font-sans text-base leading-relaxed">
                 <strong>TLDR:</strong> TRT doesn't address aromatase — the enzyme converting your T into estrogen. It actually feeds it. Testosterone Mushroom Coffee targets the root cause, supports natural production, and costs $1.63/day. No needles. No dependency. 365-day guarantee. 👇
