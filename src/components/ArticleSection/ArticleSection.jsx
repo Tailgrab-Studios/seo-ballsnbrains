@@ -14,7 +14,12 @@ import doctor from '../../assets/testimonials/man1.webp';
 
 // ── Comparison table data ──────────────────────────────────────────────────
 const compRows = [
-  { label: 'Aromatase control', tmc: '✅ Yes', trt: '❌ Feeds it', gen: '❌ Ignores it' },
+  {
+    label: 'Aromatase control',
+    tmc: '✅ Yes',
+    trt: '❌ Feeds it',
+    gen: '❌ Ignores it',
+  },
   { label: 'Monthly cost', tmc: '$49', trt: '$150-$400', gen: '$80-$90' },
   { label: 'Needles/Prescription', tmc: 'None', trt: 'Required', gen: 'None' },
   { label: 'Guarantee', tmc: '365 days', trt: 'None', gen: '30 days' },
@@ -24,7 +29,8 @@ const compRows = [
 const reasons = [
   {
     num: '01',
-    title: "There's an Enzyme Hijacking Your Testosterone — and You've Never Heard of It",
+    title:
+      "There's an Enzyme Hijacking Your Testosterone — and You've Never Heard of It",
     body: [
       "Most men think low T means their body stopped producing. It didn't. An enzyme called aromatase is converting your testosterone into estradiol (estrogen) faster than your body can replace it. It lives in your fat cells, liver, and muscle tissue. After 40, it accelerates. Your T isn't low — it's being stolen.",
     ],
@@ -42,7 +48,7 @@ const reasons = [
     num: '03',
     title: 'That "Normal" Testosterone Result Is Hiding the Real Number',
     body: [
-      "Your doctor tests total testosterone. Most of it is bound to SHBG — inactive. The number that matters is free testosterone — the 1-3% your body actually uses. Aromatase targets free T first. So your total can read \"normal\" while your free T is in the gutter and estradiol is climbing. One eye closed.",
+      'Your doctor tests total testosterone. Most of it is bound to SHBG — inactive. The number that matters is free testosterone — the 1-3% your body actually uses. Aromatase targets free T first. So your total can read "normal" while your free T is in the gutter and estradiol is climbing. One eye closed.',
     ],
     visual: 'image3',
   },
@@ -112,17 +118,17 @@ const weeks = [
   {
     period: 'Week 1-2',
     title: 'The Energy Shift',
-    body: "Clean, sustained focus. No jitters, no 2pm crash. Brain fog starts lifting. Sleep improves as cortisol normalizes. You stop needing the second or third cup.",
+    body: 'Clean, sustained focus. No jitters, no 2pm crash. Brain fog starts lifting. Sleep improves as cortisol normalizes. You stop needing the second or third cup.',
   },
   {
     period: 'Week 3-4',
     title: 'The Hormonal Rebalance',
-    body: "Morning wood returns. Libido ticks up. Workouts feel stronger. Recovery improves. People around you start commenting. The bloated belly starts feeling different.",
+    body: 'Morning wood returns. Libido ticks up. Workouts feel stronger. Recovery improves. People around you start commenting. The bloated belly starts feeling different.',
   },
   {
     period: 'Week 6-8',
     title: 'The Compound Effect',
-    body: "Body composition shifts visibly. Less belly fat. More definition. Mental clarity sharpens further. Mood stabilizes. Confidence returns. Your wife notices before your bloodwork does.",
+    body: 'Body composition shifts visibly. Less belly fat. More definition. Mental clarity sharpens further. Mood stabilizes. Confidence returns. Your wife notices before your bloodwork does.',
   },
   {
     period: 'Week 12+',
@@ -368,10 +374,17 @@ export default function ArticleSection() {
             {/* TLDR */}
             <div
               className="mt-6 px-5 py-4"
-              style={{ background: '#f0fdf4', borderLeft: '4px solid #16a34a', borderRadius: 8 }}
+              style={{
+                background: '#f0fdf4',
+                borderLeft: '4px solid #16a34a',
+                borderRadius: 8,
+              }}
             >
               <p className="text-gray-800 font-sans text-base leading-relaxed">
-                <strong>TLDR:</strong> There's an enzyme called aromatase that converts your testosterone into estrogen. It gets worse after 40. TRT doesn't fix it — it feeds it. Testosterone Mushroom Coffee targets the root cause for $1.63/day. 👇
+                <strong>TLDR:</strong> There's an enzyme called aromatase that
+                converts your testosterone into estrogen. It gets worse after
+                40. TRT doesn't fix it — it feeds it. Testosterone Mushroom
+                Coffee targets the root cause for $1.63/day. 👇
               </p>
             </div>
           </FadeIn>
@@ -477,12 +490,6 @@ export default function ArticleSection() {
                   textAlign: 'center',
                 }}
               >
-                <p
-                  className="text-gray-500 font-sans text-xs uppercase tracking-widest mb-3"
-                  style={{ letterSpacing: 3 }}
-                >
-                  [ POUCH BnB ]
-                </p>
                 <img
                   src={product}
                   alt="Testosterone Mushroom Coffee"
@@ -519,14 +526,20 @@ export default function ArticleSection() {
 
                 {/* Trust badges */}
                 <div className="mt-4 space-y-2">
-                  <p className="text-gray-700 font-sans text-sm font-semibold">✅ 365-Day Money-Back Guarantee</p>
-                  <p className="text-gray-700 font-sans text-sm font-semibold">🔒 44% OFF — Locked For Life</p>
-                  <p className="text-gray-700 font-sans text-sm font-semibold">🚚 Free Shipping on 2+ Pouches</p>
+                  <p className="text-gray-700 font-sans text-sm font-semibold">
+                    ✅ 365-Day Money-Back Guarantee
+                  </p>
+                  <p className="text-gray-700 font-sans text-sm font-semibold">
+                    🔒 44% OFF — Locked For Life
+                  </p>
+                  <p className="text-gray-700 font-sans text-sm font-semibold">
+                    🚚 Free Shipping on 2+ Pouches
+                  </p>
                 </div>
 
                 {/* CTA */}
                 <a
-                  href="https://lp.vitavaulthealth.com/preclick"
+                  href="https://lp.ballsnbrains.com/preclick"
                   style={{
                     width: '100%',
                     marginTop: 24,
@@ -552,7 +565,9 @@ export default function ArticleSection() {
                 {/* Reviews */}
                 <p className="text-center text-gray-600 font-sans text-sm mt-4">
                   ⭐⭐⭐⭐⭐&nbsp;
-                  <span className="font-semibold">12,847+ verified reviews</span>
+                  <span className="font-semibold">
+                    12,847+ verified reviews
+                  </span>
                 </p>
               </div>
             </div>
@@ -624,7 +639,7 @@ export default function ArticleSection() {
 
             {/* Final CTA */}
             <a
-              href="https://lp.vitavaulthealth.com/preclick"
+              href="https://lp.ballsnbrains.com/preclick"
               style={{
                 display: 'block',
                 width: '100%',
