@@ -506,12 +506,6 @@ export default function ArticleSection() {
                   textAlign: 'center',
                 }}
               >
-                <p
-                  className="text-gray-500 font-sans text-xs uppercase tracking-widest mb-3"
-                  style={{ letterSpacing: 3 }}
-                >
-                  [ POUCH BnB ]
-                </p>
                 <img
                   src={product}
                   alt="Testosterone Mushroom Coffee"
