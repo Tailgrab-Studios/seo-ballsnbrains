@@ -15,10 +15,10 @@ const Navbar = () => {
             Ingredients
           </a>
           <a
-            href="#how-it-works"
+            href="#offer"
             className="text-white/70 font-sans text-sm hover:text-white transition-colors no-underline"
           >
-            How It Works
+            Pricing
           </a>
           <a
             href="#reviews"
@@ -38,7 +38,7 @@ const Navbar = () => {
           href="https://ballsnbrains.com/shp/tmc-adv/08/p2-v2/"
           className="bg-[#dca331] text-white font-sans font-black text-xs uppercase tracking-widest py-3 px-6 rounded-full no-underline hover:bg-[#c8941d] transition-colors"
         >
-          Try It & Save 44%
+          Get 34% Off
         </a>
       </div>
     </nav>
