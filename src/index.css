@@ -1,1 +1,31 @@
 @import "tailwindcss";
+
+@theme {
+  --font-sans: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+}
+
+/* ── Pricing Card Design System ─────────────────────────── */
+.pc-shell { position:relative; overflow:hidden; border-radius:1.5rem; isolation:isolate }
+.pc-shell::before { content:""; position:absolute; inset:0; pointer-events:none; opacity:.9; z-index:0; background: radial-gradient(120% 80% at 50% 0%,rgba(255,255,255,.1),transparent 55%), radial-gradient(120% 90% at 50% 120%,rgba(0,0,0,.55),transparent 55%), linear-gradient(180deg,rgba(255,255,255,.059),transparent 18%,rgba(0,0,0,.22)) }
+.pc-shell::after { content:""; position:absolute; inset:0; pointer-events:none; opacity:.22; z-index:0; background:repeating-linear-gradient(135deg,rgba(255,255,255,.059) 0 1px,transparent 1px 6px) }
+.pc-dark { background:linear-gradient(180deg,#3b3f45,#24272c 48%,#15171a); box-shadow:0 28px 70px rgba(0,0,0,.55),inset 0 1px rgba(255,255,255,.078) }
+.pc-dark .pc-topbar { background:linear-gradient(180deg,#b7bcc2,#91979f); box-shadow:inset 0 1px rgba(255,255,255,.45) }
+.pc-dark .pc-topbar span { color:rgba(255,255,255,.92) }
+.pc-gold { background:linear-gradient(180deg,#f3df9f,#e2c26c 42%,#c79b3a); box-shadow:0 22px 60px rgba(229,190,90,.35),inset 0 1px rgba(255,255,255,.28) }
+.pc-gold::after { opacity:.16 }
+.pc-gold .pc-topbar { background:linear-gradient(180deg,#c49a43,#a07828); box-shadow:inset 0 1px rgba(255,255,255,.25) }
+.pc-gold .pc-topbar span { color:rgba(255,255,255,.95) }
+.pc-bevel { box-shadow:inset 0 1px rgba(255,255,255,.122),inset 0 -1px rgba(0,0,0,.278) }
+.pc-inset { box-shadow:inset 0 10px 18px rgba(0,0,0,.22) }
+.pc-pill { border-radius:9999px }
+.pc-pill-track { background:linear-gradient(180deg,rgba(0,0,0,.278),rgba(255,255,255,.059)); border:1px solid rgba(255,255,255,.1) }
+.pc-pill-sub { background:linear-gradient(180deg,#f3df9f,#c49a43); box-shadow:0 10px 18px rgba(0,0,0,.35),inset 0 1px rgba(255,255,255,.45); border:1px solid rgba(255,255,255,.22) }
+.pc-pill-sub-featured { background:linear-gradient(180deg,#fff3c8,#f0d681 35%,#b9892f); box-shadow:0 14px 24px rgba(61,46,14,.3),inset 0 1px rgba(255,255,255,.65); border:1px solid rgba(255,255,255,.35) }
+.pc-cta { background:linear-gradient(180deg,#4a4f55,#2d3136); border:1px solid rgba(255,255,255,.1); box-shadow:inset 0 1px rgba(255,255,255,.122),0 14px 28px rgba(0,0,0,.35) }
+.pc-cta-featured-gold { position:relative; overflow:hidden; border-radius:.9rem; background:linear-gradient(180deg,#fff3c8,#f0d681 28%,#c49a43 60%,#8a6829); border:1px solid rgba(255,255,255,.32); box-shadow:0 22px 44px rgba(61,46,14,.3),0 0 36px rgba(229,190,90,.32),inset 0 1px rgba(255,255,255,.55),inset 0 -10px 18px rgba(0,0,0,.18) }
+.pc-cta-featured-gold::before { content:""; position:absolute; inset:-2px; pointer-events:none; opacity:.85; background:radial-gradient(120% 120% at 50% 0%,rgba(255,255,255,.55),transparent 50%),radial-gradient(120% 120% at 50% 120%,rgba(0,0,0,.278),transparent 55%) }
+.pc-cta-featured-gold::after { content:""; position:absolute; top:-40%; left:-60%; width:60%; height:180%; transform:translate(-160%) skew(-20deg); background:linear-gradient(90deg,transparent,rgba(255,255,255,.75) 45%,transparent); opacity:0; filter:blur(.2px); animation:pc-shine 3.2s linear infinite }
+.pc-cta-featured-gold:hover { box-shadow:0 26px 55px rgba(61,46,14,.34),0 0 54px rgba(229,190,90,.45),inset 0 1px rgba(255,255,255,.6),inset 0 -10px 18px rgba(0,0,0,.18) }
+.pc-cta-featured-gold:hover::after { opacity:.45 }
+@keyframes pc-shine { 0%{transform:translate(-160%) skew(-20deg);opacity:0} 8%{opacity:.25} 40%{transform:translate(260%) skew(-20deg);opacity:.45} 41%{opacity:0} 100%{transform:translate(260%) skew(-20deg);opacity:0} }
+.pc-countdown { background:linear-gradient(180deg,#9f1414,#c81e1e 55%,#8f1414); border:1px solid rgba(0,0,0,.28); box-shadow:0 14px 24px rgba(61,46,14,.25),inset 0 1px rgba(255,255,255,.122) }
