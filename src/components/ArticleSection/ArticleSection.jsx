@@ -1,862 +1,378 @@
-import { useState, useEffect, useRef } from 'react';
-import image01 from '../../assets/images/adv-img-01.webp';
-import image02 from '../../assets/images/adv-img-02.webp';
-import image03 from '../../assets/images/adv-img-03.webp';
-import image04 from '../../assets/images/adv-img-04.webp';
-import image05 from '../../assets/images/adv-img-05.webp';
-import image06 from '../../assets/images/adv-img-06.webp';
-import image07 from '../../assets/images/adv-img-07.webp';
-import image08 from '../../assets/images/adv-img-08.webp';
-import image09 from '../../assets/images/adv-img-09.webp';
-import image10 from '../../assets/images/adv-img-10.webp';
-import product from '../../assets/products/1kit-with-bg.webp';
-import doctor from '../../assets/testimonials/man1.webp';
+import product1 from '../../assets/products/1kit.webp';
 
-// ── Comparison table data ──────────────────────────────────────────────────
-const compRows = [
-  { label: 'Price', trt: '$150-$400/month', tmc: '$1.63/day' },
-  {
-    label: 'Estrogen',
-    trt: 'Feeds aromatase → Estrogen spikes',
-    tmc: 'Reduces aromatase stimulation',
-  },
-  {
-    label: 'Testicular Health',
-    trt: 'Testicles shrink (documented)',
-    tmc: 'Supports natural testicular function',
-  },
-  {
-    label: 'Dependency',
-    trt: "Can't stop without crashing",
-    tmc: 'Stop anytime. No dependency.',
-  },
-  {
-    label: 'Safety',
-    trt: 'FDA black box cardiovascular warning',
-    tmc: 'No side effects',
-  },
-  {
-    label: 'Guarantee',
-    trt: 'No guarantee',
-    tmc: '365-Day Money-Back Guarantee',
-  },
-];
+const CTA_URL = '#';
 
-// ── 10 reasons data ────────────────────────────────────────────────────────
-const reasons = [
-  {
-    num: '01',
-    title: "TRT Doesn't Fix the Real Problem — It Feeds It",
-    body: [
-      "Your T isn't low because production stopped. An enzyme called aromatase is converting it into estrogen. TRT adds more testosterone — but aromatase converts synthetic T too. Your estradiol spikes. Now you need anastrozole. Two drugs instead of zero. The alternative: address the enzyme directly.",
-    ],
-    visual: 'image1',
-  },
-  {
-    num: '02',
-    title: 'TRT Shrinks Your Testicles. This Supports Them.',
-    body: [
-      'Exogenous testosterone tells your brain to stop sending LH (luteinizing hormone). Without LH, your testicles shut down. They atrophy. Testosterone Morning Coffee contains LJ100 Tongkat Ali (300mg) which supports LH signaling, and Fadogia Agrestis (600mg) which supports testicular synthesis. Your natural machinery stays active.',
-    ],
-    visual: 'image2',
-  },
-  {
-    num: '03',
-    title: 'TRT Costs $150-400/Month. This Is $1.63/Day.',
-    body: [
-      "Monthly testosterone. Quarterly bloodwork. Clinic visits. Anastrozole. HCG. Syringes. That's $1,800-4,800/year for a therapy you can't stop without medical supervision. TMC is $49/month. It also replaces your regular coffee and your T-booster. Net savings: $1,200-4,200/year.",
-    ],
-    visual: 'image3',
-  },
-  {
-    num: '04',
-    title: 'TRT Spikes Estrogen. This Targets the Enzyme That Creates It.',
-    body: [
-      'Inject T → aromatase converts it → estradiol rises → add anastrozole → joint pain, mood swings, bone density loss. TMC takes a different path: KSM-66 Ashwagandha (300mg) reduces cortisol by 27.9%. Less cortisol = less aromatase stimulation = less conversion. No second drug needed.',
-    ],
-    visual: 'image4',
-  },
-  {
-    num: '05',
-    title: "You Can't Stop TRT Without Crashing. You Can Stop TMC Anytime.",
-    body: [
-      "After months on TRT, your HPG axis is suppressed. Stop injecting and your T crashes below baseline. You need a managed taper with HCG and/or clomiphene. Some men never fully recover. TMC supports natural production — doesn't replace it. Stop drinking it and you return to baseline. No taper. No PCT.",
-    ],
-    visual: 'image5',
-  },
-  {
-    num: '06',
-    title: 'It Fixes the Brain Fog That TRT Completely Misses',
-    body: [
-      "TRT adds testosterone. It doesn't touch cognition. TMC includes Lion's Mane (1,000mg) — stimulates nerve growth factor for brain cell repair. Users report cleared fog within 7-10 days. Plus Cordyceps (1,000mg) — 7% VO2 max increase. Less fatigue, more endurance. One cup hits hormones, brain, and body.",
-    ],
-    visual: 'image6',
-  },
-  {
-    num: '07',
-    title: 'No Needles. No Pharmacy. No Awkward Conversations.',
-    body: [
-      "Testosterone is Schedule III. Refills require prescriptions. Some pharmacies flag it. Some wives have questions about injections. TMC ships in a plain box. It's coffee. Nobody asks questions at the breakfast table. Same mug, same morning, same routine. The simplicity is the point.",
-    ],
-    visual: 'image7',
-  },
-  {
-    num: '08',
-    title: "TRT Has an FDA Cardiovascular Black Box Warning. This Doesn't.",
-    body: [
-      'The TRAVERSE trial found higher incidence of major cardiovascular events in men on TRT. TRT commonly elevates hematocrit — increasing blood viscosity and stroke risk. Regular CBC monitoring required. TMC contains no exogenous hormones. No mechanism to elevate hematocrit. No cardiac monitoring needed.',
-    ],
-    visual: 'image8',
-  },
-  {
-    num: '09',
-    title: 'Men Who Switched Are Getting Better Bloodwork',
-    body: [
-      'Self-reported results from men transitioning off TRT to TMC at 90 days: total T up 15-30% from pre-TRT baseline. Free T up 20-35%. Estradiol down to 20-30 pg/mL (vs. 40-60+ on TRT). Hematocrit normalized. When you stop flooding the system with synthetic T and instead support natural production while reducing aromatase, your body finds a healthier balance.',
-    ],
-    visual: 'image9',
-  },
-  {
-    num: '10',
-    title: "365-Day Guarantee. Your TRT Clinic Doesn't Offer Refunds.",
-    body: [
-      "If TRT doesn't work, you're out the money AND you need medical support to discontinue. TMC: try it for up to a full year. If you're not satisfied, email them, get every penny back. No phone calls. No retention scripts. 26.5% returning customer rate and 4.8 stars across 12,847 reviews says the bet is paying off.",
-    ],
-    visual: 'image10',
-  },
-];
-
-// ── Week-by-week data ──────────────────────────────────────────────────────
-const weeks = [
-  {
-    period: 'Week 1-2',
-    title: 'The Energy Shift',
-    body: 'Clean, sustained focus. No jitters, no 2pm crash. Brain fog starts lifting. Sleep improves as cortisol normalizes. You stop needing the second or third cup.',
-  },
-  {
-    period: 'Week 3-4',
-    title: 'The Hormonal Rebalance',
-    body: 'Morning wood returns. Libido ticks up. Workouts feel stronger. Recovery improves. People around you start commenting. The bloated belly starts feeling different.',
-  },
-  {
-    period: 'Week 6-8',
-    title: 'The Compound Effect',
-    body: 'Body composition shifts visibly. Less belly fat. More definition. Mental clarity sharpens further. Mood stabilizes. Confidence returns. Your wife notices before your bloodwork does.',
-  },
-  {
-    period: 'Week 12+',
-    title: 'The New Normal',
-    body: "Higher sustained energy. Stronger workouts. Sharper cognition. Healthier hormonal balance. This is where most men get bloodwork done and see the numbers confirm what they've been feeling.",
-  },
-];
-
-// ── Visual block ───────────────────────────────────────────────────────────
-const VisualBlock = ({ type }) => {
-  const darkCard =
-    'bg-gray-900 rounded-2xl overflow-hidden flex items-center justify-center';
-  const lightCard =
-    'bg-gray-100 rounded-2xl overflow-hidden flex items-center justify-center';
-
-  const darkTypes = [
-    'image1',
-    'image3',
-    'image4',
-    'image6',
-    'image7',
-    'image8',
-    'image9',
-  ];
-
-  const srcMap = {
-    image1: image01,
-    image2: image02,
-    image3: image03,
-    image4: image04,
-    image5: image05,
-    image6: image06,
-    image7: image07,
-    image8: image08,
-    image9: image09,
-    image10: image10,
-  };
-
-  const isDark = darkTypes.includes(type);
-  return (
-    <div
-      className={`${isDark ? darkCard : lightCard} w-full aspect-square max-w-sm`}
-      style={isDark ? { background: '#111' } : {}}
-    >
-      <img src={srcMap[type]} alt="" className="w-full h-full object-cover" />
-    </div>
-  );
+const s = {
+  titleColor: '#1a5c47',
+  prosColor: '#2d6a4f',
+  consColor: '#b91c1c',
+  btnBg: '#1e3a8a',
+  linkColor: '#1a5c47',
 };
 
-// ── Animated section wrapper ───────────────────────────────────────────────
-const FadeIn = ({ children, delay = 0 }) => {
-  const ref = useRef(null);
-  const [visible, setVisible] = useState(false);
-  useEffect(() => {
-    const obs = new IntersectionObserver(
-      ([e]) => {
-        if (e.isIntersecting) setVisible(true);
-      },
-      { threshold: 0.1 },
-    );
-    if (ref.current) obs.observe(ref.current);
-    return () => obs.disconnect();
-  }, []);
+function Divider() {
   return (
-    <div
-      ref={ref}
-      style={{
-        opacity: visible ? 1 : 0,
-        transform: visible ? 'translateY(0)' : 'translateY(32px)',
-        transition: `opacity 0.6s ease ${delay}ms, transform 0.6s ease ${delay}ms`,
-      }}
-    >
-      {children}
+    <div style={{ textAlign: 'center', color: '#999', fontSize: 18, margin: '32px 0', letterSpacing: 6 }}>
+      • • •
     </div>
   );
-};
+}
 
-// ── Main page ──────────────────────────────────────────────────────────────
+function ImageBox({ src, alt, caption }) {
+  return (
+    <div style={{ background: '#f3f4f6', border: '1px solid #e5e7eb', borderRadius: 4, padding: '24px 16px', textAlign: 'center', margin: '20px 0' }}>
+      {src ? (
+        <img src={src} alt={alt} style={{ maxWidth: '100%', maxHeight: 280, objectFit: 'contain', margin: '0 auto', display: 'block' }} />
+      ) : (
+        <span style={{ fontSize: 28, display: 'block', marginBottom: 8 }}>📷</span>
+      )}
+      <p style={{ color: '#6b7280', fontFamily: 'sans-serif', fontSize: 13, marginTop: src ? 12 : 0 }}>{caption}</p>
+    </div>
+  );
+}
+
+function ProsList({ items }) {
+  return (
+    <div style={{ marginBottom: 20 }}>
+      <p style={{ fontFamily: 'sans-serif', fontWeight: 700, fontSize: 15, color: s.prosColor, marginBottom: 10, letterSpacing: 0.5 }}>PROS</p>
+      <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+        {items.map((item, i) => (
+          <li key={i} style={{ display: 'flex', gap: 10, marginBottom: 10, fontFamily: 'Georgia, serif', fontSize: 15, lineHeight: 1.55, color: '#222' }}>
+            <span style={{ color: s.prosColor, fontWeight: 700, flexShrink: 0, marginTop: 1 }}>✓</span>
+            <span>
+              {item.bold && <strong>{item.bold}</strong>}
+              {item.text}
+            </span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function ConsList({ items }) {
+  return (
+    <div style={{ marginBottom: 20 }}>
+      <p style={{ fontFamily: 'sans-serif', fontWeight: 700, fontSize: 15, color: s.consColor, marginBottom: 10, letterSpacing: 0.5 }}>CONS</p>
+      <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+        {items.map((item, i) => (
+          <li key={i} style={{ display: 'flex', gap: 10, marginBottom: 10, fontFamily: 'Georgia, serif', fontSize: 15, lineHeight: 1.55, color: '#222' }}>
+            <span style={{ color: s.consColor, fontWeight: 700, flexShrink: 0, marginTop: 1 }}>✗</span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function BuyButton({ label = 'BUY IT HERE', href = CTA_URL }) {
+  return (
+    <a
+      href={href}
+      style={{ display: 'block', width: '100%', padding: '14px 0', background: s.btnBg, color: '#fff', fontFamily: 'sans-serif', fontWeight: 700, fontSize: 17, textAlign: 'center', textDecoration: 'none', borderRadius: 3, marginTop: 16, cursor: 'pointer', letterSpacing: 0.5 }}
+    >
+      {label}
+    </a>
+  );
+}
+
+function BuyLink({ label, href = CTA_URL }) {
+  return (
+    <p style={{ marginTop: 12 }}>
+      <a href={href} style={{ fontFamily: 'Georgia, serif', fontSize: 15, color: s.linkColor, fontStyle: 'italic', textDecoration: 'underline' }}>
+        {label}
+      </a>
+    </p>
+  );
+}
+
+function PromoBox() {
+  return (
+    <div style={{ border: '2px solid #f59e0b', background: '#fffbeb', borderRadius: 4, padding: '16px 20px', margin: '20px 0' }}>
+      <p style={{ fontFamily: 'sans-serif', fontSize: 15, color: '#111', lineHeight: 1.6, margin: 0 }}>
+        <strong style={{ color: '#d97706' }}>LIMITED TIME PROMO:</strong> 40% off + free shipping for new customers if you order right now! Backed by a 365-day money-back guarantee — if it doesn't work, they'll return 100% of your money.{' '}
+        <a href={CTA_URL} style={{ color: s.titleColor, fontWeight: 700, textDecoration: 'underline' }}>CLICK to activate.</a>
+      </p>
+    </div>
+  );
+}
+
+function ProductSection({ rank, name, tagline, image, imageCaption, pros, cons, ctaType, ctaLabel, ctaHref, showPromo }) {
+  const headingColor = rank === 1 ? s.titleColor : '#1a3c6e';
+  return (
+    <section style={{ marginBottom: 8 }}>
+      <h2 style={{ fontFamily: 'sans-serif', fontWeight: 800, fontSize: 'clamp(18px, 3vw, 24px)', color: headingColor, marginBottom: 8, letterSpacing: 0.5 }}>
+        #{rank}&nbsp;&nbsp;{name}
+        {tagline && <span style={{ fontSize: 13, fontWeight: 600, marginLeft: 12, verticalAlign: 'middle' }}>— {tagline}</span>}
+      </h2>
+      <hr style={{ border: 'none', borderTop: '2px solid #e5e7eb', marginBottom: 20 }} />
+      <ImageBox src={image} alt={name} caption={imageCaption} />
+      <ProsList items={pros} />
+      <ConsList items={cons} />
+      {ctaType === 'button' ? (
+        <BuyButton label={ctaLabel} href={ctaHref} />
+      ) : (
+        <BuyLink label={ctaLabel} href={ctaHref} />
+      )}
+      {showPromo && <PromoBox />}
+    </section>
+  );
+}
+
+function Comment({ name, time, likes, text, reply = false }) {
+  return (
+    <div style={{ borderBottom: '1px solid #e5e7eb', paddingTop: 20, paddingBottom: 20, paddingLeft: reply ? 32 : 0, background: reply ? '#f9fafb' : 'transparent' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
+        <strong style={{ fontFamily: 'sans-serif', fontSize: 14, color: reply ? s.titleColor : '#111' }}>{name}</strong>
+        <span style={{ fontFamily: 'sans-serif', fontSize: 12, color: '#9ca3af' }}>· {time} · {likes} Likes{reply && ' (reply)'}</span>
+      </div>
+      <p style={{ fontFamily: 'Georgia, serif', fontSize: 15, lineHeight: 1.6, color: '#333', margin: 0 }}>{text}</p>
+    </div>
+  );
+}
+
 export default function ArticleSection() {
   return (
-    <div
-      style={{
-        fontFamily: "'Georgia', serif",
-        background: '#fff',
-        color: '#111',
-      }}
-    >
-      <div style={{ maxWidth: 900, margin: '0 auto' }}>
-        {/* ── HEADER ── */}
-        <header className="px-8 pt-6 pb-2 border-b border-gray-200 flex items-center justify-center">
-          <div className="flex items-center gap-2">
-            <span
-              style={{
-                fontFamily: 'monospace',
-                fontWeight: 900,
-                fontSize: 22,
-                letterSpacing: 4,
-                textTransform: 'uppercase',
-              }}
-            >
-              ADVERTORIAL
-            </span>
-            <span
-              style={{
-                width: 12,
-                height: 12,
-                borderRadius: '50%',
-                background: '#f97316',
-                display: 'inline-block',
-              }}
-            />
-          </div>
-        </header>
+    <div style={{ fontFamily: 'Georgia, serif', background: '#fff', color: '#111', minHeight: '100vh' }}>
 
-        {/* ── HERO ── */}
-        <section className="px-8 pt-10 pb-6">
-          <FadeIn>
-            <h1
-              style={{
-                fontFamily: "'Georgia', serif",
-                fontWeight: 900,
-                fontSize: 'clamp(28px, 4vw, 44px)',
-                lineHeight: 1.1,
-                letterSpacing: '-0.5px',
-                color: '#111',
-              }}
-            >
-              10 Reasons Why Men With Low T Are Ditching TRT for This $1.63/Day
-              Morning Coffee
-            </h1>
-            <div
-              className="mt-5 mb-6 px-5 py-4"
-              style={{ background: '#fff7ed', borderLeft: '4px solid #f97316' }}
-            >
-              <p
-                style={{
-                  fontFamily: 'Georgia, serif',
-                  fontSize: 18,
-                  color: '#333',
-                  fontStyle: 'italic',
-                }}
-              >
-                "More men are asking how to get off TRT than how to get on it.
-                That wasn't the case two years ago."
-              </p>
-            </div>
+      {/* ── SITE HEADER ── */}
+      <header style={{ borderBottom: '1px solid #e5e7eb', padding: '12px 0', textAlign: 'center' }}>
+        <p style={{ fontFamily: 'sans-serif', fontWeight: 900, fontSize: 16, letterSpacing: 3, textTransform: 'uppercase', margin: 0, color: '#111' }}>
+          THE EVERYDAY MAN
+          <span style={{ fontWeight: 400, fontSize: 12, color: '#6b7280', marginLeft: 8, letterSpacing: 1 }}>WELLNESS · REVIEWS</span>
+        </p>
+      </header>
 
-            {/* Doctor bio */}
-            <div className="flex items-start gap-4 mb-2">
-              <div
-                style={{
-                  width: 56,
-                  height: 56,
-                  borderRadius: '50%',
-                  overflow: 'hidden',
-                  flexShrink: 0,
-                }}
-              >
-                <img
-                  src={doctor}
-                  alt="Dr. Ben Palmer"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-              <div>
-                <p
-                  style={{
-                    fontWeight: 700,
-                    fontSize: 16,
-                    fontFamily: 'sans-serif',
-                  }}
-                >
-                  Dr. Ben Palmer, PhD, MS
-                </p>
-                <p className="text-gray-500 text-sm font-sans">
-                  Medicine & Urology, University of Oxford;
-                  <br />
-                  Biotechnology, Columbia University.
-                </p>
-                <p className="text-gray-400 text-xs font-sans mt-1">
-                  Last Updated: March 20, 2026
-                </p>
-              </div>
-            </div>
-          </FadeIn>
-        </section>
+      <div style={{ maxWidth: 740, margin: '0 auto', padding: '0 24px' }}>
 
-        {/* ── COMPARISON TABLE ── */}
-        <section className="px-8 py-8">
-          <FadeIn delay={100}>
-            <div
-              style={{
-                border: '2px solid #e5e7eb',
-                borderRadius: 16,
-                overflow: 'hidden',
-                boxShadow: '0 4px 24px rgba(0,0,0,0.08)',
-              }}
-            >
-              {/* Table header */}
-              <div
-                style={{
-                  display: 'grid',
-                  gridTemplateColumns: '1.4fr 1fr 1.2fr',
-                  background: 'rgb(255, 255, 255)',
-                  borderBottom: '2px solid #e5e7eb',
-                }}
-              >
-                <div style={{ padding: '16px 16px' }} />
-                <div
-                  style={{
-                    padding: '16px 12px',
-                    textAlign: 'center',
-                    borderLeft: '1px solid #e5e7eb',
-                  }}
-                >
-                  <p
-                    style={{
-                      color: '#6b7280',
-                      fontFamily: 'sans-serif',
-                      fontSize: 15,
-                      fontWeight: 700,
-                      textTransform: 'uppercase',
-                      letterSpacing: 1.5,
-                      marginBottom: 3,
-                    }}
-                  >
-                    💉 TRT
-                  </p>
-                  <p
-                    style={{
-                      color: '#ef4444',
-                      fontFamily: 'sans-serif',
-                      fontSize: 12,
-                      fontWeight: 600,
-                    }}
-                  >
-                    High risk
-                  </p>
-                </div>
-                <div
-                  style={{
-                    padding: '16px 12px',
-                    textAlign: 'center',
-                    background: '#fff7ed',
-                    borderLeft: '2px solid #f97316',
-                  }}
-                >
-                  <p
-                    style={{
-                      color: '#ea6c00',
-                      fontFamily: 'sans-serif',
-                      fontSize: 12,
-                      fontWeight: 700,
-                      textTransform: 'uppercase',
-                      letterSpacing: 1.5,
-                      marginBottom: 3,
-                    }}
-                  >
-                    ☕ Testosterone Mushroom Coffee
-                  </p>
-                  <p
-                    style={{
-                      color: '#16a34a',
-                      fontFamily: 'sans-serif',
-                      fontSize: 11,
-                      fontWeight: 600,
-                    }}
-                  >
-                    ✓ Winner
-                  </p>
-                </div>
-              </div>
-
-              {/* Table rows */}
-              {compRows.map((row, i) => (
-                <div
-                  key={row.label}
-                  style={{
-                    display: 'grid',
-                    gridTemplateColumns: '1.4fr 1fr 1.2fr',
-                    background: i % 2 === 0 ? '#ffffff' : '#fafbfc',
-                    borderTop: '1px solid #f1f5f9',
-                    transition: 'background 0.2s ease',
-                  }}
-                >
-                  {/* Label column */}
-                  <div
-                    style={{
-                      padding: '18px 20px',
-                      fontFamily: 'system-ui, -apple-system, sans-serif',
-                      fontSize: 13,
-                      fontWeight: 600,
-                      color: '#1f2937',
-                      letterSpacing: '-0.01em',
-                      display: 'flex',
-                      alignItems: 'center',
-                    }}
-                  >
-                    {row.label}
-                  </div>
-
-                  {/* TRT column (negative) */}
-                  <div
-                    style={{
-                      padding: '18px 14px',
-                      textAlign: 'center',
-                      fontFamily: 'system-ui, -apple-system, sans-serif',
-                      fontSize: 13,
-                      color: '#94a3b8',
-                      borderLeft: '1px solid #f1f5f9',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      gap: 8,
-                      textDecoration: 'line-through',
-                      textDecorationColor: '#cbd5e1',
-                      textDecorationThickness: '1px',
-                    }}
-                  >
-                    <span
-                      style={{
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        width: 22,
-                        height: 22,
-                        borderRadius: '50%',
-                        background: '#fef2f2',
-                        color: '#dc2626',
-                        fontSize: 12,
-                        fontWeight: 700,
-                        lineHeight: 1,
-                      }}
-                    >
-                      ✗
-                    </span>
-                    <span style={{ lineHeight: 1.4 }}>{row.trt}</span>
-                  </div>
-
-                  {/* TMC column (positive / winner) */}
-                  <div
-                    style={{
-                      padding: '18px 14px',
-                      textAlign: 'center',
-                      fontFamily: 'system-ui, -apple-system, sans-serif',
-                      fontSize: 13,
-                      fontWeight: 600,
-                      color: '#14532d',
-                      background:
-                        i % 2 === 0
-                          ? 'linear-gradient(180deg, #f0fdf4 0%, #ecfdf5 100%)'
-                          : 'linear-gradient(180deg, #ecfdf5 0%, #e7fbf0 100%)',
-                      borderLeft: '3px solid #f97316',
-                      display: 'flex',
-                      flexDirection: 'column',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                      gap: 8,
-                      letterSpacing: '-0.01em',
-                    }}
-                  >
-                    <span
-                      style={{
-                        display: 'inline-flex',
-                        alignItems: 'center',
-                        justifyContent: 'center',
-                        width: 22,
-                        height: 22,
-                        borderRadius: '50%',
-                        background: '#16a34a',
-                        color: '#ffffff',
-                        fontSize: 12,
-                        fontWeight: 700,
-                        lineHeight: 1,
-                        boxShadow: '0 2px 4px rgba(22, 163, 74, 0.25)',
-                      }}
-                    >
-                      ✓
-                    </span>
-                    <span style={{ lineHeight: 1.4 }}>{row.tmc}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* TLDR */}
-            <div
-              className="mt-6 px-5 py-4"
-              style={{
-                background: 'linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%)',
-                borderLeft: '4px solid #16a34a',
-                borderRadius: 10,
-                boxShadow: '0 2px 8px rgba(22, 163, 74, 0.1)',
-              }}
-            >
-              <p className="text-gray-800 font-sans text-base leading-relaxed">
-                <strong>TLDR:</strong> TRT doesn't address aromatase — the
-                enzyme converting your T into estrogen. It actually feeds it.
-                Testosterone Mushroom Coffee targets the root cause, supports
-                natural production, and costs $1.63/day. No needles. No
-                dependency. 365-day guarantee. 👇
-              </p>
-            </div>
-          </FadeIn>
-        </section>
-
-        <div style={{ borderTop: '1px solid #e5e7eb', margin: '0 32px' }} />
-
-        {/* ── 10 REASONS ── */}
-        {reasons.map((r, idx) => (
-          <section key={r.num} className="px-8 py-12">
-            <FadeIn delay={80}>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-                <div
-                  className={`flex justify-center ${idx % 2 === 0 ? 'md:order-1' : 'md:order-2'}`}
-                >
-                  <VisualBlock type={r.visual} />
-                </div>
-
-                <div
-                  className={`${idx % 2 === 0 ? 'md:order-2' : 'md:order-1'}`}
-                >
-                  <p className="text-orange-500 font-black text-sm tracking-widest font-sans mb-2">
-                    #{r.num}
-                  </p>
-                  <h2
-                    style={{
-                      fontFamily: 'sans-serif',
-                      fontWeight: 900,
-                      fontSize: 'clamp(18px,2.2vw,26px)',
-                      lineHeight: 1.15,
-                      textTransform: 'uppercase',
-                      letterSpacing: '-0.3px',
-                      color: '#111',
-                      marginBottom: 16,
-                    }}
-                  >
-                    {r.title}
-                  </h2>
-                  {r.body.map((p, i) => (
-                    <p
-                      key={i}
-                      className="text-gray-700 font-sans text-base leading-relaxed mb-3"
-                    >
-                      {p}
-                    </p>
-                  ))}
-                  {r.bullets && (
-                    <ul className="mb-3 ml-4 list-disc">
-                      {r.bullets.map((b, i) => (
-                        <li
-                          key={i}
-                          className="text-gray-700 font-sans text-base leading-relaxed mb-1"
-                        >
-                          {b}
-                        </li>
-                      ))}
-                    </ul>
-                  )}
-                  {r.bodyAfter &&
-                    r.bodyAfter.map((p, i) => (
-                      <p
-                        key={i}
-                        className="text-gray-700 font-sans text-base leading-relaxed mb-3"
-                      >
-                        {p}
-                      </p>
-                    ))}
-                </div>
-              </div>
-            </FadeIn>
-            {idx < reasons.length - 1 && (
-              <div className="border-t border-gray-200 mt-12" />
-            )}
-          </section>
-        ))}
-      </div>
-
-      {/* ── CTA SECTION ── */}
-      <section
-        style={{
-          background: '#fff7ed',
-          borderTop: '2px solid #f97316',
-          width: '100%',
-        }}
-        className="py-12"
-      >
-        <FadeIn>
-          <div style={{ maxWidth: 900, margin: '0 auto', padding: '0 24px' }}>
-            <div
-              style={{
-                display: 'grid',
-                gridTemplateColumns: 'var(--cols, 1fr 1fr)',
-                gap: 'var(--gap, 48px)',
-                alignItems: 'center',
-              }}
-              className="offer-grid"
-            >
-              {/* Product image */}
-              <div
-                style={{
-                  borderRadius: 16,
-                  padding: 'var(--img-pad, 32px)',
-                  textAlign: 'center',
-                }}
-              >
-                <img
-                  src={product}
-                  alt="Testosterone Mushroom Coffee"
-                  className="w-full h-auto object-contain"
-                  style={{ maxWidth: 280, margin: '0 auto', display: 'block' }}
-                />
-              </div>
-
-              {/* Offer */}
-              <div>
-                <p
-                  className="text-orange-500 font-black leading-tight"
-                  style={{
-                    fontFamily: 'sans-serif',
-                    fontSize: 'clamp(24px, 5vw, 36px)',
-                  }}
-                >
-                  Limited Time Only 👇
-                </p>
-                <h2
-                  style={{
-                    fontFamily: 'sans-serif',
-                    fontWeight: 900,
-                    fontSize: 'clamp(26px, 5vw, 36px)',
-                    color: '#111',
-                    lineHeight: 1.1,
-                    marginTop: 8,
-                  }}
-                >
-                  Try Today, Get 44% Off
-                  <br />
-                  For Life!
-                </h2>
-
-                {/* Trust badges */}
-                <div className="mt-4 space-y-2">
-                  <p className="text-gray-700 font-sans text-sm font-semibold">
-                    ✅ 365-Day Money-Back Guarantee
-                  </p>
-                  <p className="text-gray-700 font-sans text-sm font-semibold">
-                    🔒 44% OFF — Locked For Life
-                  </p>
-                  <p className="text-gray-700 font-sans text-sm font-semibold">
-                    🚚 Free Shipping on 2+ Pouches
-                  </p>
-                </div>
-
-                {/* CTA */}
-                <a
-                  href="https://lp.vitavaulthealth.com/preclick"
-                  style={{
-                    width: '100%',
-                    marginTop: 24,
-                    padding: '18px 0',
-                    background: '#f97316',
-                    color: '#fff',
-                    fontFamily: 'sans-serif',
-                    fontWeight: 900,
-                    fontSize: 18,
-                    letterSpacing: 1.5,
-                    border: 'none',
-                    borderRadius: 10,
-                    cursor: 'pointer',
-                    textTransform: 'uppercase',
-                    display: 'block',
-                    textAlign: 'center',
-                    boxShadow: '0 8px 20px rgba(249, 115, 22, 0.35)',
-                  }}
-                >
-                  TRY IT NOW ➤
-                </a>
-
-                {/* Reviews */}
-                <p className="text-center text-gray-600 font-sans text-sm mt-4">
-                  ⭐⭐⭐⭐⭐&nbsp;
-                  <span className="font-semibold">
-                    12,847+ verified reviews
-                  </span>
-                </p>
-              </div>
-            </div>
-          </div>
-        </FadeIn>
-
-        {/* Inline responsive styles */}
-        <style>{`
-    .offer-grid {
-      --cols: 1fr 1fr;
-      --gap: 48px;
-      --img-pad: 32px;
-    }
-    @media (max-width: 640px) {
-      .offer-grid {
-        --cols: 1fr;
-        --gap: 24px;
-        --img-pad: 8px 8px 0;
-      }
-    }
-  `}</style>
-      </section>
-
-      {/* ── WEEK-BY-WEEK ── */}
-      <section style={{ background: '#fff', width: '100%' }} className="py-12">
-        <FadeIn>
-          <div style={{ maxWidth: 900, margin: '0 auto', padding: '0 32px' }}>
-            <h2
-              style={{
-                fontFamily: 'sans-serif',
-                fontWeight: 900,
-                fontSize: 'clamp(22px, 3vw, 32px)',
-                color: '#111',
-                marginBottom: 32,
-                textAlign: 'center',
-              }}
-            >
-              What to Expect — Week by Week
-            </h2>
-            <div className="space-y-6">
-              {weeks.map((w, i) => (
-                <div
-                  key={i}
-                  style={{
-                    borderLeft: '4px solid #f97316',
-                    paddingLeft: 20,
-                  }}
-                >
-                  <p className="text-orange-500 font-black text-sm font-sans uppercase tracking-widest mb-1">
-                    {w.period}
-                  </p>
-                  <p
-                    style={{
-                      fontFamily: 'sans-serif',
-                      fontWeight: 800,
-                      fontSize: 18,
-                      color: '#111',
-                      marginBottom: 6,
-                    }}
-                  >
-                    {w.title}
-                  </p>
-                  <p className="text-gray-700 font-sans text-base leading-relaxed">
-                    {w.body}
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            {/* Final CTA */}
-            <a
-              href="https://lp.vitavaulthealth.com/preclick"
-              style={{
-                display: 'block',
-                width: '100%',
-                marginTop: 40,
-                padding: '18px 0',
-                background: '#f97316',
-                color: '#fff',
-                fontFamily: 'sans-serif',
-                fontWeight: 900,
-                fontSize: 18,
-                letterSpacing: 1.5,
-                border: 'none',
-                borderRadius: 10,
-                cursor: 'pointer',
-                textTransform: 'uppercase',
-                textAlign: 'center',
-                boxShadow: '0 8px 20px rgba(249, 115, 22, 0.35)',
-              }}
-            >
-              TRY IT NOW — 44% OFF ➤
-            </a>
-          </div>
-        </FadeIn>
-      </section>
-
-      {/* ── FOOTER ── */}
-      <footer
-        style={{
-          background: '#111',
-          color: '#fff',
-          width: '100%',
-          padding: '48px 0',
-          textAlign: 'center',
-        }}
-      >
-        <div style={{ maxWidth: 900, margin: '0 auto', padding: '0 32px' }}>
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <span
-              style={{
-                width: 10,
-                height: 10,
-                borderRadius: '50%',
-                background: '#f97316',
-                display: 'inline-block',
-              }}
-            />
-          </div>
-          <p className="text-gray-500 text-sm font-sans mb-1">
-            Terms of Service | Privacy Policy
+        {/* ── ARTICLE META ── */}
+        <div style={{ paddingTop: 32, paddingBottom: 4 }}>
+          <p style={{ fontFamily: 'sans-serif', fontWeight: 700, fontSize: 11, color: s.titleColor, letterSpacing: 2, textTransform: 'uppercase', marginBottom: 16 }}>
+            COMPARATIVE REVIEW
           </p>
-          <p className="text-gray-600 text-sm font-sans mb-6">© 2026</p>
-          <p className="text-gray-600 text-xs font-sans max-w-xl mx-auto leading-relaxed">
-            *Statements have not been evaluated by the Food and Drug
-            Administration. These products are not intended to diagnose, treat,
-            cure, or prevent any disease.
-          </p>
+          <h1 style={{ fontFamily: 'Georgia, serif', fontWeight: 700, fontSize: 'clamp(26px, 4vw, 40px)', lineHeight: 1.15, color: '#111', marginBottom: 24 }}>
+            The 5 Best Mushroom Coffees for Men: Ranked Best to Worst
+          </h1>
         </div>
-      </footer>
+
+        {/* ── HERO IMAGE ── */}
+        <ImageBox
+          src={null}
+          caption="Overhead lineup of all 5 mushroom coffee pouches on a kitchen counter, each with a freshly poured mug in front of it — casual, real-photo style. Balls & Brains sits first on the left."
+        />
+
+        {/* ── INTRO ── */}
+        <div style={{ fontSize: 16, lineHeight: 1.7, color: '#222', marginBottom: 8 }}>
+          <p style={{ marginBottom: 16 }}>As a die-hard coffee drinker, I've had a love/hate relationship with caffeine. The jitters were getting worse, I was painfully aware of the 3pm crash and the morning fog, and on top of all that, somewhere in my 40s the things I used to take for granted — energy, drive, focus — just weren't what they used to be. I blamed it on getting older.</p>
+          <p style={{ marginBottom: 16 }}>Enter — my search for a new morning drink that could give me the same energy and focus coffee provides, but without any of the fallout. I wanted to sleep better, feel less wired, skip the crash, and honestly, I wanted to feel like myself again.</p>
+          <p style={{ marginBottom: 16 }}>After a ton of research I honed in on mushroom coffee. I know — sounds gross, right? But after reading countless studies I decided I had to try it. So I tried all the best mushroom coffee brands (according to the internet) and I drank each one for 12 days straight, with a weekend off in between to reset my body and mind.</p>
+          <p style={{ marginBottom: 16 }}>Here's the thing nobody warned me about: almost every one of them is the exact same idea — low-caffeine coffee with a pinch of mushrooms thrown in. Only <strong>one</strong> was actually built for a man's body. And the difference was night and day.</p>
+          <p style={{ marginBottom: 0 }}><strong>Here are my top 5 mushroom coffees for men on the market:</strong></p>
+        </div>
+
+        <Divider />
+
+        {/* ── #1 BALLS & BRAINS ── */}
+        <ProductSection
+          rank={1}
+          name="BALLS & BRAINS"
+          tagline="TOP PICK FOR MEN"
+          image={product1}
+          imageCaption="1. Balls & Brains Mushroom Coffee"
+          pros={[
+            { bold: 'The taste was a 10/10 for me. My favorite by far.', text: ' A rich, robust dark-roast flavor because the base is real organic Arabica coffee — and it was the only one where I couldn\'t taste the mushrooms or any of the extra ingredients they packed in. The only one that didn\'t feel like I was "giving up" coffee or sacrificing taste for the health benefits.' },
+            { text: 'No jitters, no crash, no afternoon slump. 100mg of caffeine (about half a regular cup) paired 1:1 with 100mg of L-Theanine had me energized and focused all day without reaching for a second cup. The others cut the caffeine so low I barely felt awake — this was the only one that actually replaced my coffee.' },
+            { bold: "It's the only one on this list actually formulated for men.", text: " Every other coffee here is just low-caf coffee with a little mushroom dust. This one has five ingredients with real human studies behind them for the male body: Tongkat Ali (300mg), Ashwagandha KSM-66 (300mg), Shilajit (250mg), Zinc (15mg) and Vitamin D3 (2,000 IU). Not one of the other four has a single one of these on the label." },
+            { text: 'After a few weeks I felt more like myself — steadier mood, more drive, sharper focus. The stuff I\'d written off as "just my age."' },
+            { text: 'I slept better and felt way less wired and anxious — the L-Theanine plus Ashwagandha (clinically shown to drop cortisol around 28% in 60 days) plus Reishi do exactly that.' },
+            { bold: 'Clinical-dose mushrooms, not pixie dust.', text: " 1,000mg Lion's Mane and 1,000mg Cordyceps, plus Reishi and Chaga. My brain fog lifted in the first couple weeks and my gym stamina came back." },
+            { bold: '100% transparent label.', text: ' Every single dose is printed right there — no "proprietary blend" hiding how little you\'re actually getting. Once I saw how the others hide their numbers, I couldn\'t unsee it.' },
+            { text: 'Offers a one-time purchase — no forced subscription you have to fight to escape.' },
+            { text: '365-day money-back guarantee. A full year — the longest of anyone on this list, by a mile.' },
+            { text: 'Made in the USA (Colorado). No added sugar, no additives, Non-GMO, 15 calories a cup — clean enough to drink first thing on an empty stomach.' },
+          ]}
+          cons={[
+            'The name. "Balls & Brains"? Yeah, I know. I almost scrolled right past it — it sounds like something a couple of fifth-graders came up with on a dare. Ridiculous name, dead-serious formula. I\'m glad I got over myself, and you should too.',
+            'Only available online — not on Amazon or in stores. (Their site was extremely easy to order from, though, and it sells out a lot, so don\'t sit on it.)',
+          ]}
+          ctaType="button"
+          ctaLabel="BUY IT HERE"
+          ctaHref={CTA_URL}
+          showPromo
+        />
+
+        <Divider />
+
+        {/* ── #2 RYZE ── */}
+        <ProductSection
+          rank={2}
+          name="RYZE"
+          tagline={null}
+          image={null}
+          imageCaption="2. Ryze Mushroom Coffee"
+          pros={[
+            { text: 'The most popular mushroom coffee in America right now — the brand is everywhere, and it\'s well made.' },
+            { text: '6 functional mushrooms — the broadest variety on this list (lion\'s mane, cordyceps, reishi, shiitake, turkey tail, king trumpet).' },
+            { text: 'Includes MCT oil and mixes easily without a frother. Comforting, creamy consistency and easy to travel with since it\'s already blended in.' },
+            { text: 'One of the cheaper options at around $0.90 per serving.' },
+          ]}
+          cons={[
+            'Proprietary blend — the doses are hidden. Six mushrooms crammed into roughly 2,000mg total works out to about 250–330mg of each. Clinical doses start around 1,000mg. The red flag with any of these: the more ingredients they cram in, the less of each one actually fits in a single scoop.',
+            "Zero ingredients for a man's hormones. No Tongkat Ali, no Ashwagandha, no Shilajit — nothing dosed for testosterone or cortisol. It's a coffee swap, not an upgrade.",
+            "Earthy, almost dirt-like aftertaste. Very mushroom-forward — it just didn't satisfy my coffee craving at all because it tasted so wildly different.",
+            'Subscription only, and canceling is a known hassle (their Better Business Bureau page is full of complaints about exactly that). No money-back guarantee, either.',
+          ]}
+          ctaType="link"
+          ctaLabel="Buy Ryze →"
+          ctaHref={CTA_URL}
+          showPromo={false}
+        />
+
+        <Divider />
+
+        {/* ── #3 FOUR SIGMATIC ── */}
+        <ProductSection
+          rank={3}
+          name="FOUR SIGMATIC"
+          tagline={null}
+          image={null}
+          imageCaption="3. Four Sigmatic"
+          pros={[
+            { text: 'The original. They were doing mushroom coffee before it was a TikTok trend — real heritage, and credit where it\'s due.' },
+            { text: 'Available in grounds, instant and whole bean. Wide selection of products too — lattes, creamers, protein powders.' },
+            { text: 'Tested for mycotoxins and mold, high-quality organic ingredients.' },
+            { text: 'Money-back guarantee.' },
+          ]}
+          cons={[
+            'The flagship "Think" coffee has just 2 mushrooms (lion\'s mane and chaga), in a proprietary blend that doesn\'t disclose doses. The third-party tests I found put the lion\'s mane well under the 1,000mg used in the studies.',
+            'Zero male/hormonal ingredients — no L-Theanine, no Ashwagandha, nothing for testosterone.',
+            'Pricey at around $1.58 per serving ($1.30 if you subscribe), plus shipping — a lot for two underdosed mushrooms.',
+            'Despite the "no mushroom flavor" claims on the site, I could actually taste the mushrooms. Dark and thin — closer to instant than a real brew.',
+            'Hard to understand the difference between products like "Think" and "Focus." Lots of overlap — it gets confusing fast.',
+          ]}
+          ctaType="link"
+          ctaLabel="Buy Four Sigmatic →"
+          ctaHref={CTA_URL}
+          showPromo={false}
+        />
+
+        <Divider />
+
+        {/* ── #4 EVERYDAY DOSE ── */}
+        <ProductSection
+          rank={4}
+          name="EVERYDAY DOSE"
+          tagline={null}
+          image={null}
+          imageCaption="4. Everyday Dose"
+          pros={[
+            { text: 'The collagen makes it really creamy.' },
+            { text: 'Mixes easily (no frother needed) and leaves no residue in the mug.' },
+            { text: 'Not the earthy, shroomy taste some of the others have.' },
+            { text: 'Comes with goodies — free spoon and frother.' },
+          ]}
+          cons={[
+            "The collagen has a strong taste that a lot of guys (me included) find overpowering. I didn't even realize it was the collagen I was tasting until I lined it up against the others — it's an acquired taste, and it was my main gripe.",
+            'The dosing is wildly off. They tell you to use 2 servings per 7oz of water, so my "30-serving" bag was gone in about 16 days. That basically makes it twice as expensive as advertised — a very common complaint in the reviews.',
+            "Sneaky subscription. It's not at all obvious you'll be billed again every 30 days, and their own reviews are full of guys who got caught by it.",
+            "Still zero ingredients for a man's hormones. Collagen is the gimmick — there's nothing here for testosterone or cortisol.",
+          ]}
+          ctaType="link"
+          ctaLabel="Buy Everyday Dose →"
+          ctaHref={CTA_URL}
+          showPromo={false}
+        />
+
+        <Divider />
+
+        {/* ── #5 MUD\WTR ── */}
+        <ProductSection
+          rank={5}
+          name="MUD\WTR"
+          tagline={null}
+          image={null}
+          imageCaption="5. MUD\WTR"
+          pros={[
+            { text: '4 functional mushrooms plus some great spices (cacao, masala chai, turmeric, cinnamon) for flavor and antioxidant benefits.' },
+            { text: 'Tested for mycotoxins and mold, high-quality organic ingredients.' },
+            { text: 'Offers a one-time purchase.' },
+            { text: 'Every purchase donates back to mental health.' },
+          ]}
+          cons={[
+            "It's not really coffee. With a black-tea base it has barely any caffeine — about 35mg, roughly 1/7th of a regular cup. Great if you're quitting caffeine entirely, but if you're a man who actually needs to wake up and get after it, this goes too far.",
+            'Tastes both bland and bitter at the same time. I loved the ingredient list and really wanted to love it, but the turmeric was overpowering.',
+            "Watery unless you bulk it up with creamer — which defeats the whole point of a healthier cup. And it doesn't mix well even with a frother, so you waste a ton of the blend at the bottom of the mug.",
+            'The most expensive on the list at around $1.67 per serving ($1.33 if you subscribe), plus shipping.',
+            "Zero male/hormonal support — it's a wellness drink, not something built for a man over 40.",
+          ]}
+          ctaType="link"
+          ctaLabel="Buy Mud\Wtr →"
+          ctaHref={CTA_URL}
+          showPromo={false}
+        />
+
+        <Divider />
+
+        {/* ── THE FINAL VERDICT ── */}
+        <section style={{ marginBottom: 32 }}>
+          <h2 style={{ fontFamily: 'sans-serif', fontWeight: 800, fontSize: 'clamp(20px, 3vw, 28px)', color: '#111', marginBottom: 16, letterSpacing: 0.3 }}>
+            THE FINAL VERDICT
+          </h2>
+          <p style={{ fontSize: 16, lineHeight: 1.7, color: '#222', marginBottom: 16 }}>
+            <strong>Balls & Brains by a landslide</strong> — and trust me, I <em>wanted</em> to hate it because of the name. I even did a blind taste test of my top 3 with my brother (who pulled espresso at a coffee shop for years) and my buddy who calls himself a coffee snob, and Balls & Brains was their #1 pick too.
+          </p>
+          <p style={{ fontSize: 16, lineHeight: 1.7, color: '#222', marginBottom: 20 }}>
+            Three months in, my energy, focus and drive are the best they've been since my 30s — and I'm not going back to regular coffee. It's the only one on this list that tastes like real coffee <em>and</em> was actually built for a man's body.
+          </p>
+          <BuyButton label="BUY IT HERE" href={CTA_URL} />
+
+          <div style={{ marginTop: 24, fontFamily: 'sans-serif', fontSize: 15 }}>
+            <p style={{ color: s.titleColor, fontWeight: 700, marginBottom: 4 }}>#1&nbsp;&nbsp;Balls & Brains</p>
+            <p style={{ color: '#333', marginBottom: 4 }}>#2&nbsp;&nbsp;Ryze</p>
+            <p style={{ color: '#333', marginBottom: 4 }}>#3&nbsp;&nbsp;Four Sigmatic</p>
+            <p style={{ color: '#333', marginBottom: 4 }}>#4&nbsp;&nbsp;Everyday Dose</p>
+            <p style={{ color: '#333', marginBottom: 0 }}>#5&nbsp;&nbsp;MUD\WTR</p>
+          </div>
+        </section>
+
+        <Divider />
+
+        {/* ── COMMENTS ── */}
+        <section style={{ marginBottom: 40 }}>
+          <div style={{ display: 'flex', alignItems: 'baseline', gap: 12, marginBottom: 4, borderBottom: '2px solid #e5e7eb', paddingBottom: 12 }}>
+            <h3 style={{ fontFamily: 'sans-serif', fontWeight: 700, fontSize: 18, color: '#111', margin: 0 }}>COMMENTS (3)</h3>
+            <span style={{ fontFamily: 'sans-serif', fontSize: 13, color: '#9ca3af' }}>Newest First</span>
+          </div>
+          <Comment
+            name="Dave M."
+            time="a year ago"
+            likes="6 Likes"
+            text="Thank you for this! Of the ones I've tried I completely agree (Ryze, Everyday Dose and MUD\WTR). Ryze is gross and leaves sludge in the bottom of the mug. Everyday Dose tastes better but the collagen is a lot, and MUD\WTR barely woke me up. Balls & Brains tastes just like a rich, premium coffee and the energy + focus is unmatched. 60 days in and I just reordered."
+          />
+          <Comment
+            name="Tom K."
+            time="a year ago"
+            likes="9 Likes"
+            text="ok the name is terrible lol but where can I buy balls and brains coffee?"
+          />
+          <div style={{ paddingLeft: 32, background: '#f9fafb', borderBottom: '1px solid #e5e7eb', paddingTop: 20, paddingBottom: 20 }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
+              <strong style={{ fontFamily: 'sans-serif', fontSize: 14, color: s.titleColor }}>Mike R.</strong>
+              <span style={{ fontFamily: 'sans-serif', fontSize: 12, color: '#9ca3af' }}>· a year ago · 3 Likes (reply)</span>
+            </div>
+            <p style={{ fontFamily: 'Georgia, serif', fontSize: 15, lineHeight: 1.6, color: '#333', margin: 0 }}>
+              <a href={CTA_URL} style={{ color: s.titleColor, textDecoration: 'underline' }}>You can buy Balls & Brains here →</a>
+            </p>
+          </div>
+        </section>
+
+        {/* ── DISCLAIMER ── */}
+        <p style={{ fontFamily: 'sans-serif', fontSize: 11, color: '#9ca3af', lineHeight: 1.6, borderTop: '1px solid #e5e7eb', paddingTop: 20, marginBottom: 40, fontStyle: 'italic' }}>
+          † These statements have not been evaluated by the Food and Drug Administration. This product is not intended to diagnose, treat, cure, or prevent any disease. Individual results may vary. This article contains affiliate links — if you purchase through our links we may receive a commission at no additional cost to you. All products were independently purchased and evaluated.
+        </p>
+
+      </div>
     </div>
   );
 }
