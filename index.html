@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Meta tags SEO -->
+    <meta
+      name="description"
+      content="Balls & Brains™ Testosterone Coffee — Optimize testosterone naturally with clinical-dose mushroom coffee."
+    />
+    <meta name="author" content="Balls and Brains" />
+    <meta name="keywords" content="Balls and Brains" />
+    <meta name="robots" content="index, follow" />
+    <meta name="googlebot" content="index, follow" />
+    <meta name="google" content="notranslate" />
+    <title>Balls &amp; Brains™ Testosterone Coffee</title>
+
+    <!-- Fontes críticas — preload para eliminar FOUT no LCP -->
+    <link
+      rel="preload"
+      href="/src/assets/fonts/Satoshi-Regular.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/src/assets/fonts/Satoshi-Bold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/src/assets/fonts/MonaSansExpanded-ExtraBold.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <!-- Checkout — preconnect para reduzir latência ao clicar em Add to Cart -->
+    <link rel="preconnect" href="https://links.ballsnbrains.com" />
+    <link rel="dns-prefetch" href="https://links.ballsnbrains.com" />
+
+    <!-- redtrack -->
+    <script
+      type="text/javascript"
+      src="https://lp.ballsnbrains.com/track.js"
+    ></script>
+    <!-- End redtrack -->
+
+    <!-- Backredirect -->
+    <script>
+      !(function () {
+        var url = window.location.href;
+        url = url.split('?');
+        var t;
+        try {
+          for (t = 0; 10 > t; ++t) history.pushState({}, '', '');
+          onpopstate = function (t) {
+            t.state &&
+              location.replace(
+                'https://ballsnbrains.com/shp/backredirect/us/01/?' + url[1],
+              );
+          };
+        } catch (o) {}
+      })();
+    </script>
+    <!-- End Backredirect -->
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- CHECKOUT URLs -->
+    <script>
+      window.__BB_CONFIG__ = {
+        checkout: {
+          /* Subscribe & Save */
+          sub: [
+            /* 1 kit  */ 'https://links.ballsnbrains.com/go/1-mushroom-coffe-tmc-subscribe-adv8-mlk3sruu',
+            /* 2 kits */ 'https://links.ballsnbrains.com/go/2-mushroom-coffe-tmc-subscribe-adv8-mlk3t4rf',
+            /* 3 kits */ 'https://links.ballsnbrains.com/go/3-mushroom-coffe-tmc-subscribe-adv8-mlk3tm4w',
+          ],
+          /* One-Time Purchase */
+          one: [
+            /* 1 kit  */ 'https://links.ballsnbrains.com/go/1-mushroom-coffe-tmc-onetime-adv8-mlk3rio9',
+            /* 2 kits */ 'https://links.ballsnbrains.com/go/2-mushroom-coffe-tmc-onetime-adv8-mlk3rwr5',
+            /* 3 kits */ 'https://links.ballsnbrains.com/go/3-mushroom-coffe-tmc-onetime-adv8-mlk3sac9',
+          ],
+        },
+        popup: {
+          /* Popup upsell (2 kits) */
+          sub: 'https://links.ballsnbrains.com/go/1-mushroom-coffe-tmc-popup-subscribe-adv7-mkw8bv65',
+          one: 'https://links.ballsnbrains.com/go/1-mushroom-coffe-tmc-popup-onetime-adv7-mkw8b3xn',
+        },
+      };
+    </script>
+    <!-- End CHECKOUT URLs -->
+
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
