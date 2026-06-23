@@ -1,4 +1,9 @@
-import product1 from '../../assets/products/1kit.webp';
+import heroImg from '../../assets/images/01111.png';
+import ballsImg from '../../assets/images/balls.png';
+import ryzeImg from '../../assets/images/ryze1.png';
+import fourImg from '../../assets/images/four.png';
+import everydayDoseImg from '../../assets/images/everyday dose.png';
+import mudImg from '../../assets/images/mud.png';
 
 const CTA_URL = '#';
 
@@ -18,15 +23,11 @@ function Divider() {
   );
 }
 
-function ImageBox({ src, alt, caption }) {
+function ImageBox({ src, alt }) {
+  if (!src) return null;
   return (
-    <div style={{ background: '#f3f4f6', border: '1px solid #e5e7eb', borderRadius: 4, padding: '24px 16px', textAlign: 'center', margin: '20px 0' }}>
-      {src ? (
-        <img src={src} alt={alt} style={{ maxWidth: '100%', maxHeight: 280, objectFit: 'contain', margin: '0 auto', display: 'block' }} />
-      ) : (
-        <span style={{ fontSize: 28, display: 'block', marginBottom: 8 }}>📷</span>
-      )}
-      <p style={{ color: '#6b7280', fontFamily: 'sans-serif', fontSize: 13, marginTop: src ? 12 : 0 }}>{caption}</p>
+    <div style={{ margin: '20px 0' }}>
+      <img src={src} alt={alt} style={{ width: '100%', display: 'block', borderRadius: 4 }} />
     </div>
   );
 }
@@ -98,7 +99,7 @@ function PromoBox() {
   );
 }
 
-function ProductSection({ rank, name, tagline, image, imageCaption, pros, cons, ctaType, ctaLabel, ctaHref, showPromo }) {
+function ProductSection({ rank, name, tagline, image, pros, cons, ctaType, ctaLabel, ctaHref, showPromo }) {
   const headingColor = rank === 1 ? s.titleColor : '#1a3c6e';
   return (
     <section style={{ marginBottom: 8 }}>
@@ -107,7 +108,7 @@ function ProductSection({ rank, name, tagline, image, imageCaption, pros, cons, 
         {tagline && <span style={{ fontSize: 13, fontWeight: 600, marginLeft: 12, verticalAlign: 'middle' }}>— {tagline}</span>}
       </h2>
       <hr style={{ border: 'none', borderTop: '2px solid #e5e7eb', marginBottom: 20 }} />
-      <ImageBox src={image} alt={name} caption={imageCaption} />
+      <ImageBox src={image} alt={name} />
       <ProsList items={pros} />
       <ConsList items={cons} />
       {ctaType === 'button' ? (
@@ -120,14 +121,38 @@ function ProductSection({ rank, name, tagline, image, imageCaption, pros, cons, 
   );
 }
 
-function Comment({ name, time, likes, text, reply = false }) {
+function Avatar({ name, small }) {
+  const initials = name.split(' ').map(w => w[0]).join('').slice(0, 2).toUpperCase();
+  const size = small ? 28 : 36;
+  const colors = ['#1a5c47', '#1a3c6e', '#b45309', '#7c3aed', '#0369a1'];
+  const color = colors[name.charCodeAt(0) % colors.length];
   return (
-    <div style={{ borderBottom: '1px solid #e5e7eb', paddingTop: 20, paddingBottom: 20, paddingLeft: reply ? 32 : 0, background: reply ? '#f9fafb' : 'transparent' }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
-        <strong style={{ fontFamily: 'sans-serif', fontSize: 14, color: reply ? s.titleColor : '#111' }}>{name}</strong>
-        <span style={{ fontFamily: 'sans-serif', fontSize: 12, color: '#9ca3af' }}>· {time} · {likes} Likes{reply && ' (reply)'}</span>
+    <div style={{ width: size, height: size, borderRadius: '50%', background: color, display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+      <span style={{ fontFamily: 'sans-serif', fontWeight: 700, fontSize: small ? 11 : 13, color: '#fff', letterSpacing: 0.5 }}>{initials}</span>
+    </div>
+  );
+}
+
+function Comment({ name, time, likes, text, reply = false, link }) {
+  return (
+    <div style={{ display: 'flex', gap: 12, padding: reply ? '14px 0 14px 48px' : '20px 0', borderBottom: '1px solid #f3f4f6' }}>
+      <Avatar name={name} small={reply} />
+      <div style={{ flex: 1 }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6, flexWrap: 'wrap' }}>
+          <strong style={{ fontFamily: 'sans-serif', fontSize: reply ? 13 : 14, color: reply ? s.titleColor : '#111' }}>{name}</strong>
+          <span style={{ fontFamily: 'sans-serif', fontSize: 12, color: '#9ca3af' }}>{time}</span>
+        </div>
+        <p style={{ fontFamily: 'Georgia, serif', fontSize: 15, lineHeight: 1.6, color: '#333', margin: '0 0 10px' }}>
+          {link ? <a href={link} style={{ color: s.titleColor, textDecoration: 'underline' }}>{text}</a> : text}
+        </p>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+          <button style={{ display: 'flex', alignItems: 'center', gap: 5, background: 'none', border: 'none', cursor: 'pointer', padding: 0, fontFamily: 'sans-serif', fontSize: 13, color: '#6b7280' }}>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3H14z"/><path d="M7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+            {likes}
+          </button>
+          {!reply && <button style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 0, fontFamily: 'sans-serif', fontSize: 13, color: '#9ca3af' }}>Reply</button>}
+        </div>
       </div>
-      <p style={{ fontFamily: 'Georgia, serif', fontSize: 15, lineHeight: 1.6, color: '#333', margin: 0 }}>{text}</p>
     </div>
   );
 }
@@ -157,10 +182,7 @@ export default function ArticleSection() {
         </div>
 
         {/* ── HERO IMAGE ── */}
-        <ImageBox
-          src={null}
-          caption="Overhead lineup of all 5 mushroom coffee pouches on a kitchen counter, each with a freshly poured mug in front of it — casual, real-photo style. Balls & Brains sits first on the left."
-        />
+        <ImageBox src={heroImg} alt="The 5 best mushroom coffees for men" />
 
         {/* ── INTRO ── */}
         <div style={{ fontSize: 16, lineHeight: 1.7, color: '#222', marginBottom: 8 }}>
@@ -178,8 +200,7 @@ export default function ArticleSection() {
           rank={1}
           name="BALLS & BRAINS"
           tagline="TOP PICK FOR MEN"
-          image={product1}
-          imageCaption="1. Balls & Brains Mushroom Coffee"
+          image={ballsImg}
           pros={[
             { bold: 'The taste was a 10/10 for me. My favorite by far.', text: ' A rich, robust dark-roast flavor because the base is real organic Arabica coffee — and it was the only one where I couldn\'t taste the mushrooms or any of the extra ingredients they packed in. The only one that didn\'t feel like I was "giving up" coffee or sacrificing taste for the health benefits.' },
             { text: 'No jitters, no crash, no afternoon slump. 100mg of caffeine (about half a regular cup) paired 1:1 with 100mg of L-Theanine had me energized and focused all day without reaching for a second cup. The others cut the caffeine so low I barely felt awake — this was the only one that actually replaced my coffee.' },
@@ -209,8 +230,7 @@ export default function ArticleSection() {
           rank={2}
           name="RYZE"
           tagline={null}
-          image={null}
-          imageCaption="2. Ryze Mushroom Coffee"
+          image={ryzeImg}
           pros={[
             { text: 'The most popular mushroom coffee in America right now — the brand is everywhere, and it\'s well made.' },
             { text: '6 functional mushrooms — the broadest variety on this list (lion\'s mane, cordyceps, reishi, shiitake, turkey tail, king trumpet).' },
@@ -236,8 +256,7 @@ export default function ArticleSection() {
           rank={3}
           name="FOUR SIGMATIC"
           tagline={null}
-          image={null}
-          imageCaption="3. Four Sigmatic"
+          image={fourImg}
           pros={[
             { text: 'The original. They were doing mushroom coffee before it was a TikTok trend — real heritage, and credit where it\'s due.' },
             { text: 'Available in grounds, instant and whole bean. Wide selection of products too — lattes, creamers, protein powders.' },
@@ -264,8 +283,7 @@ export default function ArticleSection() {
           rank={4}
           name="EVERYDAY DOSE"
           tagline={null}
-          image={null}
-          imageCaption="4. Everyday Dose"
+          image={everydayDoseImg}
           pros={[
             { text: 'The collagen makes it really creamy.' },
             { text: 'Mixes easily (no frother needed) and leaves no residue in the mug.' },
@@ -291,8 +309,7 @@ export default function ArticleSection() {
           rank={5}
           name="MUD\WTR"
           tagline={null}
-          image={null}
-          imageCaption="5. MUD\WTR"
+          image={mudImg}
           pros={[
             { text: '4 functional mushrooms plus some great spices (cacao, masala chai, turmeric, cinnamon) for flavor and antioxidant benefits.' },
             { text: 'Tested for mycotoxins and mold, high-quality organic ingredients.' },
@@ -322,17 +339,42 @@ export default function ArticleSection() {
           <p style={{ fontSize: 16, lineHeight: 1.7, color: '#222', marginBottom: 16 }}>
             <strong>Balls & Brains by a landslide</strong> — and trust me, I <em>wanted</em> to hate it because of the name. I even did a blind taste test of my top 3 with my brother (who pulled espresso at a coffee shop for years) and my buddy who calls himself a coffee snob, and Balls & Brains was their #1 pick too.
           </p>
-          <p style={{ fontSize: 16, lineHeight: 1.7, color: '#222', marginBottom: 20 }}>
+          <p style={{ fontSize: 16, lineHeight: 1.7, color: '#222', marginBottom: 24 }}>
             Three months in, my energy, focus and drive are the best they've been since my 30s — and I'm not going back to regular coffee. It's the only one on this list that tastes like real coffee <em>and</em> was actually built for a man's body.
           </p>
-          <BuyButton label="BUY IT HERE" href={CTA_URL} />
 
-          <div style={{ marginTop: 24, fontFamily: 'sans-serif', fontSize: 15 }}>
-            <p style={{ color: s.titleColor, fontWeight: 700, marginBottom: 4 }}>#1&nbsp;&nbsp;Balls & Brains</p>
-            <p style={{ color: '#333', marginBottom: 4 }}>#2&nbsp;&nbsp;Ryze</p>
-            <p style={{ color: '#333', marginBottom: 4 }}>#3&nbsp;&nbsp;Four Sigmatic</p>
-            <p style={{ color: '#333', marginBottom: 4 }}>#4&nbsp;&nbsp;Everyday Dose</p>
-            <p style={{ color: '#333', marginBottom: 0 }}>#5&nbsp;&nbsp;MUD\WTR</p>
+          {/* CTA box */}
+          <div style={{ border: '2px solid #1a5c47', borderRadius: 8, overflow: 'hidden', marginBottom: 24 }}>
+            <div style={{ background: '#1a5c47', padding: '14px 20px', textAlign: 'center' }}>
+              <p style={{ fontFamily: 'sans-serif', fontWeight: 700, fontSize: 11, color: 'rgba(255,255,255,0.75)', letterSpacing: 2, textTransform: 'uppercase', margin: '0 0 4px' }}>Limited-Time Offer</p>
+              <p style={{ fontFamily: 'sans-serif', fontWeight: 900, fontSize: 'clamp(20px, 4vw, 28px)', color: '#fff', margin: 0, letterSpacing: -0.5 }}>40% OFF + Free Shipping</p>
+            </div>
+            <div style={{ background: '#fefdf5', padding: '20px 24px' }}>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 8, marginBottom: 20 }}>
+                {['Real coffee taste — rich, dark-roast Arabica', 'Clinically dosed for the male body (T-support, cortisol, focus)', 'All-day clean energy — no jitters, no 2pm crash', '365-Day Money-Back Guarantee — the longest in the category'].map((item, i) => (
+                  <div key={i} style={{ display: 'flex', alignItems: 'flex-start', gap: 10 }}>
+                    <span style={{ color: '#1a5c47', fontWeight: 700, fontSize: 16, lineHeight: 1.4, flexShrink: 0 }}>✓</span>
+                    <span style={{ fontFamily: 'sans-serif', fontSize: 15, color: '#222', lineHeight: 1.4 }}>{item}</span>
+                  </div>
+                ))}
+              </div>
+              <a href={CTA_URL} style={{ display: 'block', width: '100%', padding: '16px 0', background: '#1a5c47', color: '#fff', fontFamily: 'sans-serif', fontWeight: 900, fontSize: 'clamp(15px, 2.5vw, 18px)', textAlign: 'center', textDecoration: 'none', borderRadius: 5, letterSpacing: 0.5, boxSizing: 'border-box' }}>
+                TRY BALLS & BRAINS — GET 40% OFF →
+              </a>
+              <p style={{ fontFamily: 'sans-serif', fontSize: 12, color: '#6b7280', textAlign: 'center', margin: '10px 0 0', fontStyle: 'italic' }}>
+                Backed by a 365-Day Money-Back Guarantee · Free shipping · Made in the USA
+              </p>
+            </div>
+          </div>
+
+          <div style={{ borderTop: '1px solid #f3f4f6', paddingTop: 20, marginTop: 4 }}>
+            {['Balls & Brains', 'Ryze', 'Four Sigmatic', 'Everyday Dose', 'MUD\\WTR'].map((name, i) => (
+              <div key={i} style={{ borderBottom: '2px solid #00b4d8', paddingBottom: 6, marginBottom: 10 }}>
+                <span style={{ fontFamily: 'sans-serif', fontWeight: 900, fontSize: 'clamp(22px, 4vw, 32px)', color: '#00b4d8', letterSpacing: 0.5, textTransform: 'uppercase', lineHeight: 1.2 }}>
+                  #{i + 1} {name}
+                </span>
+              </div>
+            ))}
           </div>
         </section>
 
@@ -340,31 +382,33 @@ export default function ArticleSection() {
 
         {/* ── COMMENTS ── */}
         <section style={{ marginBottom: 40 }}>
-          <div style={{ display: 'flex', alignItems: 'baseline', gap: 12, marginBottom: 4, borderBottom: '2px solid #e5e7eb', paddingBottom: 12 }}>
-            <h3 style={{ fontFamily: 'sans-serif', fontWeight: 700, fontSize: 18, color: '#111', margin: 0 }}>COMMENTS (3)</h3>
-            <span style={{ fontFamily: 'sans-serif', fontSize: 13, color: '#9ca3af' }}>Newest First</span>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', borderBottom: '2px solid #e5e7eb', paddingBottom: 12, marginBottom: 4 }}>
+            <h3 style={{ fontFamily: 'sans-serif', fontWeight: 700, fontSize: 16, color: '#111', margin: 0 }}>3 Comments</h3>
+            <span style={{ fontFamily: 'sans-serif', fontSize: 13, color: '#6b7280', display: 'flex', alignItems: 'center', gap: 4 }}>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="6 9 12 15 18 9"/></svg>
+              Best
+            </span>
           </div>
           <Comment
             name="Dave M."
-            time="a year ago"
-            likes="6 Likes"
+            time="1 year ago"
+            likes={6}
             text="Thank you for this! Of the ones I've tried I completely agree (Ryze, Everyday Dose and MUD\WTR). Ryze is gross and leaves sludge in the bottom of the mug. Everyday Dose tastes better but the collagen is a lot, and MUD\WTR barely woke me up. Balls & Brains tastes just like a rich, premium coffee and the energy + focus is unmatched. 60 days in and I just reordered."
           />
           <Comment
             name="Tom K."
-            time="a year ago"
-            likes="9 Likes"
+            time="1 year ago"
+            likes={9}
             text="ok the name is terrible lol but where can I buy balls and brains coffee?"
           />
-          <div style={{ paddingLeft: 32, background: '#f9fafb', borderBottom: '1px solid #e5e7eb', paddingTop: 20, paddingBottom: 20 }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginBottom: 6 }}>
-              <strong style={{ fontFamily: 'sans-serif', fontSize: 14, color: s.titleColor }}>Mike R.</strong>
-              <span style={{ fontFamily: 'sans-serif', fontSize: 12, color: '#9ca3af' }}>· a year ago · 3 Likes (reply)</span>
-            </div>
-            <p style={{ fontFamily: 'Georgia, serif', fontSize: 15, lineHeight: 1.6, color: '#333', margin: 0 }}>
-              <a href={CTA_URL} style={{ color: s.titleColor, textDecoration: 'underline' }}>You can buy Balls & Brains here →</a>
-            </p>
-          </div>
+          <Comment
+            name="Mike R."
+            time="1 year ago"
+            likes={3}
+            text="You can buy Balls & Brains here →"
+            link={CTA_URL}
+            reply
+          />
         </section>
 
         {/* ── DISCLAIMER ── */}
