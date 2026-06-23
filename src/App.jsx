@@ -1,9 +1,9 @@
-import Article11Reasons from './components/Article11Reasons/Article11Reasons';
+import ArticleSection from './components/ArticleSection/ArticleSection';
 
 export default function SnoringPage() {
   return (
     <div>
-      <Article11Reasons />
+      <ArticleSection />
     </div>
   );
 }

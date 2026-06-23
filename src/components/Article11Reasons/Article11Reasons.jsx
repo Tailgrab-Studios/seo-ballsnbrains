@@ -51,7 +51,7 @@ function AlertBanner() {
           margin: 0,
         }}
       >
-        🔥 40% OFF + FREE SHIPPING + FREE GIFTS —{' '}
+        🔥 34% OFF + FREE SHIPPING + FREE GIFTS —{' '}
         <span style={{ color: '#d1d5db' }}>DEAL ENDING IN:</span>{' '}
         <span
           style={{
@@ -457,7 +457,7 @@ function OfferBox() {
           href={CTA_URL}
           style={{ display: 'block', width: '100%', padding: '17px 0', background: 'linear-gradient(135deg, #ea580c 0%, #dc2626 100%)', color: '#fff', fontFamily: 'sans-serif', fontWeight: 900, fontSize: 'clamp(16px, 2.5vw, 19px)', textAlign: 'center', textDecoration: 'none', borderRadius: 8, letterSpacing: 0.5, boxSizing: 'border-box', boxShadow: '0 4px 20px rgba(234,88,12,0.4)' }}
         >
-          CLAIM MY 40% OFF NOW →
+          CLAIM MY 34% OFF NOW →
         </a>
 
         {/* trust row */}
