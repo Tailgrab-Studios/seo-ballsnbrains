@@ -11,7 +11,7 @@ import ad8 from '../../assets/images/ad8.webp';
 import ad9 from '../../assets/images/ad9.webp';
 import ad10 from '../../assets/images/ad10.webp';
 
-const CTA_URL = '#';
+const CTA_URL = 'https://lp.ballsnbrains.com/preclick';
 const TEAL = '#0d9488';
 const INIT_SECONDS = 8630; // 2h 23m 50s
 
@@ -405,36 +405,159 @@ const reasons = [
 function OfferBox() {
   const time = useCountdown(INIT_SECONDS);
   return (
-    <div style={{ marginTop: 28, borderRadius: 12, overflow: 'hidden', boxShadow: '0 8px 40px rgba(0,0,0,0.13)' }}>
-
+    <div
+      style={{
+        marginTop: 28,
+        borderRadius: 12,
+        overflow: 'hidden',
+        boxShadow: '0 8px 40px rgba(0,0,0,0.13)',
+      }}
+    >
       {/* ── dark header bar ── */}
-      <div style={{ background: '#0f172a', padding: '14px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 8 }}>
-        <p style={{ fontFamily: 'sans-serif', fontWeight: 800, fontSize: 12, color: '#fbbf24', letterSpacing: 2, textTransform: 'uppercase', margin: 0 }}>
+      <div
+        style={{
+          background: '#0f172a',
+          padding: '14px 20px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          flexWrap: 'wrap',
+          gap: 8,
+        }}
+      >
+        <p
+          style={{
+            fontFamily: 'sans-serif',
+            fontWeight: 800,
+            fontSize: 12,
+            color: '#fbbf24',
+            letterSpacing: 2,
+            textTransform: 'uppercase',
+            margin: 0,
+          }}
+        >
           ⚡ Exclusive Reader Deal
         </p>
         <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
-          <span style={{ fontFamily: 'sans-serif', fontSize: 12, color: '#94a3b8' }}>Deal ends in:</span>
-          <span style={{ fontFamily: 'monospace', fontWeight: 700, fontSize: 15, color: '#fbbf24', background: 'rgba(251,191,36,0.12)', padding: '2px 8px', borderRadius: 4 }}>{time}</span>
+          <span
+            style={{ fontFamily: 'sans-serif', fontSize: 12, color: '#94a3b8' }}
+          >
+            Deal ends in:
+          </span>
+          <span
+            style={{
+              fontFamily: 'monospace',
+              fontWeight: 700,
+              fontSize: 15,
+              color: '#fbbf24',
+              background: 'rgba(251,191,36,0.12)',
+              padding: '2px 8px',
+              borderRadius: 4,
+            }}
+          >
+            {time}
+          </span>
         </div>
       </div>
 
       {/* ── main body ── */}
       <div style={{ background: '#fff', padding: '28px 24px' }}>
-
         {/* image + offer side by side */}
-        <div className="offer-grid" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24, alignItems: 'center', marginBottom: 24 }}>
-          <img src={heroImg} alt="Balls & Brains" style={{ width: '100%', display: 'block', borderRadius: 10 }} />
+        <div
+          className="offer-grid"
+          style={{
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr',
+            gap: 24,
+            alignItems: 'center',
+            marginBottom: 24,
+          }}
+        >
+          <img
+            src={heroImg}
+            alt="Balls & Brains"
+            style={{ width: '100%', display: 'block', borderRadius: 10 }}
+          />
           <div>
-            <p style={{ fontFamily: 'sans-serif', fontWeight: 700, fontSize: 11, color: '#dc2626', letterSpacing: 2, textTransform: 'uppercase', margin: '0 0 6px' }}>Limited-Time Only</p>
-            <p style={{ fontFamily: 'sans-serif', fontWeight: 900, fontSize: 'clamp(36px, 7vw, 52px)', color: '#0f172a', lineHeight: 1, margin: '0 0 4px', letterSpacing: -1 }}>40<span style={{ color: '#ea580c' }}>%</span></p>
-            <p style={{ fontFamily: 'sans-serif', fontWeight: 900, fontSize: 'clamp(16px, 3vw, 22px)', color: '#0f172a', margin: '0 0 16px', letterSpacing: -0.5 }}>OFF YOUR ORDER</p>
+            <p
+              style={{
+                fontFamily: 'sans-serif',
+                fontWeight: 700,
+                fontSize: 11,
+                color: '#dc2626',
+                letterSpacing: 2,
+                textTransform: 'uppercase',
+                margin: '0 0 6px',
+              }}
+            >
+              Limited-Time Only
+            </p>
+            <p
+              style={{
+                fontFamily: 'sans-serif',
+                fontWeight: 900,
+                fontSize: 'clamp(36px, 7vw, 52px)',
+                color: '#0f172a',
+                lineHeight: 1,
+                margin: '0 0 4px',
+                letterSpacing: -1,
+              }}
+            >
+              40<span style={{ color: '#ea580c' }}>%</span>
+            </p>
+            <p
+              style={{
+                fontFamily: 'sans-serif',
+                fontWeight: 900,
+                fontSize: 'clamp(16px, 3vw, 22px)',
+                color: '#0f172a',
+                margin: '0 0 16px',
+                letterSpacing: -0.5,
+              }}
+            >
+              OFF YOUR ORDER
+            </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: 7 }}>
-              {['Free gifts with every order', 'Free shipping included', '365-Day money-back guarantee'].map((item, i) => (
-                <div key={i} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                  <span style={{ width: 18, height: 18, borderRadius: '50%', background: '#dcfce7', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                    <span style={{ color: '#16a34a', fontSize: 11, fontWeight: 900 }}>✓</span>
+              {[
+                'Free gifts with every order',
+                'Free shipping included',
+                '365-Day money-back guarantee',
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  style={{ display: 'flex', alignItems: 'center', gap: 8 }}
+                >
+                  <span
+                    style={{
+                      width: 18,
+                      height: 18,
+                      borderRadius: '50%',
+                      background: '#dcfce7',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      flexShrink: 0,
+                    }}
+                  >
+                    <span
+                      style={{
+                        color: '#16a34a',
+                        fontSize: 11,
+                        fontWeight: 900,
+                      }}
+                    >
+                      ✓
+                    </span>
                   </span>
-                  <span style={{ fontFamily: 'sans-serif', fontSize: 13, color: '#374151' }}>{item}</span>
+                  <span
+                    style={{
+                      fontFamily: 'sans-serif',
+                      fontSize: 13,
+                      color: '#374151',
+                    }}
+                  >
+                    {item}
+                  </span>
                 </div>
               ))}
             </div>
@@ -443,28 +566,100 @@ function OfferBox() {
 
         {/* stock bar */}
         <div style={{ marginBottom: 20 }}>
-          <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 5 }}>
-            <span style={{ fontFamily: 'sans-serif', fontSize: 12, fontWeight: 700, color: '#374151' }}>Stock availability</span>
-            <span style={{ fontFamily: 'sans-serif', fontSize: 12, fontWeight: 700, color: '#dc2626' }}>Almost sold out</span>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              marginBottom: 5,
+            }}
+          >
+            <span
+              style={{
+                fontFamily: 'sans-serif',
+                fontSize: 12,
+                fontWeight: 700,
+                color: '#374151',
+              }}
+            >
+              Stock availability
+            </span>
+            <span
+              style={{
+                fontFamily: 'sans-serif',
+                fontSize: 12,
+                fontWeight: 700,
+                color: '#dc2626',
+              }}
+            >
+              Almost sold out
+            </span>
           </div>
-          <div style={{ height: 7, background: '#f3f4f6', borderRadius: 99, overflow: 'hidden' }}>
-            <div style={{ height: '100%', width: '18%', background: 'linear-gradient(90deg, #dc2626, #ea580c)', borderRadius: 99 }} />
+          <div
+            style={{
+              height: 7,
+              background: '#f3f4f6',
+              borderRadius: 99,
+              overflow: 'hidden',
+            }}
+          >
+            <div
+              style={{
+                height: '100%',
+                width: '18%',
+                background: 'linear-gradient(90deg, #dc2626, #ea580c)',
+                borderRadius: 99,
+              }}
+            />
           </div>
         </div>
 
         {/* CTA */}
         <a
           href={CTA_URL}
-          style={{ display: 'block', width: '100%', padding: '17px 0', background: 'linear-gradient(135deg, #ea580c 0%, #dc2626 100%)', color: '#fff', fontFamily: 'sans-serif', fontWeight: 900, fontSize: 'clamp(16px, 2.5vw, 19px)', textAlign: 'center', textDecoration: 'none', borderRadius: 8, letterSpacing: 0.5, boxSizing: 'border-box', boxShadow: '0 4px 20px rgba(234,88,12,0.4)' }}
+          style={{
+            display: 'block',
+            width: '100%',
+            padding: '17px 0',
+            background: 'linear-gradient(135deg, #ea580c 0%, #dc2626 100%)',
+            color: '#fff',
+            fontFamily: 'sans-serif',
+            fontWeight: 900,
+            fontSize: 'clamp(16px, 2.5vw, 19px)',
+            textAlign: 'center',
+            textDecoration: 'none',
+            borderRadius: 8,
+            letterSpacing: 0.5,
+            boxSizing: 'border-box',
+            boxShadow: '0 4px 20px rgba(234,88,12,0.4)',
+          }}
         >
           CLAIM MY 40% OFF NOW →
         </a>
 
         {/* trust row */}
-        <div style={{ display: 'flex', justifyContent: 'center', gap: 20, marginTop: 14, flexWrap: 'wrap' }}>
-          {['🔒 Secure checkout', '🏆 365-Day guarantee', '🇺🇸 Made in USA'].map((t, i) => (
-            <span key={i} style={{ fontFamily: 'sans-serif', fontSize: 12, color: '#6b7280' }}>{t}</span>
-          ))}
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            gap: 20,
+            marginTop: 14,
+            flexWrap: 'wrap',
+          }}
+        >
+          {['🔒 Secure checkout', '🏆 365-Day guarantee', '🇺🇸 Made in USA'].map(
+            (t, i) => (
+              <span
+                key={i}
+                style={{
+                  fontFamily: 'sans-serif',
+                  fontSize: 12,
+                  color: '#6b7280',
+                }}
+              >
+                {t}
+              </span>
+            ),
+          )}
         </div>
       </div>
     </div>
@@ -652,11 +847,17 @@ export default function Article11Reasons() {
           valid for a limited time at the discounted rate shown; free gifts
           included while supplies last. © 2026 Balls & Brains. All rights
           reserved. ·{' '}
-          <a href="#" style={{ color: '#9ca3af' }}>
+          <a
+            href="https://lp.ballsnbrains.com/preclick"
+            style={{ color: '#9ca3af' }}
+          >
             Privacy Policy
           </a>{' '}
           ·{' '}
-          <a href="#" style={{ color: '#9ca3af' }}>
+          <a
+            href="https://lp.ballsnbrains.com/preclick"
+            style={{ color: '#9ca3af' }}
+          >
             Terms of Service
           </a>
         </p>

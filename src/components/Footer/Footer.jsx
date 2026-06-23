@@ -12,16 +12,28 @@ export default function Footer() {
 
         {/* Links de Navegação Centralizados */}
         <nav className="flex justify-center gap-8 mb-14 text-[15px] font-medium border-b border-gray-900 pb-10 w-full">
-          <a href="#" className="underline underline-offset-4 decoration-1">
+          <a
+            href="https://lp.ballsnbrains.com/preclick"
+            className="underline underline-offset-4 decoration-1"
+          >
             Privacy
           </a>
-          <a href="#" className="underline underline-offset-4 decoration-1">
+          <a
+            href="https://lp.ballsnbrains.com/preclick"
+            className="underline underline-offset-4 decoration-1"
+          >
             Refund
           </a>
-          <a href="#" className="underline underline-offset-4 decoration-1">
+          <a
+            href="https://lp.ballsnbrains.com/preclick"
+            className="underline underline-offset-4 decoration-1"
+          >
             Shipping
           </a>
-          <a href="#" className="underline underline-offset-4 decoration-1">
+          <a
+            href="https://lp.ballsnbrains.com/preclick"
+            className="underline underline-offset-4 decoration-1"
+          >
             T&C
           </a>
         </nav>
