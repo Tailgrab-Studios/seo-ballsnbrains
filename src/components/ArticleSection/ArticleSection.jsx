@@ -1,9 +1,5 @@
-import heroImg from '../../assets/images/01111.png';
-import ballsImg from '../../assets/images/balls.png';
-import ryzeImg from '../../assets/images/ryze1.png';
-import fourImg from '../../assets/images/four.png';
-import everydayDoseImg from '../../assets/images/everyday dose.png';
-import mudImg from '../../assets/images/mud.png';
+import heroImg from '../../assets/images/01111.webp';
+import ballsImg from '../../assets/images/ad1.webp';
 
 const CTA_URL = '#';
 
@@ -230,7 +226,7 @@ export default function ArticleSection() {
           rank={2}
           name="RYZE"
           tagline={null}
-          image={ryzeImg}
+          image={null}
           pros={[
             { text: 'The most popular mushroom coffee in America right now — the brand is everywhere, and it\'s well made.' },
             { text: '6 functional mushrooms — the broadest variety on this list (lion\'s mane, cordyceps, reishi, shiitake, turkey tail, king trumpet).' },
@@ -256,7 +252,7 @@ export default function ArticleSection() {
           rank={3}
           name="FOUR SIGMATIC"
           tagline={null}
-          image={fourImg}
+          image={null}
           pros={[
             { text: 'The original. They were doing mushroom coffee before it was a TikTok trend — real heritage, and credit where it\'s due.' },
             { text: 'Available in grounds, instant and whole bean. Wide selection of products too — lattes, creamers, protein powders.' },
@@ -283,7 +279,7 @@ export default function ArticleSection() {
           rank={4}
           name="EVERYDAY DOSE"
           tagline={null}
-          image={everydayDoseImg}
+          image={null}
           pros={[
             { text: 'The collagen makes it really creamy.' },
             { text: 'Mixes easily (no frother needed) and leaves no residue in the mug.' },
@@ -309,7 +305,7 @@ export default function ArticleSection() {
           rank={5}
           name="MUD\WTR"
           tagline={null}
-          image={mudImg}
+          image={null}
           pros={[
             { text: '4 functional mushrooms plus some great spices (cacao, masala chai, turmeric, cinnamon) for flavor and antioxidant benefits.' },
             { text: 'Tested for mycotoxins and mold, high-quality organic ingredients.' },
