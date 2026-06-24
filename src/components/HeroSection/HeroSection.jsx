@@ -116,7 +116,7 @@ const HeroSection = () => {
 
             <div className="flex flex-col items-stretch gap-2 md:gap-4">
               <a
-                href="https://ballsnbrains.com/shp/tmc-adv/08/p2-v2/"
+                href="#offer"
                 onMouseEnter={() => setCtaHover(true)}
                 onMouseLeave={() => setCtaHover(false)}
                 className={`block w-full text-center bg-[#dca331] text-white font-sans font-black text-sm md:text-base uppercase tracking-widest py-4 md:py-6 rounded-xl no-underline transition-all duration-200 ${

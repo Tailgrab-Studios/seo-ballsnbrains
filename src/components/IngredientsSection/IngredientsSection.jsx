@@ -264,7 +264,7 @@ const IngredientsSection = () => {
       {/* CTA */}
       <div className="relative z-10 text-center mt-12">
         <a
-          href="https://ballsnbrains.com/shp/tmc-adv/08/p2-v2/"
+          href="#offer"
           className="inline-block bg-[#dca331] hover:bg-orange-400 transition-colors text-white font-sans font-black text-sm uppercase tracking-widest py-5 px-16 rounded-xl shadow-[0_0_40px_rgba(249,115,22,0.4)] hover:shadow-[0_0_60px_rgba(249,115,22,0.6)]"
         >
           Try It Now →

@@ -9,11 +9,11 @@ import lionsMane from '../../assets/ingredients/lionsmane.webp';
 import cordyceps from '../../assets/ingredients/cordyceps.webp';
 import reishi from '../../assets/ingredients/reishi.webp';
 import chaga from '../../assets/ingredients/chaga.webp';
-import advImg05 from '../../assets/images/image-01.webp';
-import advImg06 from '../../assets/images/image-02.webp';
+import kitsWithIngredients from '../../assets/images/2kits-with-ingredients.jpg';
 import kit1 from '../../assets/products/1bundle.webp';
 import kit2 from '../../assets/products/2bundle.webp';
 import kit3 from '../../assets/products/3bundle.webp';
+import kitsHero from '../../assets/images/2kits-hero.webp';
 import badge365 from '../../assets/utils/badge-365days.webp';
 import wallpaper from '../../assets/utils/black-wallpaper.webp';
 
@@ -238,7 +238,7 @@ const Stars = ({ count = 5 }) => (
   </div>
 );
 
-const FadeIn = ({ children, delay = 0 }) => {
+const FadeIn = ({ children, delay = 0, className = '' }) => {
   const ref = useRef(null);
   const [visible, setVisible] = useState(false);
   useEffect(() => {
@@ -254,6 +254,7 @@ const FadeIn = ({ children, delay = 0 }) => {
   return (
     <div
       ref={ref}
+      className={className}
       style={{
         opacity: visible ? 1 : 0,
         transform: visible ? 'translateY(0)' : 'translateY(28px)',
@@ -747,107 +748,176 @@ export default function ArticleSection() {
           backgroundImage: `url(${wallpaper})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
+          minHeight: '100svh',
         }}
       >
-        <div className="absolute inset-0 bg-black/82 pointer-events-none" />
-        <div className="relative z-10 max-w-6xl mx-auto px-6 py-14 md:py-24">
+        {/* Layered background depth */}
+        <div className="absolute inset-0 bg-black/75 pointer-events-none" />
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              'radial-gradient(ellipse 70% 60% at 65% 50%, rgba(180,120,20,0.12) 0%, transparent 70%)',
+          }}
+        />
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background:
+              'radial-gradient(ellipse 50% 80% at 0% 50%, rgba(220,163,49,0.07) 0%, transparent 60%)',
+          }}
+        />
+        <div
+          className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none"
+          style={{
+            background: 'linear-gradient(to bottom, transparent, #070707)',
+          }}
+        />
+
+        <div className="relative z-10 max-w-6xl mx-auto px-6 pt-8 pb-16 md:pt-14 md:pb-28">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center">
             {/* Left: Copy */}
             <FadeIn>
               <div className="flex flex-col gap-6">
+                {/* Trust badge */}
+                <div className="inline-flex items-center gap-2 self-start px-4 py-2 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
+                  <span style={{ color: GOLD, fontSize: 12 }}>✓</span>
+                  <span className="text-white/80 font-sans text-xs font-semibold tracking-wide">
+                    365-Days Money-Back Guarantee
+                  </span>
+                </div>
+
                 <h1
-                  className="font-sans font-extrabold leading-[1.1]"
-                  style={{ fontSize: 'clamp(28px, 4.5vw, 54px)' }}
+                  className="font-sans font-extrabold leading-[1.08]"
+                  style={{ fontSize: 'clamp(22px, 3vw, 40px)' }}
                 >
                   <span className="text-white block">
                     Mushroom Coffee's Not Your Thing?
                   </span>
-                  <span className="block" style={{ color: GOLD }}>
+                  <span
+                    className="block"
+                    style={{
+                      background: `linear-gradient(90deg, #f0c060 0%, ${GOLD} 50%, #b8860b 100%)`,
+                      WebkitBackgroundClip: 'text',
+                      WebkitTextFillColor: 'transparent',
+                      backgroundClip: 'text',
+                    }}
+                  >
                     Here's Something You Might Actually Like.
                   </span>
                 </h1>
 
                 <p
                   className="font-sans text-base md:text-lg leading-relaxed italic"
-                  style={{ color: 'rgba(255,255,255,0.55)' }}
+                  style={{ color: 'rgba(255,255,255,0.5)' }}
                 >
                   Same mechanism. Same clinically-dosed ingredients. No coffee.
                   No caffeine. In capsules.
                 </p>
 
-                <p className="text-white/75 font-sans text-base md:text-lg leading-relaxed">
+                <p className="text-white/70 font-sans text-base md:text-lg leading-relaxed">
                   <strong className="text-white">34% OFF</strong> the only
                   testosterone-optimizing dual-formula system scientifically
                   designed to stop the Stress-Cortisol Death Spiral, raise your
-                  T by <strong style={{ color: PINK }}>15–46%</strong>, and give
-                  you all-day energy — without needles, prescriptions, or
-                  pharmaceutical side effects.
+                  T by{' '}
+                  <strong
+                    style={{
+                      color: PINK,
+                      textShadow: `0 0 20px ${PINK}55`,
+                    }}
+                  >
+                    15–46%
+                  </strong>
+                  , and give you all-day energy — without needles, prescriptions,
+                  or pharmaceutical side effects.
                 </p>
 
-                <a
-                  href={checkoutLinks.checkout3Subscribe}
-                  className="inline-block text-center font-sans font-black text-sm md:text-base uppercase tracking-widest py-5 px-6 rounded-full no-underline transition-all duration-200 hover:opacity-90 hover:scale-[1.02]"
-                  style={{
-                    background: GOLD,
-                    color: '#000',
-                    boxShadow: `0 0 40px rgba(220,163,49,0.4)`,
-                  }}
-                >
-                  Get 34% Off — Reclaim Your Testosterone
-                </a>
+                <div>
+                  <a
+                    href="#offer"
+                    className="inline-block text-center font-sans font-black text-sm md:text-base uppercase tracking-widest py-5 px-8 rounded-full no-underline transition-all duration-300 hover:scale-[1.03] hover:brightness-110"
+                    style={{
+                      background:
+                        'radial-gradient(143% 71% at 38% -10%, #fed9a5 0%, #d09439 100%)',
+                      color: '#0a0908',
+                      boxShadow: `0 0 60px rgba(220,163,49,0.55), 0 4px 24px rgba(0,0,0,0.4)`,
+                    }}
+                  >
+                    Get 34% Off — Reclaim Your Testosterone
+                  </a>
+                  <p className="text-white/35 font-sans text-xs mt-3 tracking-wide">
+                    Free shipping · No subscription required · Ships in 24h
+                  </p>
+                </div>
 
-                <div className="flex items-center gap-2.5">
-                  <div
-                    className="w-2 h-2 rounded-full shrink-0"
-                    style={{ background: '#22c55e' }}
-                  />
-                  <span className="text-white/55 font-sans text-sm">
-                    High Demand | Ships in 24h
+                {/* Social proof inline */}
+                <div className="flex items-center gap-3">
+                  <span style={{ color: GOLD, fontSize: 13, letterSpacing: 3 }}>
+                    ★★★★★
+                  </span>
+                  <span className="text-white/45 font-sans text-xs tracking-wide">
+                    +2,847 verified reviews
                   </span>
                 </div>
               </div>
             </FadeIn>
 
-            {/* Right: Product images + badge */}
+            {/* Right: Product + badge */}
             <FadeIn delay={150}>
-              <div className="flex flex-col items-center gap-6">
+              <div className="flex flex-col items-center gap-5">
                 <div className="relative w-full max-w-md mx-auto">
-                  <div className="rounded-2xl overflow-hidden">
-                    <img
-                      src={kit3}
-                      alt="Ultimate Stack — 6 Bottles"
-                      className="w-full object-contain"
-                      loading="eager"
-                    />
-                  </div>
+                  {/* Glow behind product */}
+                  <div
+                    className="absolute inset-0 rounded-3xl pointer-events-none"
+                    style={{
+                      background: `radial-gradient(ellipse 80% 60% at 50% 60%, rgba(220,163,49,0.22) 0%, transparent 70%)`,
+                      filter: 'blur(24px)',
+                      transform: 'scale(1.1)',
+                    }}
+                  />
+                  <img
+                    src={kitsHero}
+                    alt="Ultimate Stack — 6 Bottles"
+                    className="relative w-full object-contain drop-shadow-2xl"
+                    loading="eager"
+                  />
 
                   {/* Flash sale badge */}
                   <div
-                    className="absolute -top-4 -right-2 w-20 h-20 md:w-24 md:h-24 rounded-full flex flex-col items-center justify-center"
+                    className="absolute -top-3 -right-2 w-20 h-20 md:w-24 md:h-24 rounded-full flex flex-col items-center justify-center"
                     style={{
-                      background: `radial-gradient(circle, ${GOLD} 0%, #b8860b 100%)`,
-                      border: '2px dashed rgba(255,255,255,0.45)',
+                      background:
+                        'radial-gradient(circle at 40% 30%, #f0c060 0%, #d09439 55%, #8a5e1a 100%)',
+                      border: '2px dashed rgba(255,255,255,0.5)',
                       transform: 'rotate(12deg)',
-                      boxShadow: '0 4px 20px rgba(220,163,49,0.45)',
+                      boxShadow:
+                        '0 0 30px rgba(220,163,49,0.6), 0 4px 16px rgba(0,0,0,0.5)',
                     }}
                   >
-                    <span className="text-white font-sans font-black text-[8px] uppercase tracking-tight leading-tight">
+                    <span className="text-black/80 font-sans font-black text-[8px] uppercase tracking-tight leading-tight">
                       FLASH SALE
                     </span>
                     <span
-                      className="text-white font-sans font-black leading-tight"
+                      className="text-black font-sans font-black leading-tight"
                       style={{ fontSize: 'clamp(18px, 3vw, 24px)' }}
                     >
                       34%
                     </span>
-                    <span className="text-white font-sans font-black text-[9px] uppercase tracking-tight">
+                    <span className="text-black/80 font-sans font-black text-[9px] uppercase tracking-tight">
                       OFF
                     </span>
                   </div>
                 </div>
 
                 {/* Reviews bar */}
-                <div className="flex items-center gap-3 px-5 py-3 rounded-2xl border border-[#2a2a2a] bg-[#0a0a0a]/90">
+                <div
+                  className="flex items-center gap-3 px-5 py-3 rounded-2xl"
+                  style={{
+                    background: 'rgba(255,255,255,0.04)',
+                    border: '1px solid rgba(255,255,255,0.08)',
+                    backdropFilter: 'blur(10px)',
+                  }}
+                >
                   <span style={{ color: GOLD, fontSize: 15, letterSpacing: 2 }}>
                     ★★★★★
                   </span>
@@ -902,8 +972,7 @@ export default function ArticleSection() {
               <FadeIn key={i} delay={i * 80}>
                 <div className="flex items-start gap-5 p-6 rounded-2xl border border-[#1f1f1f] bg-[#111]">
                   <span
-                    className="font-sans font-black text-2xl shrink-0"
-                    style={{ color: GOLD }}
+                    className="font-sans font-black text-2xl shrink-0 gold-text"
                   >
                     {r.num}
                   </span>
@@ -939,7 +1008,7 @@ export default function ArticleSection() {
             </p>
             <p className="text-white font-sans font-black text-base md:text-xl leading-relaxed mt-6">
               That's exactly why we built the{' '}
-              <span style={{ color: GOLD }}>Ultimate Stack</span>.
+              <span className="gold-text">Ultimate Stack</span>.
             </p>
           </FadeIn>
         </div>
@@ -948,12 +1017,18 @@ export default function ArticleSection() {
       {/* ── PRODUCT OVERVIEW ──────────────────────────────────── */}
       <section className="py-16 px-6 border-t border-[#1a1a1a]">
         <div className="max-w-5xl mx-auto">
-          <FadeIn>
-            <div className="text-center mb-12">
-              <p
-                className="font-sans font-black text-xs tracking-[4px] uppercase mb-4"
-                style={{ color: GOLD }}
-              >
+          <div className="flex flex-col md:flex-row gap-10 items-center">
+            <FadeIn className="w-full md:w-1/2 flex-shrink-0">
+              <img
+                src={kitsWithIngredients}
+                alt="Ultimate Stack — Ball Fuel + Mind Pump"
+                className="w-full"
+                loading="lazy"
+              />
+            </FadeIn>
+
+            <FadeIn delay={100} className="w-full md:w-1/2">
+              <p className="font-sans font-black text-xs tracking-[4px] uppercase mb-4 gold-text">
                 The Ultimate Stack
               </p>
               <h2
@@ -962,60 +1037,18 @@ export default function ArticleSection() {
               >
                 Two Bottles. Same Mission. Zero Coffee.
               </h2>
-              <p className="text-white/55 font-sans text-base mt-4 max-w-2xl mx-auto leading-relaxed">
+              <p className="text-white/55 font-sans text-base mt-4 leading-relaxed">
                 Two supplements. Working together. Hitting the two systems that
                 fall apart in a man after 40: the hormonal axis and the
                 cognitive axis.
               </p>
-              <p className="text-white/55 font-sans text-base mt-3 max-w-2xl mx-auto leading-relaxed">
+              <p className="text-white/55 font-sans text-base mt-3 leading-relaxed">
                 This isn't some generic "men's health" stack you grab at GNC.
                 It's the same engineering behind our Testosterone Mushroom
                 Coffee — reformulated into capsules, with the same compounds at
                 clinical doses.
               </p>
-            </div>
-          </FadeIn>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {[
-              {
-                label: 'ULTIMATE BALL FUEL',
-                sub: 'Testosterone Support',
-                color: '#c47a1e',
-                img: advImg05,
-              },
-              {
-                label: 'ULTIMATE MIND PUMP',
-                sub: 'Mushroom Complex',
-                color: '#1a5c4a',
-                img: advImg06,
-              },
-            ].map((p, i) => (
-              <FadeIn key={i} delay={i * 100}>
-                <div className="rounded-2xl overflow-hidden border border-[#1f1f1f] bg-[#111]">
-                  <div className="relative aspect-[4/3] overflow-hidden">
-                    <img
-                      src={p.img}
-                      alt={p.label}
-                      className="w-full h-full object-cover"
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-                    <div className="absolute bottom-0 left-0 p-5">
-                      <p className="text-white font-sans font-black text-xs uppercase tracking-[3px] mb-1">
-                        {p.label}
-                      </p>
-                      <p
-                        className="font-sans text-sm font-bold"
-                        style={{ color: GOLD }}
-                      >
-                        {p.sub}
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </FadeIn>
-            ))}
+            </FadeIn>
           </div>
         </div>
       </section>
@@ -1028,10 +1061,7 @@ export default function ArticleSection() {
         <div className="max-w-5xl mx-auto">
           <FadeIn>
             <div className="mb-10">
-              <p
-                className="font-sans font-black text-xs tracking-[4px] uppercase mb-3"
-                style={{ color: GOLD }}
-              >
+              <p className="font-sans font-black text-xs tracking-[4px] uppercase mb-3 gold-text">
                 Formula 01
               </p>
               <h2
@@ -1070,10 +1100,7 @@ export default function ArticleSection() {
         <div className="max-w-5xl mx-auto">
           <FadeIn>
             <div className="mb-10">
-              <p
-                className="font-sans font-black text-xs tracking-[4px] uppercase mb-3"
-                style={{ color: GOLD }}
-              >
+              <p className="font-sans font-black text-xs tracking-[4px] uppercase mb-3 gold-text">
                 Formula 02
               </p>
               <h2
@@ -1117,8 +1144,7 @@ export default function ArticleSection() {
         <div className="max-w-4xl mx-auto">
           <FadeIn>
             <p
-              className="font-sans font-black text-xs tracking-[4px] uppercase mb-4 text-center"
-              style={{ color: GOLD }}
+              className="font-sans font-black text-xs tracking-[4px] uppercase mb-4 text-center gold-text"
             >
               The Science
             </p>
@@ -1167,8 +1193,7 @@ export default function ArticleSection() {
                       {item.num}
                     </div>
                     <h3
-                      className="text-white font-sans font-black text-sm uppercase tracking-wide"
-                      style={{ color: GOLD }}
+                      className="font-sans font-black text-sm uppercase tracking-wide gold-text"
                     >
                       {item.title}
                     </h3>
@@ -1345,8 +1370,7 @@ export default function ArticleSection() {
               </div>
               <div className="text-center md:text-left flex flex-col gap-3">
                 <h3
-                  className="font-sans font-black text-xl md:text-4xl"
-                  style={{ color: GOLD }}
+                  className="font-sans font-black text-xl md:text-4xl gold-text"
                 >
                   The Transformation Guarantee
                 </h3>
@@ -1379,10 +1403,7 @@ export default function ArticleSection() {
         <div className="max-w-3xl mx-auto">
           <FadeIn>
             <div className="text-center mb-12">
-              <p
-                className="font-sans font-black text-xs tracking-[4px] uppercase mb-3"
-                style={{ color: GOLD }}
-              >
+              <p className="font-sans font-black text-xs tracking-[4px] uppercase mb-3 gold-text">
                 FAQ
               </p>
               <h2
@@ -1412,10 +1433,7 @@ export default function ArticleSection() {
       <section className="py-20 px-6 border-t border-[#1a1a1a]">
         <div className="max-w-3xl mx-auto">
           <FadeIn>
-            <p
-              className="font-sans font-black text-xs tracking-[4px] uppercase mb-6 text-center"
-              style={{ color: GOLD }}
-            >
+            <p className="font-sans font-black text-xs tracking-[4px] uppercase mb-6 text-center gold-text">
               Bottom Line
             </p>
             <div className="flex flex-col gap-5 mb-10 text-center">
@@ -1440,10 +1458,7 @@ export default function ArticleSection() {
                 off. Every day that goes by, more of your testosterone gets
                 converted into estrogen.
               </p>
-              <p
-                className="text-white font-sans font-black text-lg md:text-xl"
-                style={{ color: GOLD }}
-              >
+              <p className="font-sans font-black text-lg md:text-xl gold-text">
                 You can hit this now. Or you can hit it in 2 years, with the
                 problem 2 years worse.
               </p>
