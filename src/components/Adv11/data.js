@@ -1,4 +1,4 @@
-﻿// ADV11 V1 — copy validada (verbatim, sem Fadogia) no layout Erodus.
+// ADV11 V1 — copy validada (verbatim, sem Fadogia) no layout Erodus.
 // Fonte: ref/ADV11/ADV11 l V1 l copy validada x layout ERODUS l 18.09.26.docx
 import avGary from '../../assets/testimonials/person-14-comment.webp';
 import avNick from '../../assets/testimonials/person-3-comment.webp';

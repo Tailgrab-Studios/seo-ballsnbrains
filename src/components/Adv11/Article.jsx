@@ -1,4 +1,4 @@
-﻿import doctor from '../../assets/testimonials/man1.webp';
+import doctor from '../../assets/testimonials/man1.webp';
 import { comparison, credentials, productDetails, reasons, trustedBy } from './data';
 import { Icon, IconThumb } from './icons';
 import { Icon3D } from './icons3d';

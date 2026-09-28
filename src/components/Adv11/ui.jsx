@@ -1,4 +1,4 @@
-﻿import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import checkGold from '../../assets/icons/check-gold.svg';
 import { withCurrentParams } from '../../utils/withCurrentParams';
 import { CHECKOUT_URL, RATING } from './data';

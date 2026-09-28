@@ -1,4 +1,4 @@
-﻿import { useState } from 'react';
+import { useState } from 'react';
 import { caseStudy, comments, testimonials } from './data';
 import { Icon, Stars } from './icons';
 

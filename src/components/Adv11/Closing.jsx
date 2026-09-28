@@ -1,4 +1,4 @@
-﻿import { useId, useState } from 'react';
+import { useId, useState } from 'react';
 import footerLogo from '../../assets/adv11/footer-logo.svg';
 import faqArrow from '../../assets/icons/faq-arrow.svg';
 import { faqs, references } from './data';

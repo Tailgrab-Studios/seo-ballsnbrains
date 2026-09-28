@@ -141,60 +141,80 @@
       defer
     ></script>
 
-    <!-- Meta Pixel Code -->
+    <!--
+      Tags de terceiros (Meta Pixel, GA, Clarity) — fila imediata + script depois.
+      As funções fbq/gtag/clarity existem desde o 1º byte e enfileiram tudo (PageView,
+      config); o script pesado de cada um só baixa na 1ª interação (scroll/toque/mouse/
+      tecla) ou TAG_DELAY_MS depois do load, o que vier primeiro. Assim a thread principal
+      fica livre pro primeiro paint e pra hidratação. Eventos não se perdem: a fila é
+      processada quando o script chega.
+      RedTrack fica fora disso (atribuição do anúncio) e carrega com defer lá em cima.
+    -->
     <script>
-      !(function (f, b, e, v, n, t, s) {
-        if (f.fbq) return;
-        n = f.fbq = function () {
-          n.callMethod
-            ? n.callMethod.apply(n, arguments)
-            : n.queue.push(arguments);
-        };
-        if (!f._fbq) f._fbq = n;
+      (function (w, d) {
+        var TAG_DELAY_MS = 3500;
+        var DELAY_PIXEL = true;
+
+        // Meta Pixel: stub oficial (sem injetar o fbevents.js ainda)
+        var n = (w.fbq = function () {
+          n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+        });
+        if (!w._fbq) w._fbq = n;
         n.push = n;
         n.loaded = !0;
         n.version = '2.0';
         n.queue = [];
-        t = b.createElement(e);
-        t.async = !0;
-        t.src = v;
-        s = b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t, s);
-      })(
-        window,
-        document,
-        'script',
-        'https://connect.facebook.net/en_US/fbevents.js',
-      );
-      fbq('init', '850928457411577');
-      fbq('track', 'PageView');
-    </script>
+        w.fbq('init', '850928457411577');
+        w.fbq('track', 'PageView');
 
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-190M4F4ZS9"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag('js', new Date());
+        // Google tag: dataLayer + config enfileirados
+        w.dataLayer = w.dataLayer || [];
+        w.gtag = function () {
+          w.dataLayer.push(arguments);
+        };
+        w.gtag('js', new Date());
+        w.gtag('config', 'G-190M4F4ZS9');
 
-      gtag('config', 'G-190M4F4ZS9');
-    </script>
+        // Microsoft Clarity: fila
+        w.clarity =
+          w.clarity ||
+          function () {
+            (w.clarity.q = w.clarity.q || []).push(arguments);
+          };
 
-    <!-- Microsoft Clarity -->
-    <script type="text/javascript">
-      (function (c, l, a, r, i, t, y) {
-        c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
-        t = l.createElement(r); t.async = 1; t.src = 'https://www.clarity.ms/tag/' + i;
-        y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
-      })(window, document, 'clarity', 'script', 'ybk6ar1eg3');
+        function inject(src) {
+          var s = d.createElement('script');
+          s.async = true;
+          s.src = src;
+          d.head.appendChild(s);
+        }
+
+        var PIXEL = 'https://connect.facebook.net/en_US/fbevents.js';
+        if (!DELAY_PIXEL) inject(PIXEL);
+
+        var done = false;
+        var events = ['scroll', 'pointerdown', 'touchstart', 'keydown', 'mousemove'];
+        function loadTags() {
+          if (done) return;
+          done = true;
+          events.forEach(function (e) {
+            w.removeEventListener(e, loadTags, { passive: true });
+          });
+          if (DELAY_PIXEL) inject(PIXEL);
+          inject('https://www.googletagmanager.com/gtag/js?id=G-190M4F4ZS9');
+          inject('https://www.clarity.ms/tag/ybk6ar1eg3');
+        }
+        events.forEach(function (e) {
+          w.addEventListener(e, loadTags, { passive: true });
+        });
+        w.addEventListener('load', function () {
+          setTimeout(loadTags, TAG_DELAY_MS);
+        });
+      })(window, document);
     </script>
   </head>
   <body>
+    <!-- Meta Pixel sem JS -->
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

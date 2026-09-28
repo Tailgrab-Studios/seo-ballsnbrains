@@ -1,4 +1,4 @@
-﻿import { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import doctor from '../../assets/testimonials/man1.webp';
 import pouch from '../../assets/adv11/pouch.webp';
 import stamp from '../../assets/adv11/guarantee-stamp.webp';
