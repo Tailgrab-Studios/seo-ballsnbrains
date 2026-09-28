@@ -2,7 +2,7 @@
 // com os fundamentos de UI do projeto seo-balls-and-brains-desing.
 // Ordem dos blocos segue a spec do doc "ADV11 l V1 l copy validada x layout ERODUS".
 import { ArticleHeader, ComparisonTable, ProductDetails, Reasons } from './Article';
-import { FinalCta, Faq, Footer, References } from './Closing';
+import { Faq, Footer, References } from './Closing';
 import { MobileBar, OfferBox, SidebarCard } from './Offer';
 import { Comments, Testimonials } from './Social';
 import TopBar from './TopBar';
@@ -24,7 +24,6 @@ export default function Adv11V1() {
             <OfferBox />
             <RatingStrip />
             <Faq />
-            <FinalCta />
             <RatingStrip />
             <References />
           </article>
