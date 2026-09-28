@@ -58,7 +58,7 @@ export const comparison = {
 export const reasons = [
   {
     num: '01',
-    title: 'RYZE ISN\'T VERY EFFECTIVE AT PREVENTING THE "AFTERNOON CRASH"',
+    title: 'Ryze Isn\'t Very Effective at Preventing the "Afternoon Crash"',
     image: {
       ...imgCrash,
       alt: '48mg vs. 100mg of caffeine — and what 3pm looks like on each.',
@@ -71,7 +71,7 @@ export const reasons = [
   },
   {
     num: '02',
-    title: 'RYZE HAS AN "EARTHY" TASTE THAT\'S NOTHING LIKE COFFEE',
+    title: 'Ryze Has an "Earthy" Taste That\'s Nothing Like Coffee',
     body: [
       'One of the biggest barriers I see with my patients is the fear of taste. And for good reason. Ryze has a flavor that many people describe as "earthy," "different," and even "unpleasant." Some Reddit reviews are pretty blunt: "it tastes and smells like vomit."',
       "Balls N'Brains was formulated to taste like coffee — not like mushrooms, not like dirt, not like a supplement. Most users report that the taste is virtually indistinguishable from conventional coffee.",
@@ -79,7 +79,7 @@ export const reasons = [
   },
   {
     num: '03',
-    title: 'RYZE CONTAINS TWO MUSHROOMS THAT CAN LOWER YOUR TESTOSTERONE',
+    title: 'Ryze Contains Two Mushrooms That Can Lower Your Testosterone',
     image: {
       ...imgMushrooms,
       alt: 'Shiitake and King Trumpet on one side. Neither on the other.',
@@ -94,7 +94,7 @@ export const reasons = [
   },
   {
     num: '04',
-    title: 'RYZE CONVERTS YOUR TESTOSTERONE INTO ESTROGEN',
+    title: 'Ryze Converts Your Testosterone Into Estrogen',
     image: {
       ...imgAromatase,
       alt: 'Turkey Tail stimulates aromatase — the enzyme that turns T into estradiol.',
@@ -107,7 +107,7 @@ export const reasons = [
   },
   {
     num: '05',
-    title: 'RYZE (AND OTHER MUSHROOM COFFEES) WERE MADE FOR WOMEN — NOT FOR MEN',
+    title: 'Ryze (and Other Mushroom Coffees) Were Made for Women — Not for Men',
     body: [
       'Ryze, Four Sigmatic, Everyday Dose, MUD\\WTR — all of them were formulated for "wellness." Energy, focus, immunity. No gender specificity. No hormonal targeting. Not a single one contains an ingredient that addresses testosterone or modulates cortisol specifically for the male body.',
       "Balls N'Brains was built around the male hormonal axis:",
@@ -123,7 +123,7 @@ export const reasons = [
   },
   {
     num: '06',
-    title: 'RYZE IS EXTREMELY HARD TO CANCEL (AND WAS INVESTIGATED BY THE NAD)',
+    title: 'Ryze Is Extremely Hard to Cancel (and Was Investigated by the NAD)',
     body: [
       'Search "Ryze subscription" on Reddit. You\'ll find reports from people who were automatically charged without clear authorization, who tried to cancel and were told by the company that "there\'s nothing we can do to stop this month\'s shipment."',
       "Ryze was investigated by the NAD (National Advertising Division) in September 2025 and voluntarily withdrew its health claims. I don't recommend any product from a company with that track record to my patients.",
@@ -133,7 +133,7 @@ export const reasons = [
   },
   {
     num: '07',
-    title: "RYZE DOESN'T TOUCH THE HORMONE THAT'S ACTUALLY DRAINING YOU",
+    title: "Ryze Doesn't Touch the Hormone That's Actually Draining You",
     body: [
       'Every mushroom coffee on the shelf sells the same three words: energy, focus, immunity. Not one of them says anything about cortisol.',
       "That's the problem. Cortisol is the stress hormone that suppresses testosterone directly. It runs highest in the morning, it gets pushed higher by caffeine on an empty stomach, and it's the reason a man can sleep eight hours and still wake up flat.",
@@ -143,7 +143,7 @@ export const reasons = [
   },
   {
     num: '08',
-    title: 'RYZE MAY BE "RICE POWDER" DISGUISED AS MUSHROOM COFFEE',
+    title: 'Ryze May Be "Rice Powder" Disguised as Mushroom Coffee',
     image: {
       ...imgLabel,
       alt: 'Fruiting body, dual-extracted — every dose printed on the back of the bag.',
@@ -158,7 +158,7 @@ export const reasons = [
   },
   {
     num: '09',
-    title: 'RYZE STILL LEAVES YOU BUYING SIX OTHER BOTTLES',
+    title: 'Ryze Still Leaves You Buying Six Other Bottles',
     body: [
       "Drink Ryze and you've handled exactly one thing: the coffee. Everything a man over 40 actually needs for his hormones is still sitting in the supplement aisle.",
       "So the cabinet fills up. Ashwagandha. Tongkat ali. Shilajit. Zinc. Vitamin D. A jar of lion's mane, because the coffee didn't carry enough of it. Six bottles, six habits — and by Wednesday most men have taken none of them.",
@@ -169,7 +169,7 @@ export const reasons = [
   },
   {
     num: '10',
-    title: "RYZE IS MORE EXPENSIVE AND LESS EFFECTIVE FOR MEN THAN BALLS N'BRAINS",
+    title: "Ryze Is More Expensive and Less Effective for Men Than Balls N'Brains",
     image: {
       ...imgVersus,
       alt: 'Side by side: what each bag actually does for a man.',
