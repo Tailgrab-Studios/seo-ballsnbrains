@@ -12,33 +12,160 @@ import image10 from '../../assets/images/adv-img-10.webp';
 import product from '../../assets/products/1kit-with-bg.webp';
 import doctor from '../../assets/testimonials/man1.webp';
 
+// ── Inline icons ───────────────────────────────────────────────────────────
+const strokeIcon = {
+  viewBox: '0 0 24 24',
+  fill: 'none',
+  stroke: 'currentColor',
+  strokeWidth: 2,
+  strokeLinecap: 'round',
+  strokeLinejoin: 'round',
+  width: 16,
+  height: 16,
+};
+
+const IconChevronDown = (props) => (
+  <svg {...strokeIcon} {...props}>
+    <path d="M5 8.5 12 15.5 19 8.5" />
+  </svg>
+);
+
+const IconShieldCheck = (props) => (
+  <svg {...strokeIcon} {...props}>
+    <path d="M12 2.8 19 5.6v5.1c0 4.3-2.9 8.2-7 9.5-4.1-1.3-7-5.2-7-9.5V5.6l7-2.8z" />
+    <path d="M9 11.8l2.1 2.1 4-4.2" />
+  </svg>
+);
+
+const IconLock = (props) => (
+  <svg {...strokeIcon} {...props}>
+    <rect x="4.5" y="10" width="15" height="10" rx="2.5" />
+    <path d="M8.2 10V7.2a3.8 3.8 0 0 1 7.6 0V10" />
+  </svg>
+);
+
+const IconTruck = (props) => (
+  <svg {...strokeIcon} {...props}>
+    <path d="M2.8 6.6h10.4v9.7H2.8z" />
+    <path d="M13.2 10.3h3.6l3.4 3.4v2.6h-7z" />
+    <circle cx="7" cy="18.4" r="1.9" />
+    <circle cx="17" cy="18.4" r="1.9" />
+  </svg>
+);
+
+const IconArrowRight = (props) => (
+  <svg {...strokeIcon} {...props}>
+    <path d="M4 12h14.5" />
+    <path d="M12.5 5.8 18.8 12l-6.3 6.2" />
+  </svg>
+);
+
+const IconStar = (props) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    width={15}
+    height={15}
+    {...props}
+  >
+    <path d="M12 2.4l2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3.1-5.8 3.1 1.1-6.5L2.6 9.2l6.5-.9z" />
+  </svg>
+);
+
+// ── Trust badge row ────────────────────────────────────────────────────────
+const TrustBadge = ({ icon, children }) => (
+  <li className="flex items-center gap-3">
+    <span
+      style={{
+        flexShrink: 0,
+        width: 28,
+        height: 28,
+        borderRadius: '50%',
+        background: '#fff',
+        border: '1px solid #f6c89a',
+        color: '#ea6c00',
+        display: 'inline-flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}
+    >
+      {icon}
+    </span>
+    <span className="text-gray-700 font-sans text-sm font-semibold">
+      {children}
+    </span>
+  </li>
+);
+
+// ── CTA button ─────────────────────────────────────────────────────────────
+const CtaButton = ({ children, marginTop = 24 }) => (
+  <a
+    href="https://lp.vitavaulthealth.com/preclick"
+    className="group transition duration-200 hover:-translate-y-0.5 hover:brightness-105 active:translate-y-0 active:brightness-95"
+    style={{
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: 12,
+      width: '100%',
+      marginTop,
+      padding: '18px 24px',
+      border: '2px solid transparent',
+      borderRadius: 12,
+      // padding-box holds the fill, border-box paints the gradient border
+      background:
+        'linear-gradient(180deg, #fb8b3d 0%, #f97316 55%, #ea580c 100%) padding-box, linear-gradient(135deg, #ffdcb5 0%, #fb923c 22%, #c2410c 50%, #fb923c 78%, #ffdcb5 100%) border-box',
+      color: '#fff',
+      fontFamily: 'sans-serif',
+      fontWeight: 900,
+      fontSize: 18,
+      letterSpacing: 1.5,
+      textTransform: 'uppercase',
+      textAlign: 'center',
+      textDecoration: 'none',
+      cursor: 'pointer',
+      boxShadow:
+        '0 10px 24px rgba(234, 88, 12, 0.35), inset 0 1px 0 rgba(255, 255, 255, 0.35)',
+    }}
+  >
+    <span>{children}</span>
+    <IconArrowRight
+      width={20}
+      height={20}
+      strokeWidth={2.6}
+      style={{ flexShrink: 0 }}
+      className="transition-transform duration-200 group-hover:translate-x-1"
+    />
+  </a>
+);
+
 // ── Comparison table data ──────────────────────────────────────────────────
 const compRows = [
-  { label: 'Price', trt: '$150-$400/month', tmc: '$1.63/day' },
+  { label: 'Price', trt: '$150-$400/month', manstuff: '$1.63/day' },
   {
     label: 'Estrogen',
     trt: 'Feeds aromatase → Estrogen spikes',
-    tmc: 'Reduces aromatase stimulation',
+    manstuff: 'Reduces aromatase stimulation',
   },
   {
     label: 'Testicular Health',
     trt: 'Testicles shrink (documented)',
-    tmc: 'Supports natural testicular function',
+    manstuff: 'Supports natural testicular function',
   },
   {
     label: 'Dependency',
     trt: "Can't stop without crashing",
-    tmc: 'Stop anytime. No dependency.',
+    manstuff: 'Stop anytime. No dependency.',
   },
   {
     label: 'Safety',
     trt: 'FDA black box cardiovascular warning',
-    tmc: 'No side effects',
+    manstuff: 'No side effects',
   },
   {
     label: 'Guarantee',
     trt: 'No guarantee',
-    tmc: '365-Day Money-Back Guarantee',
+    manstuff: '365-Day Money-Back Guarantee',
   },
 ];
 
@@ -56,7 +183,7 @@ const reasons = [
     num: '02',
     title: 'TRT Shrinks Your Testicles. This Supports Them.',
     body: [
-      'Exogenous testosterone tells your brain to stop sending LH (luteinizing hormone). Without LH, your testicles shut down. They atrophy. Testosterone Morning Coffee contains LJ100 Tongkat Ali (300mg) which supports LH signaling, and Fadogia Agrestis (600mg) which supports testicular synthesis. Your natural machinery stays active.',
+      'Exogenous testosterone tells your brain to stop sending LH (luteinizing hormone). Without LH, your testicles shut down. They atrophy. ManStuff contains LJ100 Tongkat Ali (300mg) which supports LH signaling, and Fadogia Agrestis (600mg) which supports testicular synthesis. Your natural machinery stays active.',
     ],
     visual: 'image2',
   },
@@ -64,7 +191,7 @@ const reasons = [
     num: '03',
     title: 'TRT Costs $150-400/Month. This Is $1.63/Day.',
     body: [
-      "Monthly testosterone. Quarterly bloodwork. Clinic visits. Anastrozole. HCG. Syringes. That's $1,800-4,800/year for a therapy you can't stop without medical supervision. TMC is $49/month. It also replaces your regular coffee and your T-booster. Net savings: $1,200-4,200/year.",
+      "Monthly testosterone. Quarterly bloodwork. Clinic visits. Anastrozole. HCG. Syringes. That's $1,800-4,800/year for a therapy you can't stop without medical supervision. ManStuff is $49/month. It also replaces your regular coffee and your T-booster. Net savings: $1,200-4,200/year.",
     ],
     visual: 'image3',
   },
@@ -72,15 +199,15 @@ const reasons = [
     num: '04',
     title: 'TRT Spikes Estrogen. This Targets the Enzyme That Creates It.',
     body: [
-      'Inject T → aromatase converts it → estradiol rises → add anastrozole → joint pain, mood swings, bone density loss. TMC takes a different path: KSM-66 Ashwagandha (300mg) reduces cortisol by 27.9%. Less cortisol = less aromatase stimulation = less conversion. No second drug needed.',
+      'Inject T → aromatase converts it → estradiol rises → add anastrozole → joint pain, mood swings, bone density loss. ManStuff takes a different path: KSM-66 Ashwagandha (300mg) reduces cortisol by 27.9%. Less cortisol = less aromatase stimulation = less conversion. No second drug needed.',
     ],
     visual: 'image4',
   },
   {
     num: '05',
-    title: "You Can't Stop TRT Without Crashing. You Can Stop TMC Anytime.",
+    title: "You Can't Stop TRT Without Crashing. You Can Stop ManStuff Anytime.",
     body: [
-      "After months on TRT, your HPG axis is suppressed. Stop injecting and your T crashes below baseline. You need a managed taper with HCG and/or clomiphene. Some men never fully recover. TMC supports natural production — doesn't replace it. Stop drinking it and you return to baseline. No taper. No PCT.",
+      "After months on TRT, your HPG axis is suppressed. Stop injecting and your T crashes below baseline. You need a managed taper with HCG and/or clomiphene. Some men never fully recover. ManStuff supports natural production — doesn't replace it. Stop drinking it and you return to baseline. No taper. No PCT.",
     ],
     visual: 'image5',
   },
@@ -88,7 +215,7 @@ const reasons = [
     num: '06',
     title: 'It Fixes the Brain Fog That TRT Completely Misses',
     body: [
-      "TRT adds testosterone. It doesn't touch cognition. TMC includes Lion's Mane (1,000mg) — stimulates nerve growth factor for brain cell repair. Users report cleared fog within 7-10 days. Plus Cordyceps (1,000mg) — 7% VO2 max increase. Less fatigue, more endurance. One cup hits hormones, brain, and body.",
+      "TRT adds testosterone. It doesn't touch cognition. ManStuff includes Lion's Mane (1,000mg) — stimulates nerve growth factor for brain cell repair. Users report cleared fog within 7-10 days. Plus Cordyceps (1,000mg) — 7% VO2 max increase. Less fatigue, more endurance. One cup hits hormones, brain, and body.",
     ],
     visual: 'image6',
   },
@@ -96,7 +223,7 @@ const reasons = [
     num: '07',
     title: 'No Needles. No Pharmacy. No Awkward Conversations.',
     body: [
-      "Testosterone is Schedule III. Refills require prescriptions. Some pharmacies flag it. Some wives have questions about injections. TMC ships in a plain box. It's coffee. Nobody asks questions at the breakfast table. Same mug, same morning, same routine. The simplicity is the point.",
+      "Testosterone is Schedule III. Refills require prescriptions. Some pharmacies flag it. Some wives have questions about injections. ManStuff ships in a plain box. It's coffee. Nobody asks questions at the breakfast table. Same mug, same morning, same routine. The simplicity is the point.",
     ],
     visual: 'image7',
   },
@@ -104,7 +231,7 @@ const reasons = [
     num: '08',
     title: "TRT Has an FDA Cardiovascular Black Box Warning. This Doesn't.",
     body: [
-      'The TRAVERSE trial found higher incidence of major cardiovascular events in men on TRT. TRT commonly elevates hematocrit — increasing blood viscosity and stroke risk. Regular CBC monitoring required. TMC contains no exogenous hormones. No mechanism to elevate hematocrit. No cardiac monitoring needed.',
+      'The TRAVERSE trial found higher incidence of major cardiovascular events in men on TRT. TRT commonly elevates hematocrit — increasing blood viscosity and stroke risk. Regular CBC monitoring required. ManStuff contains no exogenous hormones. No mechanism to elevate hematocrit. No cardiac monitoring needed.',
     ],
     visual: 'image8',
   },
@@ -112,7 +239,7 @@ const reasons = [
     num: '09',
     title: 'Men Who Switched Are Getting Better Bloodwork',
     body: [
-      'Self-reported results from men transitioning off TRT to TMC at 90 days: total T up 15-30% from pre-TRT baseline. Free T up 20-35%. Estradiol down to 20-30 pg/mL (vs. 40-60+ on TRT). Hematocrit normalized. When you stop flooding the system with synthetic T and instead support natural production while reducing aromatase, your body finds a healthier balance.',
+      'Self-reported results from men transitioning off TRT to ManStuff at 90 days: total T up 15-30% from pre-TRT baseline. Free T up 20-35%. Estradiol down to 20-30 pg/mL (vs. 40-60+ on TRT). Hematocrit normalized. When you stop flooding the system with synthetic T and instead support natural production while reducing aromatase, your body finds a healthier balance.',
     ],
     visual: 'image9',
   },
@@ -120,7 +247,7 @@ const reasons = [
     num: '10',
     title: "365-Day Guarantee. Your TRT Clinic Doesn't Offer Refunds.",
     body: [
-      "If TRT doesn't work, you're out the money AND you need medical support to discontinue. TMC: try it for up to a full year. If you're not satisfied, email them, get every penny back. No phone calls. No retention scripts. 26.5% returning customer rate and 4.8 stars across 12,847 reviews says the bet is paying off.",
+      "If TRT doesn't work, you're out the money AND you need medical support to discontinue. ManStuff: try it for up to a full year. If you're not satisfied, email them, get every penny back. No phone calls. No retention scripts. 26.5% returning customer rate and 4.8 stars across 12,847 reviews says the bet is paying off.",
     ],
     visual: 'image10',
   },
@@ -368,7 +495,7 @@ export default function ArticleSection() {
                       marginBottom: 3,
                     }}
                   >
-                    💉 TRT
+                    TRT
                   </p>
                   <p
                     style={{
@@ -400,7 +527,7 @@ export default function ArticleSection() {
                       marginBottom: 3,
                     }}
                   >
-                    ☕ Testosterone Mushroom Coffee
+                    ManStuff
                   </p>
                   <p
                     style={{
@@ -482,7 +609,7 @@ export default function ArticleSection() {
                     <span style={{ lineHeight: 1.4 }}>{row.trt}</span>
                   </div>
 
-                  {/* TMC column (positive / winner) */}
+                  {/* ManStuff column (positive / winner) */}
                   <div
                     style={{
                       padding: '18px 14px',
@@ -522,7 +649,7 @@ export default function ArticleSection() {
                     >
                       ✓
                     </span>
-                    <span style={{ lineHeight: 1.4 }}>{row.tmc}</span>
+                    <span style={{ lineHeight: 1.4 }}>{row.manstuff}</span>
                   </div>
                 </div>
               ))}
@@ -541,9 +668,9 @@ export default function ArticleSection() {
               <p className="text-gray-800 font-sans text-base leading-relaxed">
                 <strong>TLDR:</strong> TRT doesn't address aromatase — the
                 enzyme converting your T into estrogen. It actually feeds it.
-                Testosterone Mushroom Coffee targets the root cause, supports
-                natural production, and costs $1.63/day. No needles. No
-                dependency. 365-day guarantee. 👇
+                ManStuff targets the root cause, supports natural production,
+                and costs $1.63/day. No needles. No dependency. 365-day
+                guarantee.
               </p>
             </div>
           </FadeIn>
@@ -651,7 +778,7 @@ export default function ArticleSection() {
               >
                 <img
                   src={product}
-                  alt="Testosterone Mushroom Coffee"
+                  alt="ManStuff"
                   className="w-full h-auto object-contain"
                   style={{ maxWidth: 280, margin: '0 auto', display: 'block' }}
                 />
@@ -666,7 +793,19 @@ export default function ArticleSection() {
                     fontSize: 'clamp(24px, 5vw, 36px)',
                   }}
                 >
-                  Limited Time Only 👇
+                  Limited Time{' '}
+                  <span style={{ whiteSpace: 'nowrap' }}>
+                    Only{' '}
+                    <IconChevronDown
+                      width="0.72em"
+                      height="0.72em"
+                      strokeWidth={3}
+                      style={{
+                        display: 'inline-block',
+                        verticalAlign: '-0.05em',
+                      }}
+                    />
+                  </span>
                 </p>
                 <h2
                   style={{
@@ -676,58 +815,51 @@ export default function ArticleSection() {
                     color: '#111',
                     lineHeight: 1.1,
                     marginTop: 8,
+                    textWrap: 'balance',
                   }}
                 >
-                  Try Today, Get 44% Off
-                  <br />
-                  For Life!
+                  Try Today, Get 44% Off{' '}
+                  <span style={{ whiteSpace: 'nowrap' }}>For Life!</span>
                 </h2>
 
                 {/* Trust badges */}
-                <div className="mt-4 space-y-2">
-                  <p className="text-gray-700 font-sans text-sm font-semibold">
-                    ✅ 365-Day Money-Back Guarantee
-                  </p>
-                  <p className="text-gray-700 font-sans text-sm font-semibold">
-                    🔒 44% OFF — Locked For Life
-                  </p>
-                  <p className="text-gray-700 font-sans text-sm font-semibold">
-                    🚚 Free Shipping on 2+ Pouches
-                  </p>
-                </div>
+                <ul
+                  className="mt-5 flex flex-col gap-2.5"
+                  style={{ listStyle: 'none', paddingLeft: 0 }}
+                >
+                  <TrustBadge icon={<IconShieldCheck />}>
+                    365-Day Money-Back Guarantee
+                  </TrustBadge>
+                  <TrustBadge icon={<IconLock />}>
+                    44% OFF — Locked For Life
+                  </TrustBadge>
+                  <TrustBadge icon={<IconTruck />}>
+                    Free Shipping on 2+ Pouches
+                  </TrustBadge>
+                </ul>
 
                 {/* CTA */}
-                <a
-                  href="https://lp.vitavaulthealth.com/preclick"
-                  style={{
-                    width: '100%',
-                    marginTop: 24,
-                    padding: '18px 0',
-                    background: '#f97316',
-                    color: '#fff',
-                    fontFamily: 'sans-serif',
-                    fontWeight: 900,
-                    fontSize: 18,
-                    letterSpacing: 1.5,
-                    border: 'none',
-                    borderRadius: 10,
-                    cursor: 'pointer',
-                    textTransform: 'uppercase',
-                    display: 'block',
-                    textAlign: 'center',
-                    boxShadow: '0 8px 20px rgba(249, 115, 22, 0.35)',
-                  }}
-                >
-                  TRY IT NOW ➤
-                </a>
+                <CtaButton marginTop={24}>Try It Now</CtaButton>
 
                 {/* Reviews */}
-                <p className="text-center text-gray-600 font-sans text-sm mt-4">
-                  ⭐⭐⭐⭐⭐&nbsp;
-                  <span className="font-semibold">
+                <div className="mt-5 flex items-center justify-center gap-2">
+                  <span
+                    style={{
+                      display: 'inline-flex',
+                      gap: 2,
+                      color: '#f5a524',
+                    }}
+                  >
+                    <IconStar />
+                    <IconStar />
+                    <IconStar />
+                    <IconStar />
+                    <IconStar />
+                  </span>
+                  <span className="text-gray-600 font-sans text-sm font-semibold">
                     12,847+ verified reviews
                   </span>
-                </p>
+                </div>
               </div>
             </div>
           </div>
@@ -797,29 +929,7 @@ export default function ArticleSection() {
             </div>
 
             {/* Final CTA */}
-            <a
-              href="https://lp.vitavaulthealth.com/preclick"
-              style={{
-                display: 'block',
-                width: '100%',
-                marginTop: 40,
-                padding: '18px 0',
-                background: '#f97316',
-                color: '#fff',
-                fontFamily: 'sans-serif',
-                fontWeight: 900,
-                fontSize: 18,
-                letterSpacing: 1.5,
-                border: 'none',
-                borderRadius: 10,
-                cursor: 'pointer',
-                textTransform: 'uppercase',
-                textAlign: 'center',
-                boxShadow: '0 8px 20px rgba(249, 115, 22, 0.35)',
-              }}
-            >
-              TRY IT NOW — 44% OFF ➤
-            </a>
+            <CtaButton marginTop={40}>Try It Now — 44% Off</CtaButton>
           </div>
         </FadeIn>
       </section>

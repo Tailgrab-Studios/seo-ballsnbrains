@@ -104,7 +104,7 @@ export default function CommentsSection() {
             avatar={p4}
             time="1 h"
             likes="3"
-            text="I hear you! My husband hated the pills too. Balls & Brains has been a game-changer. He drinks one cup and... well, let's just say our mornings are much more 'active' now. Best investment ever."
+            text="I hear you! My husband hated the pills too. ManStuff has been a game-changer. He drinks one cup and... well, let's just say our mornings are much more 'active' now. Best investment ever."
           />
         </Comment>
 
@@ -193,7 +193,7 @@ export default function CommentsSection() {
           avatar={p15}
           time="5 h"
           likes="2"
-          text="Thinking about trying Balls & Brains but have questions? Does it really help with drive? Fire away!"
+          text="Thinking about trying ManStuff but have questions? Does it really help with drive? Fire away!"
         >
           <Comment
             name="Gwenyth McPherson"
