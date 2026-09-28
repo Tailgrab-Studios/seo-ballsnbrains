@@ -80,12 +80,13 @@ export const OfferBox = () => (
         <Badge icon={<FlagUS3D size={48} />} label="Made in USA" />
       </div>
 
-      <div className="mt-7">
-        <CtaButton size="lg">
-          <Icon3D name="percent" size={30} className="-my-1" />
+      {/* "Claim Your 44% Discount Now" é chamada em texto, não botão — o botão é o TRY IT NOW ➤ abaixo */}
+      <div className="mt-7 text-center">
+        <p className="inline-flex items-center justify-center gap-2.5 font-mona text-[1.25rem] font-semibold leading-snug text-bb-text-dark desk:text-[1.375rem]">
+          <Icon3D name="percent" size={28} />
           Claim Your 44% Discount Now
-        </CtaButton>
-        <p className="mt-3 text-center text-[0.8125rem] text-bb-muted">
+        </p>
+        <p className="mt-1.5 text-[0.8125rem] text-bb-muted">
           As low as <strong className="text-bb-text-dark">{PRICE.perDay}/day</strong>
         </p>
       </div>
@@ -111,7 +112,7 @@ export const OfferBox = () => (
       </figure>
 
       <div className="mt-6">
-        <CtaButton>TRY IT NOW ➤</CtaButton>
+        <CtaButton size="lg">TRY IT NOW ➤</CtaButton>
         <p className="mt-3 text-center text-[0.8125rem] text-bb-muted">
           Try it today with a 365-day trial period. Money-back guarantee.
         </p>
