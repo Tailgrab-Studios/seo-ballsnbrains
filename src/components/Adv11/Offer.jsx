@@ -1,4 +1,3 @@
-import { useEffect, useState } from 'react';
 import doctor from '../../assets/testimonials/man1.webp';
 import pouch from '../../assets/adv11/pouch.webp';
 import stamp from '../../assets/adv11/guarantee-stamp.webp';
@@ -188,27 +187,18 @@ export const SidebarCard = () => (
 );
 
 // ── 2.14 Mobile: card lateral vira barra fixa no rodapé ────────────────────
+// Visível desde o primeiro paint (já vem no HTML pré-renderizado): botão de compra de cara no mobile.
 export const MobileBar = () => {
-  // Aparece depois que o leitor passa do cabeçalho do artigo.
-  const [visible, setVisible] = useState(false);
   const href = useCheckoutHref();
-  useEffect(() => {
-    const onScroll = () => setVisible(window.scrollY > 420);
-    onScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
 
   return (
     <div
-      className={`fixed inset-x-0 bottom-0 z-50 border-t border-white/15 bg-bb-dark/55 backdrop-blur-xl backdrop-saturate-150 transition-transform duration-300 desk:hidden ${
-        visible ? 'translate-y-0' : 'translate-y-full'
-      }`}
+      className="fixed inset-x-0 bottom-0 z-50 border-t border-white/15 bg-bb-dark/55 backdrop-blur-xl backdrop-saturate-150 desk:hidden"
       style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
     >
       <div className="flex items-center justify-between gap-3 px-4 py-2.5">
         <div className="flex min-w-0 items-center gap-2.5">
-          <img src={pouch} alt="" width={546} height={681} loading="lazy" className="h-11 w-auto shrink-0" />
+          <img src={pouch} alt="" width={546} height={681} className="h-11 w-auto shrink-0" />
           <div className="leading-tight">
             <p className="flex items-center gap-1 text-[0.75rem] text-bb-text-dim">
               <Stars size={11} /> {RATING.score}
@@ -216,7 +206,7 @@ export const MobileBar = () => {
             <p className="font-mona text-[1.125rem] font-semibold text-white">{PRICE.now}</p>
           </div>
         </div>
-        <a href={href} data-anim={visible ? 'on' : 'off'} className="btn-cta btn-cta-sm shrink-0 whitespace-nowrap">
+        <a href={href} data-anim="on" className="btn-cta btn-cta-sm shrink-0 whitespace-nowrap">
           TRY IT NOW ➤
         </a>
       </div>
