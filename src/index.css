@@ -61,7 +61,8 @@
 }
 
 @theme {
-  --font-sans: 'Satoshi', system-ui, sans-serif;
+  /* V2 = layout B&B do controle: font-sans do sistema (default do Tailwind), sem Satoshi. */
+  --font-sans: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   --font-mona: 'Mona Sans', system-ui, sans-serif;
 
   --color-bb-dark: #0a0908;
@@ -118,28 +119,17 @@
   contain-intrinsic-size: auto 900px;
 }
 
-/* Fluid root font-size — anchor 390px (frame mobile do Figma), trava em 16px a partir de 768px. */
+/* V2 (layout B&B do controle): root em 16px fixo, fonte Georgia no container da página,
+   títulos com a fonte/peso definidos no próprio componente — sem as regras globais do DS da V1/V3. */
 html {
-  font-size: calc((100vw / 390) * 16);
   scroll-behavior: smooth;
-  scroll-padding-top: 5.5rem;
-}
-@media (min-width: 768px) {
-  html { font-size: 16px; }
 }
 
 body {
-  font-family: 'Satoshi', system-ui, sans-serif;
   background-color: #fff;
-  color: var(--color-bb-text-dark);
+  color: #111;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-}
-
-/* Todos os títulos usam Mona Sans MEDIUM. */
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Mona Sans', system-ui, sans-serif;
-  font-weight: 500 !important;
 }
 
 :focus-visible {
