@@ -1,9 +1,5 @@
-import ArticleSection from './components/ArticleSection/ArticleSection';
+import Adv11V1 from './components/Adv11/Adv11V1';
 
-export default function SnoringPage() {
-  return (
-    <div>
-      <ArticleSection />
-    </div>
-  );
+export default function App() {
+  return <Adv11V1 />;
 }

@@ -5,6 +5,17 @@ function afterBuild() {
   const __dirname = path.resolve();
   // open /dist/assets/index-*.js and change all '/assets' to 'assets'
   const files = fs.readdirSync(path.resolve(__dirname, "dist/assets"));
+  // CSS também vai pra raiz do dist: url(/assets/fonte.woff2) quebraria em subpasta
+  // (/shp/...) → vira url(assets/fonte.woff2), relativo ao próprio CSS.
+  files.forEach((file) => {
+    if (file.startsWith("index-") && file.endsWith(".css")) {
+      const filePath = path.resolve(__dirname, "dist/assets", file);
+      const content = fs.readFileSync(filePath, "utf8").replace(/url\(\/assets\//g, "url(assets/");
+      fs.writeFileSync(filePath, content);
+      console.log("Modificado url(/assets/ para url(assets/ em", file);
+    }
+  });
+
   files.forEach((file) => {
     if (file.startsWith("index-") && file.endsWith(".js")) {
       const filePath = path.resolve(__dirname, "dist/assets", file);
@@ -38,6 +49,16 @@ function afterBuild() {
   content = fs.readFileSync(indexPath, "utf8");
   content = content.replace(/\/assets\/(index-.*\.js)/g, "$1");
   content = content.replace(/\/assets\/(index-.*\.css)/g, "$1");
+
+  // CSS inline no <head>: tira um request bloqueante do caminho do primeiro paint.
+  // As url(assets/...) continuam válidas porque o CSS já vivia na raiz do dist.
+  content = content.replace(
+    /<link rel="stylesheet"[^>]*href="(index-[^"]+\.css)"[^>]*>/,
+    (tag, file) => {
+      const css = fs.readFileSync(path.resolve(__dirname, "dist", file), "utf8");
+      return `<style>${css}</style>`;
+    }
+  );
   fs.writeFileSync(indexPath, content);
 
   console.log(

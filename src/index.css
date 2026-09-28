@@ -1,1 +1,253 @@
-@import "tailwindcss";
+﻿@import "tailwindcss";
+
+/* Fundamentos de UI do projeto seo-balls-and-brains-desing (Lucas Tenório):
+   Satoshi (body/UI/botões) + Mona Sans Expanded (títulos), tokens bb-*, .btn-cta. */
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('./assets/fonts/Satoshi-Regular.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('./assets/fonts/Satoshi-Italic.woff2') format('woff2');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('./assets/fonts/Satoshi-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('./assets/fonts/Satoshi-MediumItalic.woff2') format('woff2');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('./assets/fonts/Satoshi-Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Satoshi';
+  src: url('./assets/fonts/Satoshi-Black.woff2') format('woff2');
+  font-weight: 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Mona Sans';
+  src: url('./assets/fonts/MonaSansExpanded-Medium.woff2') format('woff2');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Mona Sans';
+  src: url('./assets/fonts/MonaSansExpanded-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-sans: 'Satoshi', system-ui, sans-serif;
+  --font-mona: 'Mona Sans', system-ui, sans-serif;
+
+  --color-bb-dark: #0a0908;
+  --color-bb-light: #fdfdf3;
+  --color-bb-gold: #d3ae79;
+  --color-bb-gold-mid: #cf9947;
+  --color-bb-gold-dark: #7d5d2c;
+  --color-bb-green: #5fc26b;
+  --color-bb-green-dark: #3fa44e;
+  --color-bb-cream: #fdfdf3;
+  --color-bb-cream-warm: #f5d1a7;
+  --color-bb-text-dim: #c6c6c6;
+  --color-bb-text-dark: #0d0c0c;
+  --color-bb-separator: #2d2d2d;
+
+  /* Extensões pra superfície clara do advertorial (layout Erodus é artigo em branco). */
+  --color-bb-sand: #f8f1e4;
+  --color-bb-sand-line: #ecdfc6;
+  --color-bb-line: #ebe8e1;
+  --color-bb-muted: #6b665d;
+  --color-bb-red: #c0392b;
+
+  --breakpoint-desk: 900px;
+
+  /* Lista renderizada 2x → anda -50% e reinicia sem emenda. */
+  --animate-marquee: marquee 24s linear infinite;
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+@property --cta-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+@keyframes cta-border-spin {
+  to { --cta-angle: 360deg; }
+}
+/* O giro repinta o fundo a cada frame: só roda com o botão na tela (useInView liga o data-anim). */
+.btn-cta[data-anim='on'],
+.btn-cta-gold[data-anim='on'] {
+  animation: cta-border-spin 3.2s linear infinite;
+}
+
+/* Seções abaixo da dobra: o browser só faz layout/paint quando chegam perto da tela. */
+.cv-auto {
+  content-visibility: auto;
+  contain-intrinsic-size: auto 900px;
+}
+
+/* Fluid root font-size — anchor 390px (frame mobile do Figma), trava em 16px a partir de 768px. */
+html {
+  font-size: calc((100vw / 390) * 16);
+  scroll-behavior: smooth;
+  scroll-padding-top: 5.5rem;
+}
+@media (min-width: 768px) {
+  html { font-size: 16px; }
+}
+
+body {
+  font-family: 'Satoshi', system-ui, sans-serif;
+  background-color: #fff;
+  color: var(--color-bb-text-dark);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Todos os títulos usam Mona Sans MEDIUM. */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Mona Sans', system-ui, sans-serif;
+  font-weight: 500 !important;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-bb-gold-mid);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { scrollbar-width: none; }
+
+@layer components {
+  .text-cofee-gradient {
+    background: linear-gradient(90deg, #cf9947 0%, #7d5d2c 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  .text-gold-gradient {
+    background: linear-gradient(90deg, #fed9a5 0%, #d09439 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  /* Primary CTA — gold radial gradient com glow */
+  /* Borda em gradiente animada: preenchimento no padding-box, conic no border-box girando
+     via --cta-angle (faixa de luz correndo em volta). Sem @property o conic fica parado. */
+  .btn-cta {
+    display: inline-block;
+    background:
+      radial-gradient(143.34% 70.77% at 37.69% -10.12%, #fed9a5 0%, #d09439 100%) padding-box,
+      conic-gradient(from var(--cta-angle), #5e4116 0%, #8a6428 14%, #fffaf0 24%, #ffffff 27%, #f2c77e 33%, #8a6428 42%, #5e4116 55%, #8a6428 66%, #f5d9a8 75%, #8a6428 84%, #5e4116 100%) border-box;
+    color: #0a0908;
+    font-weight: 600;
+    text-decoration: none;
+    border: 2.5px solid transparent;
+    border-radius: 16px;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    text-align: center;
+    box-shadow: 0 0 60px 0 rgba(207, 153, 71, 0.86);
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease, filter 0.3s ease;
+    cursor: pointer;
+    font-family: 'Satoshi', system-ui, sans-serif;
+  }
+  .btn-cta:hover {
+    filter: brightness(1.06);
+    box-shadow: 0 0 80px 0 rgba(207, 153, 71, 0.95);
+    transform: scale(1.03);
+  }
+  .btn-cta:active {
+    transform: scale(1.03) translateY(1px);
+  }
+  /* Em superfície branca o glow cheio vira mancha — mesma receita, glow contido. */
+  .btn-cta-light {
+    box-shadow: 0 0.5rem 1.75rem -0.25rem rgba(207, 153, 71, 0.75);
+  }
+  .btn-cta-light:hover {
+    box-shadow: 0 0.75rem 2.25rem -0.25rem rgba(207, 153, 71, 0.9);
+  }
+  .btn-cta-sm {
+    padding: 0.75rem 1.375rem;
+    font-size: 0.9375rem;
+  }
+  .btn-cta-lg {
+    padding: 1.125rem 2rem;
+    font-size: 1.125rem;
+  }
+  @media (min-width: 768px) {
+    .btn-cta-lg { font-size: 1.25rem; }
+  }
+
+  /* Gold gradient pill — Navbar */
+  .btn-cta-gold {
+    display: inline-block;
+    background:
+      linear-gradient(180deg, #f0c060 0%, #b88424 100%) padding-box,
+      conic-gradient(from var(--cta-angle), #5e4116 0%, #8a6428 14%, #fffaf0 24%, #ffffff 27%, #f2c77e 33%, #8a6428 42%, #5e4116 55%, #8a6428 66%, #f5d9a8 75%, #8a6428 84%, #5e4116 100%) border-box;
+    color: #0a0908;
+    font-weight: 700;
+    text-decoration: none;
+    border: 2.5px solid transparent;
+    border-radius: 13.125rem;
+    padding: 0.625rem 1.5rem;
+    font-size: 0.9375rem;
+    text-align: center;
+    box-shadow: 0 0.25rem 1.5rem 0 rgba(220, 163, 49, 0.25);
+    transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), filter 0.3s ease, box-shadow 0.3s ease;
+    white-space: nowrap;
+    cursor: pointer;
+    font-family: 'Satoshi', system-ui, sans-serif;
+  }
+  .btn-cta-gold:hover {
+    filter: brightness(1.06);
+    box-shadow: 0 0.25rem 1.75rem 0 rgba(220, 163, 49, 0.4);
+    transform: scale(1.05);
+  }
+}
