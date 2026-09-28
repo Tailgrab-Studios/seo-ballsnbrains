@@ -105,23 +105,21 @@ export const Footer = () => (
     <p className="mt-4 text-[0.9375rem] text-bb-text-dim">
       Your Entire Testosterone Stack. One Scoop. One Coffee.
     </p>
-    <p className="mt-4 text-[0.875rem] text-bb-text-dim">
-      Questions? Email us at{' '}
-      <a href={`mailto:${SUPPORT_EMAIL}`} className="text-white underline hover:text-bb-gold">
-        {SUPPORT_EMAIL}
-      </a>
-    </p>
-    <nav aria-label="Legal" className="mt-5 flex flex-wrap justify-center gap-x-6 gap-y-2 text-[0.8125rem] text-white/55">
-      {FOOTER_LINKS.map(([label, href]) => (
-        <a key={label} href={href} className="transition-colors hover:text-bb-gold">
-          {label}
-        </a>
+    <nav aria-label="Legal" className="mt-5 flex flex-wrap items-center justify-center gap-x-2 gap-y-2 text-[0.8125rem] text-white/55">
+      {FOOTER_LINKS.map(([label, href], i) => (
+        <span key={label} className="flex items-center gap-2">
+          {i > 0 && <span aria-hidden>|</span>}
+          <a href={href} className="transition-colors hover:text-bb-gold">
+            {label}
+          </a>
+        </span>
       ))}
+      <span>· BNB Health Inc. 2026</span>
     </nav>
     <p className="mx-auto mt-7 max-w-2xl border-t border-bb-separator pt-6 text-[0.71875rem] leading-[1.6] text-white/55">
-      BNB Health Inc. 2026. *Statements have not been evaluated by the Food and Drug
-      Administration. These products are not intended to diagnose, treat, cure, or prevent any
-      disease. This is an advertorial. Individual results may vary.
+      Statements have not been evaluated by the Food and Drug Administration. These products are
+      not intended to diagnose, treat, cure, or prevent any disease. This is an advertorial.
+      Individual results may vary.
     </p>
   </footer>
 );

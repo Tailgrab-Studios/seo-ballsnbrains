@@ -61,7 +61,7 @@ export const reasons = [
     title: 'RYZE ISN\'T VERY EFFECTIVE AT PREVENTING THE "AFTERNOON CRASH"',
     image: {
       ...imgCrash,
-      caption: '48mg vs. 100mg of caffeine — and what 3pm looks like on each.',
+      alt: '48mg vs. 100mg of caffeine — and what 3pm looks like on each.',
     },
     body: [
       "Ryze contains about 48mg of caffeine per serving — half of a regular cup of coffee. Many men report they simply don't feel enough energy and end up drinking regular coffee alongside it, defeating the entire purpose.",
@@ -82,7 +82,7 @@ export const reasons = [
     title: 'RYZE CONTAINS TWO MUSHROOMS THAT CAN LOWER YOUR TESTOSTERONE',
     image: {
       ...imgMushrooms,
-      caption: 'Shiitake and King Trumpet on one side. Neither on the other.',
+      alt: 'Shiitake and King Trumpet on one side. Neither on the other.',
     },
     body: [
       "Ryze contains Shiitake and King Trumpet. Shiitake can elevate prolactin — the hormone that directly suppresses testosterone production in the hypothalamus. It's useful for breastfeeding women. For men? High prolactin means less T, less drive, less energy.",
@@ -97,7 +97,7 @@ export const reasons = [
     title: 'RYZE CONVERTS YOUR TESTOSTERONE INTO ESTROGEN',
     image: {
       ...imgAromatase,
-      caption: 'Turkey Tail stimulates aromatase — the enzyme that turns T into estradiol.',
+      alt: 'Turkey Tail stimulates aromatase — the enzyme that turns T into estradiol.',
     },
     body: [
       'Turkey Tail is present in most mushroom coffees, including Ryze. The problem: Turkey Tail stimulates aromatase — an enzyme that takes the testosterone in your blood and converts it into estradiol, a form of estrogen.',
@@ -146,7 +146,7 @@ export const reasons = [
     title: 'RYZE MAY BE "RICE POWDER" DISGUISED AS MUSHROOM COFFEE',
     image: {
       ...imgLabel,
-      caption: 'Fruiting body, dual-extracted — every dose printed on the back of the bag.',
+      alt: 'Fruiting body, dual-extracted — every dose printed on the back of the bag.',
     },
     body: [
       'Ryze likely uses "mycelium on grain" — which explains why it\'s so cheap.',
@@ -172,7 +172,7 @@ export const reasons = [
     title: "RYZE IS MORE EXPENSIVE AND LESS EFFECTIVE FOR MEN THAN BALLS N'BRAINS",
     image: {
       ...imgVersus,
-      caption: 'Side by side: what each bag actually does for a man.',
+      alt: 'Side by side: what each bag actually does for a man.',
     },
     body: [
       "Bottom line? Ryze costs $45, wasn't made for your body, and doesn't do half of what it should.",
@@ -183,31 +183,21 @@ export const reasons = [
   },
 ];
 
-// 2.5 — 4 cards, texto tirado do #05 e #09.
+// 2.5 — 4 cards; a linha de função é trecho literal do #05 (sem texto novo).
 export const productDetails = [
-  {
-    icon: 'bolt',
-    name: 'Tongkat Ali',
-    dose: '300mg',
-    role: 'Testosterone support — up 37%, cortisol down 16% in four weeks.',
-  },
-  {
-    icon: 'leaf',
-    name: 'Ashwagandha',
-    dose: '300mg',
-    role: 'Cortisol reduction — down 27.9% over 60 days.',
-  },
+  { icon: 'bolt', name: 'Tongkat Ali', dose: '300mg', role: 'For testosterone support' },
+  { icon: 'leaf', name: 'Ashwagandha', dose: '300mg', role: 'For cortisol reduction' },
   {
     icon: 'atom',
     name: 'Shilajit · Zinc · Vitamin D3',
     dose: '250mg · 15mg · 2,000 IU',
-    role: 'Hormonal co-factors.',
+    role: 'As hormonal co-factors',
   },
   {
     icon: 'mushroom',
     name: "Lion's Mane · Cordyceps",
     dose: '1,000mg · 1,000mg',
-    role: 'Functional mushrooms at clinical doses — fruiting body, dual extraction.',
+    role: 'Functional mushrooms at clinical doses',
   },
 ];
 
@@ -306,21 +296,18 @@ export const comments = [
     avatar: avGary,
     text: 'Anyone actually tried this? I\'m on my second bag of Ryze and this article is describing me. "Softer" is the word.',
     time: '1d',
-    likes: 14,
     replies: [
       {
         name: 'Nick R.',
         avatar: avNick,
         text: "Month 3. Energy isn't wired, it's just… on. Wife noticed the gym thing before I said anything.",
         time: '1d',
-        likes: 22,
       },
       {
         name: 'Steve M.',
         avatar: avSteve,
         text: 'Was on TRT a year, hated the clinic. Not saying this replaces it, but the cortisol side is way better and I sleep now.',
         time: '5h',
-        likes: 9,
       },
     ],
   },
@@ -329,14 +316,12 @@ export const comments = [
     avatar: avDave,
     text: 'Does it actually taste like coffee or is that marketing? Ryze tasted like a wet basement.',
     time: '1d',
-    likes: 31,
     replies: [
       {
         name: 'Mike C.',
         avatar: avMike,
         text: "Medium roast. Put it in front of my brother-in-law without telling him. He didn't blink.",
         time: '1d',
-        likes: 18,
       },
     ],
   },
@@ -345,20 +330,17 @@ export const comments = [
     avatar: avTom,
     text: "365 days is insane. Ordering because there's literally no way to lose on that.",
     time: '2d',
-    likes: 12,
   },
   {
     name: 'Raj H.',
     avatar: avRaj,
     text: '42. Same "normal range" story. 10 weeks in, drive is back. Didn\'t think I\'d type that in a comment section.',
     time: '2d',
-    likes: 27,
   },
   {
     name: 'James F.',
     avatar: avJames,
     text: 'Cancelled Ryze after the NAD thing. Took three emails and a phone call. Ordered this and the cancel button is right there in the account. That alone.',
     time: '5h',
-    likes: 16,
   },
 ];

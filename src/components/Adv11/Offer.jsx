@@ -179,7 +179,7 @@ export const SidebarCard = () => (
           TRY IT NOW ➤
         </CtaButton>
         <p className="mt-2.5 text-center text-[0.75rem] text-bb-muted">
-          44% off for life. Cancel anytime.
+          44% off for life · Cancel anytime
         </p>
       </div>
     </div>
@@ -212,10 +212,7 @@ export const MobileBar = () => {
             <p className="flex items-center gap-1 text-[0.75rem] text-bb-text-dim">
               <Stars size={11} /> {RATING.score}
             </p>
-            <p className="text-white">
-              <s className="mr-1.5 text-[0.75rem] text-white/50">{PRICE.was}</s>
-              <span className="font-mona text-[1.125rem] font-semibold">{PRICE.now}</span>
-            </p>
+            <p className="font-mona text-[1.125rem] font-semibold text-white">{PRICE.now}</p>
           </div>
         </div>
         <a href={href} data-anim={visible ? 'on' : 'off'} className="btn-cta btn-cta-sm shrink-0 whitespace-nowrap">

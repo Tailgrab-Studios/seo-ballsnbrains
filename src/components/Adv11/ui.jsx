@@ -49,7 +49,7 @@ export const CheckGold = ({ className = 'h-[1.125rem] w-[1.125rem]' }) => (
 export const GuaranteeLine = ({ className = '' }) => (
   <p className={`flex items-center justify-center gap-1.5 text-[0.8125rem] font-medium text-bb-muted ${className}`}>
     <Icon name="shield" size={15} className="text-bb-green-dark" />
-    365-Day Money-Back Guarantee. Cancel anytime.
+    Try it today with a 365-day trial period. Money-back guarantee.
   </p>
 );
 

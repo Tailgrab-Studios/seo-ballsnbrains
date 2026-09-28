@@ -84,7 +84,7 @@ export default function TopBar() {
           aria-label={`44% off for life ends in ${days} days ${hrs} hours ${min} minutes`}
         >
           <span className="hidden text-[0.875rem] font-medium text-bb-text-dim sm:inline">
-            44% Off For Life Ends In
+            44% Off For Life Ends
           </span>
           <span className="flex items-center gap-1">
             <TimeBox value={days} unit="DAYS" />

@@ -184,22 +184,20 @@ export const ComparisonTable = () => (
 );
 
 // ── 2.4 Corpo: #01 a #10 ───────────────────────────────────────────────────
-const Figure = ({ src, srcSet, caption }) => (
+// Legenda da spec fica de fora: o doc não traz o texto (a descrição vai só no alt).
+const Figure = ({ src, srcSet, alt }) => (
   <figure className="my-7">
     <img
       src={src}
       srcSet={srcSet}
       sizes="(min-width: 900px) 760px, calc(100vw - 2rem)"
-      alt={caption}
+      alt={alt}
       loading="lazy"
       decoding="async"
       width={1024}
       height={1024}
       className="aspect-square w-full rounded-2xl bg-[#f4f3f0] object-cover"
     />
-    <figcaption className="mt-2.5 border-l-2 border-bb-gold pl-3 text-[0.875rem] italic leading-snug text-bb-muted">
-      {caption}
-    </figcaption>
   </figure>
 );
 
