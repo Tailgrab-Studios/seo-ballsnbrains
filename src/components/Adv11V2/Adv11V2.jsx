@@ -1,17 +1,20 @@
 // ADV11 V2 — copy nova × layout B&B (a página atual: ballsnbrains.com/shp/tmc-seo/02/v1/).
 // Doc: "ADV11 l V2 l copy nova x layout BNB l 18.09.26". Testa só copy: coluna única, sem card lateral,
 // sem barra de contador, sem referências; tabela 👍👎 no ponto marcado. Estilos iguais aos do controle
-// (Georgia, laranja #f97316, container 900px, seções com imagem alternando lado, faixa de oferta bege).
+// (Georgia, container 900px, seções com imagem alternando lado, faixa de oferta), com as cores e os botões
+// da V1 (dourado bb-*, .btn-cta com borda animada).
 import { useId, useState } from 'react';
 import product from '../../assets/products/1kit-with-bg.webp';
 import { comparison, faqs } from '../Adv11/data';
 import { Icon, IconThumb } from '../Adv11/icons';
 import { Icon3D } from '../Adv11/icons3d';
 import { Comments } from '../Adv11/Social';
-import { useCheckoutHref } from '../Adv11/ui';
+import { CtaButton } from '../Adv11/ui';
 import { body, caseStudy, header, offer, testimonials } from './data';
 
-const ORANGE = '#f97316';
+const GOLD = '#cf9947';
+const SAND = '#f8f1e4';
+const GOLD_GRADIENT = 'radial-gradient(143% 71% at 38% -10%, #FED9A5 0%, #D09439 100%)';
 const sans = 'ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif';
 
 const rich = (text) =>
@@ -21,33 +24,12 @@ const rich = (text) =>
     return part;
   });
 
-// ── Botão do controle (laranja, caixa alta) ────────────────────────────────
-const OrangeButton = ({ children, size = 'md' }) => {
-  const href = useCheckoutHref();
-  return (
-    <a
-      href={href}
-      className="flex w-full items-center justify-center gap-3 text-center text-white no-underline transition hover:-translate-y-0.5 hover:brightness-105"
-      style={{
-        padding: size === 'lg' ? '18px 20px' : '16px 20px',
-        background: ORANGE,
-        fontFamily: sans,
-        fontWeight: 900,
-        fontSize: size === 'lg' ? 18 : 16,
-        letterSpacing: 1.5,
-        borderRadius: 10,
-        textTransform: 'uppercase',
-        boxShadow: '0 8px 20px rgba(249, 115, 22, 0.35)',
-      }}
-    >
-      {children}
-    </a>
-  );
-};
+// ── Botão da V1 (.btn-cta dourado, borda animada, repassa utm/fbclid) ──────
+const GoldButton = ({ children, size = 'md' }) => <CtaButton size={size}>{children}</CtaButton>;
 
 const Note = ({ children }) => (
   <p className="mt-3 flex items-center justify-center gap-1.5 text-center font-sans text-sm text-gray-500">
-    <Icon name="shield" size={15} style={{ color: ORANGE }} />
+    <Icon name="shield" size={15} style={{ color: GOLD }} />
     {children}
   </p>
 );
@@ -83,13 +65,13 @@ const H2 = ({ text }) => (
 );
 
 const Quote = ({ text }) => (
-  <div className="my-5 px-5 py-4" style={{ background: '#fff7ed', borderLeft: `4px solid ${ORANGE}` }}>
+  <div className="my-5 px-5 py-4" style={{ background: SAND, borderLeft: `4px solid ${GOLD}` }}>
     <p style={{ fontFamily: 'Georgia, serif', fontSize: 18, color: '#333', fontStyle: 'italic' }}>{text}</p>
   </div>
 );
 
 const LeadList = ({ items }) => (
-  <ul className="mb-4 ml-4 list-disc space-y-2 marker:text-orange-500">
+  <ul className="mb-4 ml-4 list-disc space-y-2 marker:text-bb-gold-mid">
     {items.map(([lead, text]) => (
       <li key={lead} className="font-sans text-base leading-relaxed text-gray-700">
         <strong className="text-gray-900">{lead}</strong> {text}
@@ -105,8 +87,8 @@ const Steps = ({ items }) => (
       return (
         <li key={lead} className="flex gap-3">
           <span
-            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full font-sans text-sm font-black text-white"
-            style={{ background: ORANGE }}
+            className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full font-sans text-sm font-black text-bb-dark"
+            style={{ background: GOLD_GRADIENT }}
           >
             {num.replace('.', '')}
           </span>
@@ -135,10 +117,10 @@ const InlineCta = ({ b }) => (
   <div className="my-8 text-center">
     {b.title && <p className="mb-4 font-sans text-lg font-bold text-gray-900">{b.title}</p>}
     <div className="mx-auto max-w-[460px]">
-      <OrangeButton size={b.final ? 'lg' : 'md'}>
-        {b.icon && <Icon3D name={b.icon} tone="orange" size={26} className="-my-1" />}
+      <GoldButton size={b.final ? 'lg' : 'md'}>
+        {b.icon && <Icon3D name={b.icon} size={26} className="-my-1" />}
         {b.label}
-      </OrangeButton>
+      </GoldButton>
     </div>
     {b.note && <Note>{b.note}</Note>}
   </div>
@@ -152,7 +134,7 @@ const ThumbsTable = () => (
       {comparison.columns.map((c, i) => (
         <div
           key={c}
-          className={`p-3 text-center font-sans text-xs font-bold uppercase tracking-wider ${i === 0 ? 'text-orange-400' : 'text-gray-400'}`}
+          className={`p-3 text-center font-sans text-xs font-bold uppercase tracking-wider ${i === 0 ? 'text-bb-gold' : 'text-gray-400'}`}
         >
           {c}
         </div>
@@ -166,8 +148,10 @@ const ThumbsTable = () => (
         <div className="p-3 font-sans text-sm text-gray-700">{label}</div>
         {cells.map((ok, i) => (
           <div key={i} className="flex items-center justify-center p-3" role="img" aria-label={ok ? 'Yes' : 'No'}>
-            <span style={{ color: ok ? ORANGE : '#9ca3af' }}>
-              <IconThumb up={ok} size={18} />
+            <span
+              className={`inline-flex h-8 w-8 items-center justify-center rounded-full ${ok ? 'bg-bb-green/15 text-bb-green-dark' : 'bg-bb-red/10 text-bb-red'}`}
+            >
+              <IconThumb up={ok} size={15} />
             </span>
           </div>
         ))}
@@ -183,7 +167,7 @@ const CompareTable = ({ b }) => (
         <tr style={{ background: '#111', color: '#fff' }}>
           <th className="p-3" />
           {b.columns.map((c, i) => (
-            <th key={c} scope="col" className={`p-3 text-center text-xs font-bold uppercase tracking-wider ${i === 0 ? 'text-orange-400' : 'text-gray-400'}`}>
+            <th key={c} scope="col" className={`p-3 text-center text-xs font-bold uppercase tracking-wider ${i === 0 ? 'text-bb-gold' : 'text-gray-400'}`}>
               {c}
             </th>
           ))}
@@ -196,7 +180,7 @@ const CompareTable = ({ b }) => (
               {label}
             </th>
             {cells.map((c, i) => (
-              <td key={i} className={`p-3 text-center leading-snug ${i === 0 ? 'font-bold text-gray-900' : 'text-gray-600'}`} style={i === 0 ? { background: '#fff7ed' } : undefined}>
+              <td key={i} className={`p-3 text-center leading-snug ${i === 0 ? 'font-bold text-gray-900' : 'text-gray-600'}`} style={i === 0 ? { background: SAND } : undefined}>
                 {c}
               </td>
             ))}
@@ -218,8 +202,8 @@ const Maths = ({ b }) => (
       </ul>
       <p className="mt-4 border-t border-gray-200 pt-3 text-[15px] font-bold text-red-600">{b.before.total}</p>
     </div>
-    <div className="rounded-xl p-5 font-sans" style={{ background: '#fff7ed', border: `2px solid ${ORANGE}` }}>
-      <p className="font-bold" style={{ color: '#c2410c' }}>{b.after.label}</p>
+    <div className="rounded-xl p-5 font-sans" style={{ background: SAND, border: `2px solid ${GOLD}` }}>
+      <p className="font-bold" style={{ color: '#7d5d2c' }}>{b.after.label}</p>
       <ul className="mt-3 ml-4 list-disc space-y-2 text-[15px] leading-relaxed text-gray-800">
         {b.after.items.map((i) => (
           <li key={i}>{i}</li>
@@ -233,7 +217,7 @@ const Details = ({ items }) => (
   <div className="mb-4 grid gap-3 sm:grid-cols-2">
     {items.map((d) => (
       <div key={d.lead} className="flex gap-3 rounded-xl border border-gray-200 bg-gray-50 p-4 font-sans">
-        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full" style={{ background: '#fff7ed', color: ORANGE }}>
+        <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full" style={{ background: SAND, color: GOLD }}>
           <Icon name={d.icon} size={20} />
         </span>
         <p className="text-[15px] leading-relaxed text-gray-700">
@@ -244,8 +228,8 @@ const Details = ({ items }) => (
   </div>
 );
 
-const StarsOrange = ({ size = 16 }) => (
-  <span className="inline-flex gap-0.5" role="img" aria-label="5 out of 5 stars" style={{ color: ORANGE }}>
+const StarsGold = ({ size = 16 }) => (
+  <span className="inline-flex gap-0.5" role="img" aria-label="5 out of 5 stars" style={{ color: GOLD }}>
     {Array.from({ length: 5 }, (_, i) => (
       <svg key={i} viewBox="0 0 24 24" width={size} height={size} fill="currentColor" aria-hidden>
         <path d="m12 2.4 2.9 5.9 6.5.9-4.7 4.6 1.1 6.5-5.8-3.1-5.8 3.1 1.1-6.5L2.6 9.2l6.5-.9z" />
@@ -260,7 +244,7 @@ const Testimonials = () => (
       {testimonials.map((t) => (
         <figure key={t.name} className="rounded-xl border border-gray-200 bg-gray-50 p-5 font-sans">
           <figcaption className="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm">
-            <StarsOrange size={14} />
+            <StarsGold size={14} />
             <strong className="text-gray-900">{t.name}</strong>
             <span className="text-green-700">· Verified Purchase</span>
             {t.place && <span className="text-gray-500">· {t.place}</span>}
@@ -271,8 +255,8 @@ const Testimonials = () => (
     </div>
     <div className="mt-4 rounded-xl p-5 font-sans" style={{ background: '#1a1a1a' }}>
       <p className="text-sm leading-relaxed text-white">
-        <strong className="text-orange-400">{caseStudy.lead}</strong> <em>{caseStudy.quote}</em> {caseStudy.resultLead}{' '}
-        <strong className="text-lg text-orange-400">{caseStudy.result}</strong>
+        <strong className="text-bb-gold">{caseStudy.lead}</strong> <em>{caseStudy.quote}</em> {caseStudy.resultLead}{' '}
+        <strong className="text-lg text-bb-gold">{caseStudy.result}</strong>
       </p>
     </div>
   </>
@@ -281,17 +265,17 @@ const Testimonials = () => (
 const RatingStrip = () => (
   <div className="my-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 border-y border-gray-200 py-4 font-sans text-sm text-gray-700">
     <span className="flex items-center gap-1.5">
-      <StarsOrange size={14} /> <strong>4.9</strong>
+      <StarsGold size={14} /> <strong>4.9</strong>
     </span>
     <span className="font-semibold">61,028 Reviews</span>
     <span className="flex items-center gap-1.5">
-      <Icon name="gift" size={15} style={{ color: ORANGE }} /> 44% Off For Life
+      <Icon name="gift" size={15} style={{ color: GOLD }} /> 44% Off For Life
     </span>
     <span className="flex items-center gap-1.5">
-      <Icon name="truck" size={15} style={{ color: ORANGE }} /> Free Shipping
+      <Icon name="truck" size={15} style={{ color: GOLD }} /> Free Shipping
     </span>
     <span className="flex items-center gap-1.5">
-      <Icon name="lock" size={15} style={{ color: ORANGE }} /> 365-Day Guarantee
+      <Icon name="lock" size={15} style={{ color: GOLD }} /> 365-Day Guarantee
     </span>
   </div>
 );
@@ -308,7 +292,7 @@ const FaqItem = ({ q, a, open, onToggle }) => {
         className="flex w-full cursor-pointer items-center justify-between gap-4 py-4 text-left font-sans text-base font-bold text-gray-900"
       >
         {q}
-        <span className="text-xl font-black" style={{ color: ORANGE }} aria-hidden>
+        <span className="text-xl font-black" style={{ color: GOLD }} aria-hidden>
           {open ? '–' : '+'}
         </span>
       </button>
@@ -343,9 +327,9 @@ const PS = ({ items }) => (
   </div>
 );
 
-// ── Oferta: a faixa de CTA do controle (fundo #fff7ed, borda laranja, produto + texto) ──
+// ── Oferta: a faixa de CTA do controle (fundo bege, borda dourada, produto + texto) ──
 const OfferBand = () => (
-  <section id="offer" className="py-12" style={{ background: '#fff7ed', borderTop: `2px solid ${ORANGE}`, width: '100%' }}>
+  <section id="offer" className="py-12" style={{ background: SAND, borderTop: `2px solid ${GOLD}`, width: '100%' }}>
     <div style={{ maxWidth: 900, margin: '0 auto', padding: '0 24px' }}>
       <div className="grid items-center gap-6 md:grid-cols-2 md:gap-12">
         <div className="text-center md:p-8">
@@ -373,26 +357,26 @@ const OfferBand = () => (
           <ul className="mt-2 space-y-1.5">
             {offer.included.map(([icon, item]) => (
               <li key={item} className="flex items-center gap-2 text-gray-700">
-                <Icon name={icon} size={16} style={{ color: ORANGE }} /> {item}
+                <Icon name={icon} size={16} style={{ color: GOLD }} /> {item}
               </li>
             ))}
           </ul>
           <p className="mt-3 flex flex-wrap items-center gap-x-3 gap-y-1 text-sm font-semibold text-gray-800">
             <span className="flex items-center gap-1.5">
-              <Icon name="lock" size={15} style={{ color: ORANGE }} /> {offer.badges[0]}
+              <Icon name="lock" size={15} style={{ color: GOLD }} /> {offer.badges[0]}
             </span>
             <span className="flex items-center gap-1.5">
-              <Icon name="truck" size={15} style={{ color: ORANGE }} /> {offer.badges[1]}
+              <Icon name="truck" size={15} style={{ color: GOLD }} /> {offer.badges[1]}
             </span>
             <span className="flex items-center gap-1.5">
-              <Icon name="flag" size={15} style={{ color: ORANGE }} /> {offer.badges[2]}
+              <Icon name="flag" size={15} style={{ color: GOLD }} /> {offer.badges[2]}
             </span>
           </p>
           <div className="mt-6">
-            <OrangeButton size="lg">
-              <Icon3D name="percent" tone="orange" size={28} className="-my-1" />
+            <GoldButton size="lg">
+              <Icon3D name="percent" size={28} className="-my-1" />
               {offer.cta}
-            </OrangeButton>
+            </GoldButton>
           </div>
           <p className="mt-3 text-sm text-gray-600">{offer.note}</p>
         </div>
@@ -452,12 +436,25 @@ const sections = body.reduce((acc, b) => {
 }, []).filter((s) => s.length);
 
 // Seção com imagem = grid do controle (imagem de um lado, texto do outro, alternando).
-// Blocos largos (checklist, CTA, tabelas…) e o parágrafo que os introduz saem do grid e vêm embaixo.
+// Ao lado da imagem vai só o texto que cabe na altura dela (~700 caracteres); o resto da seção
+// (e blocos largos: checklist, CTA, tabelas…) segue em largura total embaixo. Um parágrafo que
+// termina em ":" (introduz o bloco seguinte) desce junto com ele.
+const GRID_CHARS = 700;
+const textLen = (b) =>
+  b.t === 'list' ? b.items.reduce((n, [lead, text]) => n + lead.length + text.length, 0) : (b.text || '').length;
+
 const splitForGrid = (blocks) => {
-  const firstWide = blocks.findIndex((b) => WIDE.has(b.t));
-  if (firstWide === -1) return [blocks, []];
-  let cut = firstWide;
-  if (cut > 0 && blocks[cut - 1].t === 'p' && blocks[cut - 1].text.trim().endsWith(':')) cut -= 1;
+  let cut = 0;
+  let chars = 0;
+  while (cut < blocks.length) {
+    const b = blocks[cut];
+    if (WIDE.has(b.t)) break;
+    const len = textLen(b);
+    if (cut > 0 && chars >= 300 && chars + len > GRID_CHARS) break;
+    chars += len;
+    cut += 1;
+  }
+  if (cut > 0 && cut < blocks.length && blocks[cut - 1].t === 'p' && blocks[cut - 1].text.trim().endsWith(':')) cut -= 1;
   return [blocks.slice(0, cut), blocks.slice(cut)];
 };
 
@@ -468,6 +465,20 @@ const Section = ({ blocks, imgIndex, last }) => {
 
   if (img) {
     const [inGrid, below] = splitForGrid(rest);
+    if (inGrid.length === 0) {
+      return (
+        <section className="cv-auto px-8 py-12">
+          <H2 text={h2.text} />
+          <div className="mx-auto my-6 aspect-square w-full max-w-sm overflow-hidden rounded-2xl bg-gray-100">
+            <img src={img.src} srcSet={img.srcSet} sizes="(min-width: 768px) 384px, calc(100vw - 4rem)" alt={img.alt} loading="lazy" decoding="async" width={384} height={384} className="h-full w-full object-cover" />
+          </div>
+          {below.map((b, i) => (
+            <Block key={i} b={b} />
+          ))}
+          {!last && <div className="mt-12 border-t border-gray-200" />}
+        </section>
+      );
+    }
     const left = imgIndex % 2 === 0;
     return (
       <section className="cv-auto px-8 py-12">
@@ -533,7 +544,7 @@ export default function Adv11V2() {
             <span style={{ fontFamily: 'monospace', fontWeight: 900, fontSize: 22, letterSpacing: 4, textTransform: 'uppercase' }}>
               Balls N'Brains
             </span>
-            <span style={{ width: 12, height: 12, borderRadius: '50%', background: ORANGE, display: 'inline-block' }} />
+            <span style={{ width: 12, height: 12, borderRadius: '50%', background: GOLD, display: 'inline-block' }} />
           </div>
         </header>
 
@@ -548,8 +559,8 @@ export default function Adv11V2() {
           </h1>
           <div className="mt-6 flex items-center gap-4">
             <span
-              className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full font-sans text-lg font-black text-white"
-              style={{ background: ORANGE }}
+              className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full font-sans text-lg font-black text-bb-dark ring-2 ring-bb-gold ring-offset-2"
+              style={{ background: GOLD_GRADIENT }}
               aria-hidden
             >
               MS
@@ -609,7 +620,7 @@ export default function Adv11V2() {
             <span style={{ fontFamily: 'monospace', fontWeight: 900, fontSize: 18, letterSpacing: 4, textTransform: 'uppercase' }}>
               Balls N'Brains
             </span>
-            <span style={{ width: 10, height: 10, borderRadius: '50%', background: ORANGE, display: 'inline-block' }} />
+            <span style={{ width: 10, height: 10, borderRadius: '50%', background: GOLD, display: 'inline-block' }} />
           </div>
           <p className="mb-4 font-sans text-sm text-gray-400">Your Entire Testosterone Stack. One Scoop. One Coffee.</p>
           <p className="mb-6 font-sans text-sm text-gray-500">
