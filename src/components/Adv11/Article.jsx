@@ -89,6 +89,20 @@ export const ArticleHeader = () => (
       <span className="mx-1.5">›</span>
       <span className="text-bb-muted">Men's Performance</span>
     </nav>
+    {/* Linha de abertura da copy validada (🌿 ⚡ 🛡️ viraram ícones) */}
+    <ul className="mt-1 flex flex-wrap items-center gap-x-2 gap-y-1 text-[0.8125rem] font-medium text-bb-muted">
+      {[
+        ['leaf', 'Natural Support'],
+        ['bolt', 'Real Results'],
+        ['shield', 'Proven Safe'],
+      ].map(([icon, label], i) => (
+        <li key={label} className="flex items-center gap-1.5">
+          {i > 0 && <span className="mr-0.5 text-bb-line" aria-hidden>|</span>}
+          <Icon name={icon} size={14} className="text-bb-gold-mid" />
+          {label}
+        </li>
+      ))}
+    </ul>
     <h1 className="mt-2 text-[1.625rem] leading-[1.2] tracking-[-0.01em] text-bb-text-dark text-balance desk:text-[2.25rem] desk:leading-[1.16]">
       Top Doctor: "10 Reasons Why I Don't Recommend Ryze Mushroom Coffee to Any of My Patients"
     </h1>

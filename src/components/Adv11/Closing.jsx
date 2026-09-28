@@ -67,7 +67,7 @@ export const Faq = () => {
 // ── 2.10 CTA final ─────────────────────────────────────────────────────────
 export const FinalCta = () => (
   <div className="mt-10">
-    <CtaButton size="lg">Try It Now</CtaButton>
+    <CtaButton size="lg">TRY IT NOW ➤</CtaButton>
     <GuaranteeLine className="mt-4" />
   </div>
 );

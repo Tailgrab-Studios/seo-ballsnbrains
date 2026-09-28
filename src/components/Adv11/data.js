@@ -36,8 +36,8 @@ export const trustedBy = [
 ];
 
 export const credentials = [
-  { icon: 'cap', label: 'Medicine & Urology', org: 'Oxford' },
-  { icon: 'flask', label: 'Biotechnology', org: 'Columbia' },
+  { icon: 'cap', label: 'Medicine & Urology', org: 'University of Oxford' },
+  { icon: 'flask', label: 'Biotechnology', org: 'Columbia University' },
   { icon: 'award', label: 'PhD, MS', org: '' },
 ];
 

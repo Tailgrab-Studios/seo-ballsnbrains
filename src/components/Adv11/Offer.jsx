@@ -14,7 +14,7 @@ export const OfferBox = () => (
     className="relative mt-14 scroll-mt-24 overflow-hidden rounded-3xl border-2 border-bb-gold bg-white shadow-[0_1.5rem_4rem_-1.5rem_rgba(125,93,44,0.35)]"
   >
     <div className="flex items-center justify-center gap-2 bg-bb-dark px-5 py-2.5 text-[0.875rem] font-bold text-bb-gold">
-      Limited Time Only
+      LIMITED TIME ONLY
       <Icon3D name="down" size={22} />
     </div>
 
@@ -86,11 +86,11 @@ export const OfferBox = () => (
           Claim Your 44% Discount Now
         </CtaButton>
         <p className="mt-3 text-center text-[0.8125rem] text-bb-muted">
-          As low as <strong className="text-bb-text-dark">{PRICE.perDay}/day</strong>. Try it today
-          with a 365-day trial period. Money-back guarantee.
+          As low as <strong className="text-bb-text-dark">{PRICE.perDay}/day</strong>
         </p>
       </div>
 
+      {/* Fecho da copy validada, na ordem do doc: citação → assinatura → TRY IT NOW ➤ → garantia */}
       <figure className="mt-7 flex items-center gap-4 rounded-2xl bg-bb-sand p-4 desk:p-5">
         <img
           src={doctor}
@@ -104,11 +104,18 @@ export const OfferBox = () => (
             you'll likely notice changes within the first few days."
           </blockquote>
           <figcaption className="mt-1.5 text-[0.8125rem] text-bb-muted">
-            <strong className="text-bb-text-dark">Dr. Ben Palmer</strong>, Medicine &amp; Urology,
-            Oxford
+            <strong className="text-bb-text-dark">Dr. Ben Palmer</strong> — MEDICINE &amp; UROLOGY,
+            OXFORD
           </figcaption>
         </div>
       </figure>
+
+      <div className="mt-6">
+        <CtaButton>TRY IT NOW ➤</CtaButton>
+        <p className="mt-3 text-center text-[0.8125rem] text-bb-muted">
+          Try it today with a 365-day trial period. Money-back guarantee.
+        </p>
+      </div>
     </div>
   </section>
 );
@@ -169,7 +176,7 @@ export const SidebarCard = () => (
         </ul>
 
         <CtaButton size="sm" className="mt-5">
-          Try It Now
+          TRY IT NOW ➤
         </CtaButton>
         <p className="mt-2.5 text-center text-[0.75rem] text-bb-muted">
           44% off for life. Cancel anytime.
@@ -212,7 +219,7 @@ export const MobileBar = () => {
           </div>
         </div>
         <a href={href} data-anim={visible ? 'on' : 'off'} className="btn-cta btn-cta-sm shrink-0 whitespace-nowrap">
-          Try It Now
+          TRY IT NOW ➤
         </a>
       </div>
     </div>

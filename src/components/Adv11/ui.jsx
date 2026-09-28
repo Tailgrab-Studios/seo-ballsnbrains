@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+﻿import { useEffect, useRef, useState } from 'react';
 import checkGold from '../../assets/icons/check-gold.svg';
 import { withCurrentParams } from '../../utils/withCurrentParams';
 import { CHECKOUT_URL, RATING } from './data';
@@ -26,7 +26,7 @@ export const useInView = () => {
   return [ref, inView ? 'on' : 'off'];
 };
 
-export const CtaButton = ({ children = 'Try It Now', size = 'md', className = '' }) => {
+export const CtaButton = ({ children = 'TRY IT NOW ➤', size = 'md', className = '' }) => {
   const sizes = { sm: 'btn-cta-sm', md: '', lg: 'btn-cta-lg' };
   const href = useCheckoutHref();
   const [ref, anim] = useInView();
@@ -60,7 +60,7 @@ export const InlineCta = () => (
       Try Today, Get 44% Off For Life
     </p>
     <div className="mx-auto mt-5 max-w-[26rem]">
-      <CtaButton>Try It Now</CtaButton>
+      <CtaButton>TRY IT NOW ➤</CtaButton>
     </div>
     <GuaranteeLine className="mt-4" />
   </aside>
