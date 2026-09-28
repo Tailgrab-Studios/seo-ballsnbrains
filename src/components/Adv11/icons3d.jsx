@@ -4,25 +4,33 @@ import { useId } from 'react';
 // Esfera dourada com luz no topo-esquerdo, sombra interna e glifo em relevo.
 // Mesma receita de gradiente do .btn-cta (#FED9A5 → #D09439) pra conversar com o DS.
 
-const Sphere = ({ id, children, size, className }) => (
+// gold = DS da V1/V3; orange = layout B&B da V2 (#f97316).
+const TONES = {
+  gold: { body: ['#FFF1D6', '#F2C77E', '#D09439', '#8A6428'], rim: ['#FFE9C2', '#7D5D2C'], shadow: 'rgba(125,93,44,0.45)', ink: '#2a1d0b' },
+  orange: { body: ['#FFE4CC', '#FDBA74', '#F97316', '#C2410C'], rim: ['#FFD8B5', '#9A3412'], shadow: 'rgba(154,52,18,0.4)', ink: '#3b1605' },
+};
+
+const Sphere = ({ id, children, size, className, tone = 'gold' }) => {
+  const c = TONES[tone];
+  return (
   <svg
     viewBox="0 0 48 48"
     width={size}
     height={size}
     aria-hidden
     className={`inline-block shrink-0 ${className}`}
-    style={{ filter: 'drop-shadow(0 3px 4px rgba(125,93,44,0.45))' }}
+    style={{ filter: `drop-shadow(0 3px 4px ${c.shadow})` }}
   >
     <defs>
       <radialGradient id={`${id}-body`} cx="35%" cy="28%" r="75%">
-        <stop offset="0" stopColor="#FFF1D6" />
-        <stop offset="0.35" stopColor="#F2C77E" />
-        <stop offset="0.75" stopColor="#D09439" />
-        <stop offset="1" stopColor="#8A6428" />
+        <stop offset="0" stopColor={c.body[0]} />
+        <stop offset="0.35" stopColor={c.body[1]} />
+        <stop offset="0.75" stopColor={c.body[2]} />
+        <stop offset="1" stopColor={c.body[3]} />
       </radialGradient>
       <linearGradient id={`${id}-rim`} x1="0" y1="0" x2="0" y2="1">
-        <stop offset="0" stopColor="#FFE9C2" />
-        <stop offset="1" stopColor="#7D5D2C" />
+        <stop offset="0" stopColor={c.rim[0]} />
+        <stop offset="1" stopColor={c.rim[1]} />
       </linearGradient>
       <radialGradient id={`${id}-shine`} cx="50%" cy="0%" r="60%">
         <stop offset="0" stopColor="#fff" stopOpacity="0.85" />
@@ -35,9 +43,10 @@ const Sphere = ({ id, children, size, className }) => (
     <g transform="translate(0 0.9)" opacity="0.35" fill="#fff" stroke="#fff">
       {children}
     </g>
-    <g fill="#2a1d0b" stroke="#2a1d0b">{children}</g>
+    <g fill={c.ink} stroke={c.ink}>{children}</g>
   </svg>
-);
+  );
+};
 
 const glyphs = {
   down: (
@@ -92,10 +101,10 @@ const glyphs = {
   ),
 };
 
-export const Icon3D = ({ name, size = 28, className = '' }) => {
+export const Icon3D = ({ name, size = 28, className = '', tone = 'gold' }) => {
   const id = useId().replace(/:/g, '');
   return (
-    <Sphere id={id} size={size} className={className}>
+    <Sphere id={id} size={size} className={className} tone={tone}>
       {glyphs[name]}
     </Sphere>
   );
