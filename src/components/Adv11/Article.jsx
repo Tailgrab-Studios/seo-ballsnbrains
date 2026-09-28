@@ -12,7 +12,7 @@ const TrustedItem = ({ t, hidden }) => (
   </li>
 );
 
-const TrustedBy = () => (
+export const TrustedBy = () => (
   <div className="my-6 flex items-stretch overflow-hidden rounded-2xl bg-bb-dark text-white">
     <div className="flex shrink-0 items-center border-r border-bb-separator px-4 text-[0.8125rem] font-bold whitespace-nowrap text-bb-gold">
       Trusted by

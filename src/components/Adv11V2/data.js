@@ -16,8 +16,7 @@ export const header = {
   dateTime: '2026-09-18T07:00:00-05:00',
 };
 
-// Corpo, na ordem do doc. 'img' logo depois de um h2 = seção com imagem (grid alternado do layout B&B).
-// Tipos: p, h2, h3, quote, img, thumbs, list (itens com lead em negrito),
+// Corpo, na ordem do doc. Tipos: p, h2, h3, quote, img, thumbs (tabela 👍👎), list (itens com lead em negrito),
 // steps (1. CUT …), checklist, cta, maths, details, compare, testimonials, offer, rating,
 // faq, ps. Cada bloco vira um elemento do layout Erodus.
 export const body = [
@@ -33,13 +32,11 @@ export const body = [
   { t: 'p', text: 'I\'m not the only one. Read the reviews: men who "don\'t feel enough" and end up back on regular coffee, defeating the whole point. That was $45 for a bag I was chasing with a $5 Starbucks.' },
 
   { t: 'h2', text: "The taste problem (that the ads don't mention)" },
-  { t: 'img', ...pv('PV-02', "A cup of Ryze next to a cup of Balls N'Brains coffee") },
   { t: 'p', text: 'Second thing. It tasted like dirt.' },
   { t: 'p', text: 'I\'m not exaggerating for effect. The word most reviews use is "earthy." Some Reddit reviews are blunter — one describes it as tasting and smelling like vomit. I got through it with the honey packets they upsell you, which is a funny way to sell a health drink.' },
   { t: 'p', text: "I want a coffee that tastes like coffee. Apparently that's a lot to ask in this category." },
 
   { t: 'h2', text: 'Nothing in the bag was aimed at a man' },
-  { t: 'img', ...pv('PV-05', "Ryze marketed for wellness next to Balls N'Brains made for men") },
   { t: 'p', text: 'Third thing, and this is where I started getting annoyed.' },
   { t: 'p', text: "Ryze, Four Sigmatic, Everyday Dose, MUD\\WTR — they're all sold on the same three words. Energy. Focus. Immunity. Read the whole bag and you will not find one line about testosterone, and you will not find one line about cortisol." },
   { t: 'p', text: 'That\'s not an oversight. These were built for wellness, for everybody, which in practice means they were built for nobody in particular. And a 47-year-old man whose problem is hormonal is not "everybody."' },

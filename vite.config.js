@@ -4,8 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 // Preload das fontes usadas acima da dobra (corpo, negrito e títulos) pra evitar troca
 // de fonte visível no primeiro paint. Os nomes têm hash, então o link é gerado no build.
-// V2 usa Georgia + fonte do sistema (layout B&B do controle): nada pra pré-carregar.
-const PRELOAD_FONTS = []
+const PRELOAD_FONTS = ['Satoshi-Regular', 'Satoshi-Bold', 'MonaSansExpanded-Medium']
 
 function preloadFonts() {
   return {
